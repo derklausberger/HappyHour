@@ -8,6 +8,10 @@ main{
     width: 90%;
 }
 
+body{
+    background-color: #e7e7e7;
+}
+
 .startpic{
     width: 285px;
     height: 285px;
@@ -99,3 +103,41 @@ body{
 .h2Cocktails{
     margin-top: 20px;
 }
+
+#cockPic{
+    height: 200px;
+    width: auto;
+    border-radius: 15px;
+}
+
+#heart{
+    height: 25px;
+    width: 25px;
+}
+
+#überschrift{
+    text-align: center;
+}
+
+.container{
+    background-color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 15px;
+}
+
+.cocktail-details{
+    background-color: lightgrey;
+}
+
+#left-down{
+    padding-top: 10px;
+}
+
+#cocktailBtn{
+    border: none;
+    background-color: white;
+    border-radius: 5px;
+    padding-bottom: 15px;
+}
+

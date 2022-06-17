@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             let container = document.createElement('div');
             document.querySelector('main').append(container);
-            container.className = "container";
+            container.className = "containerCocktail";
 
 
             let rowdiv = document.createElement('div');
@@ -67,12 +67,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 div5.append(div7);
                 div7.className = "col text-left";
 
-                let input = document.createElement('input');
-                div7.append(input);
-                input.type = 'button';
-                input.value = 'Like!';
 
-                input.onclick = () => {
+                let button = document.createElement('button');
+                let imageHeart = document.createElement('img');
+                div7.append(button);
+                button.type = 'submit';
+                imageHeart.src = "/images/heartLeer.jpg";
+                imageHeart.height = "20";
+                imageHeart.width = "20";
+                button.append(imageHeart);
+
+                button.onclick = () => {
                     console.log(cocktail.idDrink);
                 };
 
