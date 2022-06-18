@@ -1,3 +1,4 @@
+
 /*<h2>Mojito</h2>
         <img src="images/mojito.png" alt="Mojito Bild"><br>
         <input type="button" value="Like!"></input>
@@ -29,47 +30,63 @@
         <p>Sum: 27€</p>
        
 */
+
+function tausch() {
+    document.getElementById("cocktailBtn").setAttribute("src", "/images/heartFull.jpg");
+}
 document.addEventListener("DOMContentLoaded", function (event) {
+    let parser = new URLSearchParams(window.location.search);
+            console.log(parser.get("id"));
+    fetch('/api/cocktails/'+ parser.get("id")) // + parser.get("id")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(cocktail => {
+            console.log(cocktail);
+            let c = cocktail.drinks[0];
+            // heading
+            let cocktailH2 = document.createElement("h2");
+            cocktailH2.innerHTML = c.strDrink;
+            cocktailH2.id = "cocktailH2";
+            let topLeft = document.getElementById("topLeft");
+            topLeft.prepend(cocktailH2);
 
-    let cocktailH2= document.createElement("h2");
-    let cocktailBtn = document.createElement("button");
-    let cockPic = document.createElement("img");
-    let i = document.createElement("img");
+            // picture
+            let cockPic = document.createElement("img");
+            cockPic.src = "/images/cokctail.jpeg";
+            cockPic.id = "cockPic";
 
+            topLeft.appendChild(cockPic);
 
-    cocktailH2.innerHTML = "Mojito";
-    cocktailH2.id = "überschrift";
-    i.src = "/images/heartLeer.jpg";
-    i.id = "heart";
-    cockPic.src ="/images/cokctail.jpeg";
-    cockPic.id = "cockPic";
-    cocktailBtn.append(i);
-    cocktailBtn.id = "cocktailBtn";
+            // icon on button
+            let icon = document.createElement("img");            
+            icon.src = "/images/heartEmpty.jpg";
+            icon.id = "heart";
+            let likeButton = document.createElement("button");
+            likeButton.id = "likeButton";
+            likeButton.append(icon);
+            let bottomLeft = document.getElementById("bottomLeft");
+            bottomLeft.append(likeButton);
 
-    cocktailBtn.onclick = tausch;
+            // when clicked
+            likeButton.onclick = tausch;
 
-    let ingrlist = document.createElement("ul");
-    //for Schleife für die Ingredients
-    let ingr = document.createElement("li");
-    ingr.innerHTML = "hi";
+            // list of ingredients
+            let ingredientsList = document.createElement("ul");
+            let ingredients = document.createElement("li");
+            ingredients.innerHTML = "hi";
+            ingredientsList.append(ingredients);
+            let topRight = document.getElementById("topRight");
+            topRight.append(ingredientsList);
 
-    ingrlist.append(ingr);
-    let rightUp = document.getElementById("right-up");
-    rightUp.append(ingrlist);
+            // instructions
+            let instructions = document.createElement("p");
+            instructions.innerHTML = "Die unbehandelten Limetten waschen und die Limettenenden abschneiden. Nun die Limetten achteln und zusammen mit dem braunen Zucker und der Minze in ein Longdrinkglas geben. Die Limettenstücke und auch die Minzblätter mit einem Stößel oder Pistill etwas zerdrücken - aber nicht zu viel also nicht komplett zerquetschen. Zum Schluss das Glas mit den Crushed Ice füllen, den weißen Rum dazu und das Glas mit dem Soda auffüllen. Der Mojito kann beliebig mit ein paar Limettenscheiben und Minzblätter garniert werden.";
+            bottomLeft.append(instructions);          
 
-    let leftDown = document.getElementById("left-down");
-    leftDown.append(cocktailBtn);
+        }).catch(err => console.error(`Fetch problem: ${err.message}`));
 
-    let instructions = document.createElement("p");
-    instructions.innerHTML = "Die unbehandelten Limetten waschen und die Limettenenden abschneiden. Nun die Limetten achteln und zusammen mit dem braunen Zucker und der Minze in ein Longdrinkglas geben. Die Limettenstücke und auch die Minzblätter mit einem Stößel oder Pistill etwas zerdrücken - aber nicht zu viel also nicht komplett zerquetschen. Zum Schluss das Glas mit den Crushed Ice füllen, den weißen Rum dazu und das Glas mit dem Soda auffüllen. Der Mojito kann beliebig mit ein paar Limettenscheiben und Minzblätter garniert werden.";
-    leftDown.append(instructions);
-
-    let main = document.querySelector("main");
-    let leftup = document.getElementById("left-up");
-    main.prepend(cocktailH2);
-    leftup.appendChild(cockPic);
-
-    function tausch(){
-        document.getElementById("cocktailBtn").setAttribute("src", "/images/heartFull.jpg");
-        }
 });

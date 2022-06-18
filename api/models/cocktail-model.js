@@ -61,6 +61,34 @@ class CocktailModel {
             console.log(error);
         }
     }
+
+    async loadCocktail(id) {
+        try {
+            const response = await fetch('http://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + id);
+
+            if (!response.ok) {
+                throw new Error(`HTTP error: ${response.status}`);
+            }
+            return await response.json();
+        } catch (err) {
+            console.log(`Fetch problem: ${err.message}`);
+        }
+    }
+
+    async getCocktail(id) {
+        console.log("haha" + id);
+        try {
+            let cocktail;
+            await this.loadCocktail(id).then(cocktail_json => {
+                cocktail = cocktail_json;
+                console.log(cocktail_json);
+            });
+
+            return cocktail;
+        } catch (err) {
+            console.log(error);
+        }
+    }
 }
 
 const model = new CocktailModel();

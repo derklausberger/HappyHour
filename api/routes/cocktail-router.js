@@ -5,4 +5,6 @@ const routes = Router();
 
 routes.get('/cocktails', controller.getCocktails);
 
+routes.get('/cocktails/:id', controller.getCocktail);
+
 module.exports = routes;

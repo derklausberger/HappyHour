@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             rowdiv.className = "row rowClass";
 
             for (let cocktail of Array.from(cocktails)) {
+                console.log(cocktail.idDrink);
                 let div = document.createElement('div');
                 rowdiv.append(div);
                 div.className = "col";
@@ -61,7 +62,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                 let a = document.createElement('a');
                 div6.append(a);
-                a.innerHTML = 'Recipe';
+                a.innerHTML = 'Recipe...';
+                a.href = "cocktail-details.html?id=" + cocktail.idDrink;
 
                 let div7 = document.createElement("div");
                 div5.append(div7);
@@ -72,9 +74,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 let imageHeart = document.createElement('img');
                 div7.append(button);
                 button.type = 'submit';
-                imageHeart.src = "/images/heartLeer.jpg";
+                imageHeart.src = "/images/heartEmpty.jpg";
                 imageHeart.height = "20";
                 imageHeart.width = "20";
+                button.id = "likeButton";
                 button.append(imageHeart);
 
                 button.onclick = () => {

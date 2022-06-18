@@ -115,9 +115,6 @@ body{
     width: 25px;
 }
 
-#überschrift{
-    text-align: center;
-}
 
 .container{
     background-color: white;
@@ -130,14 +127,30 @@ body{
     background-color: lightgrey;
 }
 
-#left-down{
-    padding-top: 10px;
+#bottomLeft{
+    padding-top: 20px;
 }
 
-#cocktailBtn{
+
+#barPic{
+    height: 200px;
+    width: auto;
+    border-radius: 15px;
+}
+
+#likeButton{
     border: none;
     background-color: white;
-    border-radius: 5px;
     padding-bottom: 15px;
 }
 
+#bottomRight{
+    padding-top: 20px;
+}
+
+.barImage{
+    padding: 20px 0px 20px 20px; 
+    border-radius: 15;
+    width: 300px;
+    height: auto;
+}

@@ -78,18 +78,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 div4.className = "col";
                 div3.append(div4);
 
-                let img = document.createElement('img');
-                div4.append(img)
+                let barImage = document.createElement('img');
+                div4.append(barImage)
                 //article.append(img);
                 //replaced this
                 //img.src = bar[1].img_url;
                 //with this
-                img.src = 'https://www.25hours-hotels.com/images/25h_bikini_stephanlemke_monkey_bar_people_medium_77_175080046444e25d59d72eb3.jpg';
+                barImage.src = 'https://www.25hours-hotels.com/images/25h_bikini_stephanlemke_monkey_bar_people_medium_77_175080046444e25d59d72eb3.jpg';
                 //to reduce api calls for google api
-                img.alt = 'alt';
-                img.width = '300';
-                img.height = '200';
-                img.className = "imgArticle";
+                barImage.alt = 'alt';
+                barImage.className = "barImage";
                 
                 let div5 = document.createElement("div");
                 div5.className = "col text-left";
@@ -100,8 +98,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 div5.append(p);
                 //article.append(p);
                 //p.innerHTML = 'rating (4.8/5 stars), rating count, address, more than 1 photo?, place holder photo?';
-                p.innerHTML = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum."
+                p.innerHTML = "Rating 4.5/5 stars";
                 p.className = "pArticle";
+
+                let a = document.createElement('a');
+                div4.append(a);
+                a.innerHTML = 'More Details';
+                a.href = "bar-details.html";
+
                 cnt = cnt +1;
             }
         }).catch(err => console.error(`Fetch problem: ${err.message}`));
