@@ -40,6 +40,7 @@ class UserModel {
                 break;
             }
         }
+        return registered;
     }
 
     getUsers() {

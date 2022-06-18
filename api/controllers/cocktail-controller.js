@@ -12,6 +12,10 @@ class CocktailController {
     getLikes = (req, res) => {
         res.send(model.getLikes());
     }
+
+    deleteLike = (req, res) => {
+        res.send(model.deleteLike(req.body.id));
+    }
 }
 
 module.exports = new CocktailController();

@@ -21,6 +21,8 @@ class Cocktail {
         this.strDrinkThumb = strDrinkThumb;
         this.strCategory = strCategory;
         this.likes = 0;
+        this.liked = false;
+        this.likeArray = [];
     }
 }
 
@@ -51,6 +53,38 @@ class CocktailModel {
         }
         return liked;
     }
+
+    getLikes(){
+        var rawdata = fs.readFileSync("./files/db/likes.json");
+        var usersJson = JSON.parse(rawdata);
+        for (let j = 0; j < this.cocktails.length; j++){
+            for (let i = 0; i < usersJson.likes.length; i++){
+                if (usersJson.likes[i].cocktailId == this.cocktails[j].idDrink){
+                    this.cocktails[j].likeArray.push(usersJson.likes[i]);
+                    this.cocktails[j].likes++;
+                    this.cocktails[j].liked = true;
+                }
+            }
+        }
+    }
+
+    deleteLike(likeId){
+        console.log(likeId);
+        let file = editJsonFile(`./files/db/likes.json`);
+        file.unset("likes."+likeId+".userId");
+        file.unset("likes."+likeId+".cocktailId");
+        file.unset("likes."+likeId+".id");
+        file.save();
+    }
+
+    like(userId, cocktailId){
+        if(this.checkLikes(1, cocktailId) == false ){
+            let file = editJsonFile(`./files/db/likes.json`);
+            file.append("likes", {id: CocktailModel.LIKE_ID, userId: 1, cocktailId: cocktailId});
+            file.save();
+        }
+    }
+    
     /*addCocktail(cocktail) {
         cocktail.id = CocktailModel.COCKTAIL_ID++;
         this.cocktails.set(cocktail.id, cocktail);
@@ -70,18 +104,6 @@ class CocktailModel {
         }
     }
 
-    async getLikes(){
-        var rawdata = fs.readFileSync("./files/db/likes.json");
-        var usersJson = JSON.parse(rawdata);
-        for (let j = 0; j < this.cocktails.length; j++){
-            for (let i = 0; i < usersJson.likes.length; i++){
-                if (usersJson.likes[i].cocktailId == this.cocktails[j].idDrink){
-                    this.cocktails[j].likes++;
-                }
-            }
-        }
-    }
-
     async getCocktails() {
         try {
             await this.loadCocktails().then(cocktails_json => {
@@ -94,14 +116,6 @@ class CocktailModel {
             return this.cocktails;
         } catch (err) {
             console.log(err);
-        }
-    }
-
-    like(userId, cocktailId){
-        if(this.checkLikes(1, cocktailId) == false ){
-            let file = editJsonFile(`./files/db/likes.json`);
-            file.append("likes", {id: CocktailModel.LIKE_ID, userId: 1, cocktailId: cocktailId});
-            file.save();
         }
     }
 }

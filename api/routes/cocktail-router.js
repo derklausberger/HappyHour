@@ -9,4 +9,6 @@ routes.post('/like', controller.doLike);
 
 routes.get('/likes', controller.getLikes);
 
+routes.delete('/deleteLike', controller.deleteLike);
+
 module.exports = routes;
