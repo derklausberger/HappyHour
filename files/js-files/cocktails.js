@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             let rowdiv = document.createElement('div');
             container.append(rowdiv);
             rowdiv.className = "row rowClass";
-
+            
             for (let cocktail of Array.from(cocktails)) {
                 let div = document.createElement('div');
                 rowdiv.append(div);
@@ -61,19 +61,30 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                 let a = document.createElement('a');
                 div6.append(a);
-                a.innerHTML = 'Recipe';
+                a.innerHTML = cocktail.likes;
 
                 let div7 = document.createElement("div");
                 div5.append(div7);
                 div7.className = "col text-left";
 
-                let input = document.createElement('input');
-                div7.append(input);
-                input.type = 'button';
-                input.value = 'Like!';
+                let button = document.createElement('button');
+                div7.append(button);
+                
+                button.type = 'submit';
+                button.innerHTML = 'Like!';
 
-                input.onclick = () => {
-                    console.log(cocktail.idDrink);
+                button.onclick = () => {
+                    fetch ("/api/like", {
+                        method: "post",
+                        headers: {
+                            "content-type": "application/json; charset=UTF-8"
+                        },
+                        body:  JSON.stringify({
+                            id: cocktail.idDrink
+                        })
+                        
+                    })  
+                    .catch(error => console.error("Error:", error));
                 };
 
                 //document.querySelector('main').appendChild(div);
