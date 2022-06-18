@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function (event) {
-    document.getElementsByTagName("link")[0].import;
+    //document.getElementsByTagName("link")[0].import;
     fetch('/api/cocktails')
         .then(response => {
             if (!response.ok) {
