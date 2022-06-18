@@ -36,7 +36,6 @@ function tausch() {
 }
 document.addEventListener("DOMContentLoaded", function (event) {
     let parser = new URLSearchParams(window.location.search);
-            console.log(parser.get("id"));
     fetch('/api/cocktails/'+ parser.get("id")) // + parser.get("id")
         .then(response => {
             if (!response.ok) {

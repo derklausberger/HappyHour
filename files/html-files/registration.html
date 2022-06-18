@@ -62,7 +62,7 @@
                         })  
                         .catch(error => console.error("Error:", error));
                     
-                        sessionStorage.setItem("username", username);
+                        //sessionStorage.setItem("username", username);
                         alert("Du wurdest erfolgreich registiert"); //ohne alert speicherts es nicht in die db wenn direkt danach der redirect kommt (ich weiß noch nicht wieso deswegen ist jetzt mal der alter drinnen!)
                         location.href = "index.html";
                 } else {

@@ -1,4 +1,6 @@
 const fetch = require("node-fetch");
+const fs = require('fs');
+const editJsonFile = require("edit-json-file");
 
 class Cocktail {
     constructor(idDrink, strDrink, strDrinkAlternate, strTags, strVideo,
@@ -18,16 +20,71 @@ class Cocktail {
         this.strDrink = strDrink;
         this.strDrinkThumb = strDrinkThumb;
         this.strCategory = strCategory;
+        this.likes = 0;
+        this.liked = false;
+        this.likeArray = [];
     }
 }
 
 class CocktailModel {
-    //static COCKTAIL_ID = 0;
+    static LIKE_ID = 0;
 
     constructor() {
         this.cocktails = [];
     }
 
+    addLikes(){
+        var rawdata = fs.readFileSync("./files/db/likes.json");
+        var usersJson = JSON.parse(rawdata);
+        for (var i = 0; i < usersJson.likes.length; i++){
+            CocktailModel.LIKE_ID++;
+        }
+    }
+
+    checkLikes(userId, cocktailId){
+        var liked = false;
+        var rawdata = fs.readFileSync("./files/db/likes.json");
+        var usersJson = JSON.parse(rawdata);
+        for (var i = 0; i < usersJson.likes.length; i++){
+            if (usersJson.likes[i].userId == userId && usersJson.likes[i].cocktailId == cocktailId){
+                liked = true;
+                break;
+            }
+        }
+        return liked;
+    }
+
+    getLikes(){
+        var rawdata = fs.readFileSync("./files/db/likes.json");
+        var usersJson = JSON.parse(rawdata);
+        for (let j = 0; j < this.cocktails.length; j++){
+            for (let i = 0; i < usersJson.likes.length; i++){
+                if (usersJson.likes[i].cocktailId == this.cocktails[j].idDrink){
+                    this.cocktails[j].likeArray.push(usersJson.likes[i]);
+                    this.cocktails[j].likes++;
+                    this.cocktails[j].liked = true;
+                }
+            }
+        }
+    }
+
+    deleteLike(likeId){
+        console.log(likeId);
+        let file = editJsonFile(`./files/db/likes.json`);
+        file.unset("likes."+likeId+".userId");
+        file.unset("likes."+likeId+".cocktailId");
+        file.unset("likes."+likeId+".id");
+        file.save();
+    }
+
+    like(userId, cocktailId){
+        if(this.checkLikes(1, cocktailId) == false ){
+            let file = editJsonFile(`./files/db/likes.json`);
+            file.append("likes", {id: CocktailModel.LIKE_ID, userId: 1, cocktailId: cocktailId});
+            file.save();
+        }
+    }
+    
     /*addCocktail(cocktail) {
         cocktail.id = CocktailModel.COCKTAIL_ID++;
         this.cocktails.set(cocktail.id, cocktail);
@@ -55,10 +112,10 @@ class CocktailModel {
                     this.cocktails.push(Object.assign(new Cocktail, c));
                 };
             });
-
+            this.getLikes();
             return this.cocktails;
         } catch (err) {
-            console.log(error);
+            console.log(err);
         }
     }
 
@@ -76,12 +133,10 @@ class CocktailModel {
     }
 
     async getCocktail(id) {
-        console.log("haha" + id);
         try {
             let cocktail;
             await this.loadCocktail(id).then(cocktail_json => {
                 cocktail = cocktail_json;
-                console.log(cocktail_json);
             });
 
             return cocktail;
@@ -92,5 +147,6 @@ class CocktailModel {
 }
 
 const model = new CocktailModel();
+model.addLikes();
 
 module.exports = model;
