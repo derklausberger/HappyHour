@@ -1,0 +1,54 @@
+{
+  "likes": [
+    {
+      "id": 0,
+      "userId": 1,
+      "cocktailId": "13501"
+    },
+    {
+      "id": 1,
+      "userId": 1,
+      "cocktailId": "17839"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "cocktailId": "15266"
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "cocktailId": "17833"
+    },
+    {
+      "id": 4,
+      "userId": 1,
+      "cocktailId": "11023"
+    },
+    {
+      "id": 5,
+      "userId": 1,
+      "cocktailId": "17222"
+    },
+    {
+      "id": 6,
+      "userId": 1,
+      "cocktailId": "15106"
+    },
+    {
+      "id": 7,
+      "userId": 1,
+      "cocktailId": "11021"
+    },
+    {
+      "id": 8,
+      "userId": 1,
+      "cocktailId": "11055"
+    },
+    {
+      "id": 9,
+      "userId": 1,
+      "cocktailId": "17837"
+    }
+  ]
+}
