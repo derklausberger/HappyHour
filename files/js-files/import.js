@@ -3,7 +3,6 @@ function include() {
 
     var file, xhttp;
     tags.forEach(t => {
-        console.log("res")
         file = t.getAttribute("import-ref");
         if (file) {
             xhttp = new XMLHttpRequest();

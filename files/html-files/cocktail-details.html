@@ -13,45 +13,29 @@
     <link rel="stylesheet" href="css-files/home.css" />
 
     <script src="../js-files/import.js"></script>
+    <script src="../js-files/cocktail-details.js"></script>
 </head>
 
 <body style="padding: 150px 0 120px 0">
     <nav import-ref="navbar.html">
     </nav>
 
-    <main>
-        <h2>Mojito</h2>
-        <img src="images/mojito.png" alt="Mojito Bild"><br>
-        <input type="button" value="Like!"></input>
-        <!-- Rezepte + Bilder über API laden -->
-        <p>Description of Cocktail</p>
-        <p>Ingredients: </p>
-        <ul>
-            <li>5cL rum</li>
-            <li>6cL soda</li>
-            <li>1 lime</li>
-            <li>4 tbsp crushed ice</li>
-            <li>2 tsp brown sugar</li>
-            <li>fresh mint leaves</li>
-        </ul>
-        <p>How to: <br>
-            Put ice into a glass and mix with mint leaves.<br>
-            Crush together with sugar and limes. <br>
-            Add rum and soda and top your drink with a fresh lime.
-        </p>
-        <p>Calculator for ... portions: </p>
-        <ul>
-            <li>1 bottle rum - 20</li>
-            <li>1 bottle soda - 1</li>
-            <li>1 net limes - 2</li>
-            <li>handmade crushed ice - 0</li>
-            <li>1 package brown sugar - 2</li>
-            <li>mint leaves - 2</li>
-        </ul>
-        <p>Sum: 27€</p>
-
-
+    <main id="main">
+        <div class="container">
+            <div class="row">
+              <div class="col" id="topLeft"></div>
+              <div class="col" id="topRight"></div>
+              <div class="w-400"></div>
+            </div>
+            <div class="row">
+                <div class="col" id="bottomLeft"></div>
+                <div class="col" id="bottomRight"></div>
+                <div class="w-400"></div>
+              </div>
+          </div>
     </main>
+
+
 
     <footer class="fixed-bottom">
 

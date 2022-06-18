@@ -35,6 +35,8 @@ class BarModel {
         this.bars.set(bar.id, bar);
     }
 
+    
+
     getBars() {
         return Array.from(this.bars);
     }

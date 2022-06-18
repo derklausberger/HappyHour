@@ -10,35 +10,29 @@
     <link rel="icon" href="/images/tablogo.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+        <link rel="stylesheet" href="css-files/home.css" />
 
-    <script src="../js-files/import.js"></script>
+        <script src="../js-files/import.js"></script>
+        <script src="../js-files/bar-details.js"></script>
 </head>
 
 <body style="padding: 150px 0 120px 0">
-    <nav import-rel="navbar.html">
+    <nav import-ref="navbar.html">
     </nav>
 
-    <main>
-        <div class="row">
-            <div class="col-sm">
-                <section>
-                    <!-- Top 10 Rezepte über API laden -->
-                    <h2>Loco</h2>
-                    <img src="images/loco.png" alt="LocoBar" height="230px" width="230px"><br>
-
-                    <!-- Rezepte + Bilder über API laden -->
-                </section>
+    <main id="main">
+        <div class="container">
+            <div class="row">
+              <div class="col" id="topLeft"></div>
+              <div class="col" id="topRight"></div>
+              <div class="w-400"></div>
             </div>
-
-            <div class="col-sm">
-                <section>
-                    <!-- Top 10 Rezepte über API laden -->
-                    <p>Description</p>
-                    <input type="button" value="Like!"></input>
-                    <p>KOMMENTARE</p>
-                </section>
-            </div>
-        </div>
+            <div class="row">
+                <div class="col" id="bottomLeft"></div>
+                <div class="col" id="bottomRight"></div>
+                <div class="w-400"></div>
+              </div>
+          </div>
     </main>
 
     <footer class="fixed-bottom">

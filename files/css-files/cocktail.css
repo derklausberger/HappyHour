@@ -1,0 +1,174 @@
+/*CSS Sara Cocktails.js*/
+/***********************/
+.imgCocktails{
+    width: 55%;
+    margin-bottom: 20px;
+}
+
+.test{
+    padding-left: 165px;
+    padding-right: 175px;
+}
+
+.comment{
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.border{
+    border-bottom: 10px;
+    border-style: solid;
+    border-color: lightgray;
+    margin-bottom: 25px;
+}
+
+.btn.btn-light{
+    pointer-events: none;
+}
+
+/*Responsiveness Cocktails.html */
+@media screen and (max-width: 2500px){
+    .test{
+        padding-left: 167px;
+        padding-right: 170px;
+    }
+
+    .comment{
+        flex-grow: 0.1;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .likes{
+        flex-grow: 0.1;
+        padding-right: 0;
+    }
+
+    .images{
+        flex-grow: 0.1;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .res{
+        padding-left: 2px;
+    }
+}
+
+@media screen and (max-width: 1200px){
+    .test{
+        padding-left: 140px;
+        padding-right: 125px;
+    }
+
+    .res{
+        flex-grow: 0.7;
+        margin-left: 10px;
+        padding-left: 0;
+    }
+
+    .comment{
+        padding-left: 0;
+        padding-right: 10px;
+        flex-grow: 0.1;
+    }
+
+    .likes{
+        padding-right: 0;
+        flex-grow: 0.1;
+    }
+
+    main {
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .test{
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+
+    .res{
+        flex-grow: 0.7;
+        margin-left: 10px;
+        padding-left: 0;
+    }
+
+    .comment{
+        padding-left: 0;
+        padding-right: 10px;
+        flex-grow: 0.1;
+    }
+
+    .likes{
+        padding-right: 0;
+        flex-grow: 0.1;
+    }
+
+    main {
+        margin-top: 10px;
+    }
+}
+
+
+@media screen and (max-width: 765px){
+    .test{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .res{
+        flex-grow: 0.7;
+        margin-left: 10px;
+        padding-left: 0;
+    }
+
+    .comment{
+        padding-left: 0;
+        padding-right: 10px;
+        flex-grow: 0.1;
+    }
+
+    .likes{
+        padding-right: 0;
+        flex-grow: 0.1;
+    }
+
+    main {
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 550px){
+    .test{
+        padding-left: 10px;
+        padding-right: 0px;
+    }
+
+    .res{
+        flex-grow: 0.7;
+        margin-left: 10px;
+        padding-left: 0;
+    }
+
+    .comment{
+        padding-left: 0;
+        padding-right: 10px;
+        flex-grow: 0.5;
+    }
+
+    .likes{
+        padding-right: 0;
+        flex-grow: 0.5;
+    }
+
+    main {
+        margin-top: 80px;
+    }
+
+    .border{
+        width: 90%
+    }
+}
+/*************************/
