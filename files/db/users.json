@@ -15,26 +15,11 @@
       "id": 2
     },
     {
-<<<<<<< HEAD
-      "firstName": "a",
-      "lastName": "b",
-      "email": "asdf@adff",
-      "password": "asdf",
-      "id": 3
-    },
-    {
-      "firstName": "b",
-      "lastName": "b",
-      "email": "test@test",
-      "password": "b",
-      "id": 4
-=======
       "firstName": "Test",
       "lastName": "Test",
       "email": "test@test",
       "password": "12",
       "id": 3
->>>>>>> 3a17ed955b15069036adbf8e89d908af25835714
     }
   ]
 }
