@@ -31,7 +31,7 @@ class CocktailController {
     }
 
     editComment = (req,res) => {
-        res.send(model.editComment(req.body.id, req.body.comment));
+        res.send(model.editComment(req.body.id, req.body.comment, req.body.cocktailId, req.body.userId));
     }
 }
 

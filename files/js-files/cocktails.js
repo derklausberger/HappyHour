@@ -204,6 +204,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
                                         },
                                         body: JSON.stringify({
                                             id: comment.id,
+                                            cocktailId: cocktail.idDrink,
+                                            userId: 1,
                                             comment: input.value
                                         })
                                 })
