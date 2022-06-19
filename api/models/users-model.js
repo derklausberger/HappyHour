@@ -6,7 +6,8 @@ const { URL, URLSearchParams } = require('url');
 const editJsonFile = require("edit-json-file");
 
 class User {
-    constructor(firstName, lastName, email, password) {
+    constructor(id, firstName, lastName, email, password) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -18,15 +19,18 @@ class UserModel {
     static USER_ID = 0;
 
     constructor() {
-        this.users = new Map();
+        this.users = [];
     }
 
     addUser() {
         var rawdata = fs.readFileSync("./files/db/users.json");
         var usersJson = JSON.parse(rawdata);
-        for (var i = 0; i < usersJson.users.length; i++){
-                usersJson.users[i].id = UserModel.USER_ID++;
-                this.users.set(usersJson.users[i].id , usersJson.users[i]);
+        for (var i = 0; i < usersJson.users.length; i++) {
+            //usersJson.users[i].id = UserModel.USER_ID++;
+            this.users.push(usersJson.users[i]);
+            if (usersJson.users[i].id > UserModel.USER_ID) {
+                UserModel.USER_ID = usersJson.users[i].id;
+            }
         }
     }
 
@@ -65,6 +69,7 @@ class UserModel {
 }
 
 const model = new UserModel();
+
 model.addUser();
 
 module.exports = model;

@@ -20,8 +20,6 @@ class Cocktail {
         this.strDrink = strDrink;
         this.strDrinkThumb = strDrinkThumb;
         this.strCategory = strCategory;
-        this.likes = 0;
-        this.liked = false;
         this.likeArray = [];
         this.strInstructions = strInstructions;
         this.strIngredient1 = strIngredient1;
@@ -93,8 +91,6 @@ class CocktailModel {
             for (let i = 0; i < usersJson.likes.length; i++){
                 if (usersJson.likes[i].cocktailId == this.cocktails[j].idDrink){
                     this.cocktails[j].likeArray.push(usersJson.likes[i]);
-                    this.cocktails[j].likes++;
-                    this.cocktails[j].liked = true;
                 }
             }
         }
