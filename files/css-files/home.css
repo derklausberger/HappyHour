@@ -96,6 +96,9 @@ body{
     padding-top: 20px;
     padding-bottom: 20px;
     border-radius: 15px;
+    padding-left: 20px;
+
+    margin-top: 20px;
 }
 
 .cocktail-details{
@@ -124,4 +127,21 @@ body{
     border-radius: 15;
     width: 300px;
     height: auto;
+}
+
+
+
+/* Small devices (phones, 600px and down)*/
+
+@media only screen and (max-width: 480px) {
+
+    nav  ul li a{
+        color: red;
+    }
+
+} 
+
+/* Large devices (laptops/desktops, 992px and up)*/
+@media only screen and (min-width: 768px) {
+
 }
