@@ -8,8 +8,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
             return response.json();
         })
         .then(cocktails => {
-            let cnt = 0;
-
             let container = document.createElement('div');
             document.querySelector('main').append(container);
             container.className = "container";
@@ -80,10 +78,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                 let amountLikesParagraph = document.createElement("p");
                 col2ForLikes.append(amountLikesParagraph);
-                if (cocktail.likes > 1 || cocktail.likes == 0) {
-                    amountLikesParagraph.innerHTML = cocktail.likes + " Likes";
+                if (cocktail.likeArray.length > 1 || cocktail.likeArray.length == 0) {
+                    amountLikesParagraph.innerHTML = cocktail.likeArray.length + " Likes";
                 } else {
-                    amountLikesParagraph.innerHTML = cocktail.likes + " Like";
+                    amountLikesParagraph.innerHTML = cocktail.likeArray.length + " Like";
                 }
 
                 let col2UserFunctions = document.createElement("div");
@@ -97,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                 let likeImage = document.createElement("img");
                 likeButton.append(likeImage);
-                if (cocktail.liked == false) {
+                if (cocktail.likeArray.length == 0) {
                     likeImage.src = "/images/heartEmpty.jpg";
                 } else {
                     likeImage.src = "/images/heartFull.jpg";
@@ -138,9 +136,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 divComment.append(comment);
                 comment.innerHTML = "Irgendein Kommentar";
 
-
                 likeButton.onclick = () => {
-                    if (cocktail.liked == false) {
+                    if (cocktail.likeArray.length == 0) {
                         fetch("/api/like", {
                             method: "post",
                             headers: {
@@ -151,7 +148,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
                             })
 
                         })
-                            .catch(error => console.error("Error:", error));
+                        .catch(error => console.error("Error:", error));
+                        document.location.reload(true);
                     } else {
                         fetch("/api/deletelike", {
                             method: "delete",
@@ -162,9 +160,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
                                 id: cocktail.likeArray[0].id
                             })
                         })
-                            .catch(error => console.error("Error:", error));
+                        .catch(error => console.error("Error:", error));
+                        document.location.reload(true);
                     }
                 };
+
             }
         }).catch(err => console.error(`Fetch problem: ${err.message}`));
 })
