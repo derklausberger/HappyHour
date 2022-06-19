@@ -19,7 +19,7 @@ class UserModel {
     static USER_ID = 0;
 
     constructor() {
-        this.users = [];//new Map();
+        this.users = [];
     }
 
     addUser() {
