@@ -3,6 +3,11 @@
 .imgCocktails{
     width: 70%;
     margin-bottom: 10px;
+    border-radius: 15px;
+}
+
+.bodyBars{
+    background-color: white;
 }
 
 .test{
@@ -17,16 +22,23 @@
 
 .border{
     border-bottom: 10px;
-    border-style: solid;
     border-color: lightgray;
     padding-bottom: 20px;
     margin-bottom: 25px;
+    border-radius: 15px;
+    border-width: medium;
 }
 
 .linkImages{
     text-align: center;
     position: relative;
 }
+
+h1{
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
 
 .hoverText{
     position: absolute;
@@ -89,6 +101,7 @@ p {
     .res{
         padding-left: 2px;
     }
+
 }
 
 @media screen and (max-width: 1200px){

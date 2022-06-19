@@ -20,6 +20,37 @@ class Cocktail {
         this.strDrink = strDrink;
         this.strDrinkThumb = strDrinkThumb;
         this.strCategory = strCategory;
+        this.strInstructions = strInstructions;
+        this.strIngredient1 = strIngredient1;
+        this.strIngredient2 = strIngredient2;
+        this.strIngredient3 = strIngredient3;
+        this.strIngredient4 = strIngredient4;
+        this.strIngredient5 = strIngredient5;
+        this.strIngredient6 = strIngredient6;
+        this.strIngredient7 = strIngredient7;
+        this.strIngredient8 = strIngredient8;
+        this.strIngredient9 = strIngredient9;
+        this.strIngredient10 = strIngredient10;
+        this.strIngredient11 = strIngredient11;
+        this.strIngredient12 = strIngredient12;
+        this.strIngredient13 = strIngredient13;
+        this.strIngredient14 = strIngredient14;
+        this.strIngredient15 = strIngredient15;
+        this.strMeasure1 = strMeasure1;
+        this.strMeasure2 = strMeasure2;
+        this.strMeasure3 = strMeasure3;
+        this.strMeasure4 = strMeasure4;
+        this.strMeasure5 = strMeasure5;
+        this.strMeasure6 = strMeasure6;
+        this.strMeasure7 = strMeasure7;
+        this.strMeasure8 = strMeasure8;
+        this.strMeasure9 = strMeasure9;
+        this.strMeasure10 = strMeasure10;
+        this.strMeasure11 = strMeasure11;
+        this.strMeasure12 = strMeasure12;
+        this.strMeasure13 = strMeasure13;
+        this.strMeasure14 = strMeasure14;
+        this.strMeasure15 = strMeasure15;
         this.likes = [];
         this.comments = [];
     }
@@ -109,9 +140,9 @@ class CocktailModel {
         this.cocktails.set(cocktail.id, cocktail);
     }*/
 
-    async loadCocktails() {
+    async loadCocktails(/*letter*/) {
         try {
-            const response = await fetch('http://www.thecocktaildb.com/api/json/v1/1/search.php?f=a');
+            const response = await fetch('http://www.thecocktaildb.com/api/json/v1/1/search.php?f=a' /*+ letter*/);
 
             if (!response.ok) {
                 throw new Error(`HTTP error: ${response.status}`);
@@ -125,12 +156,15 @@ class CocktailModel {
 
     async getCocktails() {
         try {
-            await this.loadCocktails().then(cocktails_json => {
-                this.cocktails = [];
-                for (const c of Array.from(cocktails_json.drinks)) {
-                    this.cocktails.push(Object.assign(new Cocktail, c));
-                };
-            });
+            this.cocktails = [];
+            //for(let i = 0; i < 26; i++){
+                await this.loadCocktails(/*String.fromCharCode(i + 97)*/).then(cocktails_json => {
+                    for (const c of Array.from(cocktails_json.drinks)) {
+                        this.cocktails.push(Object.assign(new Cocktail, c));
+                    };
+                }).catch(err => console.error(`Fetch problem: ${err.message}`));
+           // } 
+            
             this.getLikes();
             this.getComments;
             return this.cocktails;

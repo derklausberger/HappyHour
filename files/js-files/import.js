@@ -12,7 +12,7 @@ function include() {
                     if (this.status == 200) {
                         t.innerHTML = this.responseText;
                     } else if (this.status == 404) {
-                        t.innerHTML = "<p>Navbar file not found.<p>";
+                        t.innerHTML = "<p>File not found.<p>";
                     }
                     t.removeAttribute("import-ref");
                 }
