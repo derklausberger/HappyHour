@@ -18,6 +18,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
             rowdiv.className = "row justify-content-center t";
 
             for (let cocktail of Array.from(cocktails)) {
+                for (let like of cocktail.likes){
+                    if (like.userId == sessionStorage.getItem("username")){
+                        cocktail.liked = true;
+                        break;
+                    }
+                }
                 let div = document.createElement('div');
                 rowdiv.append(div);
                 div.className = "col-8 border";
@@ -100,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                 let likeImage = document.createElement("img");
                 likeButton.append(likeImage);
-                if (cocktail.likes.length == 0) {
+                if (!cocktail.liked) {
                     likeImage.src = "/images/heartEmpty.jpg";
                 } else {
                     likeImage.src = "/images/heartFull.jpg";
@@ -172,6 +178,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                         col1.append(p);
                         p.innerHTML = comment.comment;
 
+                        if (comment.userId == sessionStorage.getItem("username")){
                         let col2 = document.createElement("div");
                         divComment.append(col2);
                         col2.className = "col-1 pad text-right";
@@ -205,12 +212,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
                                         body: JSON.stringify({
                                             id: comment.id,
                                             cocktailId: cocktail.idDrink,
-                                            userId: 1,
+                                            userId: sessionStorage.getItem("username"),
                                             comment: input.value
                                         })
                                 })
                                 .catch(error => console.error("Error:", error));
-                            }
+                            }    
                         }
 
                         let col3 = document.createElement("div");
@@ -236,23 +243,26 @@ document.addEventListener("DOMContentLoaded", function (event) {
                                     "content-type": "application/json; charset=UTF-8"
                                 },
                                 body: JSON.stringify({
-                                    id: comment.id
+                                    id: comment.id,
+                                    userId: sessionStorage.getItem("username")
                                 })
                             })
                             .catch(error => console.error("Error:", error));
                         }
+                    }
                    }
                 }
                 
                 likeButton.onclick = () => {
-                    if (cocktail.likes.length == 0) {
+                    if (!cocktail.liked) {
                         fetch("/api/like", {
                             method: "post",
                             headers: {
                                 "content-type": "application/json; charset=UTF-8"
                             },
                             body: JSON.stringify({
-                                id: cocktail.idDrink
+                                id: cocktail.idDrink,
+                                userId: sessionStorage.getItem("username")
                             })
 
                         })
@@ -265,7 +275,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
                                 "content-type": "application/json; charset=UTF-8"
                             },
                             body: JSON.stringify({
-                                id: cocktail.likes[0].id
+                                id: cocktail.likes[0].id,
+                                userId: sessionStorage.getItem("username")
                             })
                         })
                         .catch(error => console.error("Error:", error));
@@ -283,7 +294,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
                                 },
                                 body: JSON.stringify({
                                     id: cocktail.idDrink,
-                                    comment: input.value
+                                    comment: input.value,
+                                    userId: sessionStorage.getItem("username")
                                 })
                         })
                         .catch(error => console.error("Error:", error));

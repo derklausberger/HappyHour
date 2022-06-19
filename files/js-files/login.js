@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function (event) {
+    sessionStorage.clear();
     var login = document.getElementById("login");
     login.addEventListener("submit", function (event) {
         event.preventDefault();
@@ -27,12 +28,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     throw new Error(`HTTP error: ${response.status}`);
                 }
             } else {
+                sessionStorage.setItem("username", username);
                 location.href = response.url;
             }
         })
         .catch(error => console.error("Error:", error));
-
-        sessionStorage.getItem("userId");
     })
 
 })

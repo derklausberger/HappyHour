@@ -53,6 +53,7 @@ class Cocktail {
         this.strMeasure15 = strMeasure15;
         this.likes = [];
         this.comments = [];
+        this.liked = false;
     }
 }
 
@@ -93,9 +94,8 @@ class CocktailModel {
     }
 
     like(userId, cocktailId){
-        
             let file = editJsonFile(`./files/db/likes.json`);
-            file.append("likes", {id: CocktailModel.LIKE_ID, userId: 1, cocktailId: cocktailId});
+            file.append("likes", {id: CocktailModel.LIKE_ID, userId: userId, cocktailId: cocktailId});
             file.save();
         
     }
@@ -122,7 +122,7 @@ class CocktailModel {
 
     comment(userId, cocktailId, comment){
         let file = editJsonFile(`./files/db/comments.json`);
-        file.append("comments", {id: CocktailModel.COMMENT_ID, userId: 1, cocktailId: cocktailId, comment: comment});
+        file.append("comments", {id: CocktailModel.COMMENT_ID, userId: userId, cocktailId: cocktailId, comment: comment});
         file.save();
     }
 
