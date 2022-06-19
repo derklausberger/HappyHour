@@ -8,6 +8,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css-files/test.css">
+    <script src="../js-files/login.js"></script>
     <title>Happy Hour</title>
 </head>
 <body>
@@ -16,7 +17,7 @@
                 <div class="col-7">
                     <a class="navbar-brand linknav">Happy Hour</a>
                 </div>
-                <form name="login">
+                <form id="login">
                         <div class = "col">
                             <input type="email" class="form-control" id="email">
                         </div>
@@ -196,32 +197,4 @@
         </footer>
     </div>
 </body>
-<script>
-    login.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        var username = document.getElementById("email").value;
-        var password1 = document.getElementById("password").value;
-        fetch ("/api/users")
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(users => {
-                for (var arrays of users){
-                    if (arrays[1].email == username){
-                        if (arrays[1].password == password1){
-                            sessionStorage.setItem("username", username);
-                            //sessionStorage.setItem("sessionId", sessionId);
-                            location.href = "index.html";
-                        }
-                    }
-                }
-                alert("Es existiert kein Benutzer mit dem Namen");
-            })
-            .catch(err => console.error(`Fetch problem: ${err.message}`));
-    })
-</script>
 </html>

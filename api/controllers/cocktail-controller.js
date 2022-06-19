@@ -9,6 +9,7 @@ class CocktailController {
         console.log(req.params.id);
         res.send(await model.getCocktail(req.params.id));
     }
+    
     doLike = (req, res) => {
         res.send(model.like(req.session, req.body.id));
     }
@@ -19,6 +20,10 @@ class CocktailController {
 
     deleteLike = (req, res) => {
         res.send(model.deleteLike(req.body.id));
+    }
+
+    writeComment = (req, res) => {
+        res.send(model.comment(req.session, req.body.id, req.body.comment));
     }
 }
 

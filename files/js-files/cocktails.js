@@ -26,8 +26,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 div.append(divCocktailName);
                 divCocktailName.className = 'row justify-content-center';
 
+                let link = document.createElement("a");
+                divCocktailName.append(link);
+                link.id = cocktail.idDrink;
+
                 let cocktailName = document.createElement('h1');
-                divCocktailName.append(cocktailName);
+                divCocktailName.append(link);
                 cocktailName.innerHTML = cocktail.strDrink;
 
                 let divCocktailImage = document.createElement("div");
@@ -37,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 let a = document.createElement('a');
                 divCocktailImage.append(a);
                 a.href = "cocktail-details.html?id=" + cocktail.idDrink;
+                a.className = "linkImages";
 
                 let cocktailImage = document.createElement("img");
                 a.append(cocktailImage);
@@ -78,10 +83,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                 let amountLikesParagraph = document.createElement("p");
                 col2ForLikes.append(amountLikesParagraph);
-                if (cocktail.likeArray.length > 1 || cocktail.likeArray.length == 0) {
-                    amountLikesParagraph.innerHTML = cocktail.likeArray.length + " Likes";
+                if (cocktail.likes.length > 1 || cocktail.likes.length == 0) {
+                    amountLikesParagraph.innerHTML = cocktail.likes.length + " Likes";
                 } else {
-                    amountLikesParagraph.innerHTML = cocktail.likeArray.length + " Like";
+                    amountLikesParagraph.innerHTML = cocktail.likes.length + " Like";
                 }
 
                 let col2UserFunctions = document.createElement("div");
@@ -95,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                 let likeImage = document.createElement("img");
                 likeButton.append(likeImage);
-                if (cocktail.likeArray.length == 0) {
+                if (cocktail.likes.length == 0) {
                     likeImage.src = "/images/heartEmpty.jpg";
                 } else {
                     likeImage.src = "/images/heartFull.jpg";
@@ -110,7 +115,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                 let commentButton = document.createElement("button");
                 col3UserFunctions.append(commentButton);
-                commentButton.className = "btn btn-light"
+                commentButton.type = "submit";
+                commentButton.className = "btn bnt-light"
+                commentButton.innerHTML = "comment";
 
                 let commentImage = document.createElement("img");
                 commentButton.append(commentImage);
@@ -128,16 +135,28 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 commentHeader.innerHTML = "Comments";
                 commentHeader.className = "comment";
 
-                let divComment = document.createElement("div");
-                div.append(divComment);
-                divComment.className = "row test";
+                if (cocktail.comments.length == 0){
+                    let divComment = document.createElement("div");
+                    div.append(divComment);
+                    divComment.className = "row test";
 
-                let comment = document.createElement("p");
-                divComment.append(comment);
-                comment.innerHTML = "Irgendein Kommentar";
+                    let nocomments = document.createElement("p");
+                    divComment.append(nocomments);
+                    nocomments.innerHTML = "Noch keine Kommentare vorhanden";
+                } else {
+                   for (let comment of cocktail.comments){
+                        let divComment = document.createElement("div");
+                        div.append(divComment);
+                        divComment.className = "row test";
 
+                        let p = document.createElement("p");
+                        divComment.append(p);
+                        p.innerHTML = comment.comment;
+                   }
+                }
+                
                 likeButton.onclick = () => {
-                    if (cocktail.likeArray.length == 0) {
+                    if (cocktail.likes.length == 0) {
                         fetch("/api/like", {
                             method: "post",
                             headers: {
@@ -157,13 +176,27 @@ document.addEventListener("DOMContentLoaded", function (event) {
                                 "content-type": "application/json; charset=UTF-8"
                             },
                             body: JSON.stringify({
-                                id: cocktail.likeArray[0].id
+                                id: cocktail.likes[0].id
                             })
                         })
                         .catch(error => console.error("Error:", error));
                         document.location.reload(true);
                     }
                 };
+
+                commentButton.onclick = ()  => {
+                    fetch("/api/comment", {
+                        method: "post",
+                            headers: {
+                                "content-type": "application/json; charset=UTF-8"
+                            },
+                            body: JSON.stringify({
+                                id: cocktail.idDrink,
+                                comment: "Test Kommentar"
+                            })
+                    })
+                    .catch(error => console.error("Error:", error));
+                }
 
             }
         }).catch(err => console.error(`Fetch problem: ${err.message}`));

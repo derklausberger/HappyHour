@@ -1,5 +1,22 @@
 {
-    "comments": [
-        
-    ]
+  "comments": [
+    {
+      "id": 0,
+      "userId": 1,
+      "cocktailId": "17222",
+      "comment": "Test Kommentar"
+    },
+    {
+      "id": 1,
+      "userId": 1,
+      "cocktailId": "17222",
+      "comment": "Test Kommentar"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "cocktailId": "13501",
+      "comment": "Test Kommentar"
+    }
+  ]
 }
