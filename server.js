@@ -1,6 +1,6 @@
 const express = require('express');
 
-const barsRouter = require('./api/routes/bar-router');
+const barRouter = require('./api/routes/bar-router');
 const cocktailRouter = require('./api/routes/cocktail-router');
 const userRouter = require('./api/routes/user-router');
 
@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json()); 
 /////////////////////////////////
 
-app.use('/api', barsRouter);
+app.use('/api', barRouter);
 app.use('/api', cocktailRouter);
 app.use('/api', userRouter);
 

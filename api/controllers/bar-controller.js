@@ -1,8 +1,12 @@
 const model = require("../models/bar-model");
 
 class BarController {
-    getBars = (req, res) => {
-        res.send(model.getBars());
+    getBars = async (req, res) => {
+        res.send(await model.getBars());
+    }
+
+    getBar = async (req, res) => {
+        res.send(await model.getBar(req.params.id));
     }
 }
 

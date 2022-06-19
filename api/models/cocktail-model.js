@@ -30,7 +30,7 @@ class CocktailModel {
     static LIKE_ID = 0;
 
     constructor() {
-        this.cocktails = [];
+        this.cocktails = [Cocktail];
     }
 
     addLikes(){
@@ -110,7 +110,7 @@ class CocktailModel {
                 this.cocktails = [];
                 for (const c of Array.from(cocktails_json.drinks)) {
                     this.cocktails.push(Object.assign(new Cocktail, c));
-                };
+                }
             });
             this.getLikes();
             return this.cocktails;
@@ -141,7 +141,7 @@ class CocktailModel {
 
             return cocktail;
         } catch (err) {
-            console.log(error);
+            console.log(err);
         }
     }
 }
