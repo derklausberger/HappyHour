@@ -3,6 +3,11 @@
 .imgCocktails{
     width: 55%;
     margin-bottom: 20px;
+    border-radius: 15px;
+}
+
+.bodyBars{
+    background-color: aqua;
 }
 
 .test{
@@ -17,13 +22,25 @@
 
 .border{
     border-bottom: 10px;
-    border-style: solid;
     border-color: lightgray;
     margin-bottom: 25px;
+    border-radius: 15px;
+    border-width: medium;
 }
+
+
 
 .btn.btn-light{
     pointer-events: none;
+}
+
+.recipeLink{
+    margin-left: auto;
+}
+
+h1{
+    padding-top: 3%;
+    padding-bottom: 3%;
 }
 
 /*Responsiveness Cocktails.html */
@@ -53,6 +70,7 @@
     .res{
         padding-left: 2px;
     }
+
 }
 
 @media screen and (max-width: 1200px){

@@ -17,11 +17,7 @@
       "userId": 1,
       "cocktailId": "11023"
     },
-    {
-      "id": 5,
-      "userId": 1,
-      "cocktailId": "17222"
-    },
+    {},
     {
       "id": 6,
       "userId": 1,
@@ -47,6 +43,11 @@
       "id": 11,
       "userId": 1,
       "cocktailId": "17835"
+    },
+    {
+      "id": 12,
+      "userId": 1,
+      "cocktailId": "13501"
     }
   ]
 }

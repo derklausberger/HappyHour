@@ -146,9 +146,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
                  button.onclick = () => {
                      console.log(cocktail.idDrink);*/
                 let a = document.createElement('a');
-                div.append(a);
+                //div.append(a);
                 a.innerHTML = 'Recipe...';
                 a.href = "cocktail-details.html?id=" + cocktail.idDrink;
+                a.id = "recipeLink";
 
                 let likeImage = document.createElement("img");
                 likeButton.append(likeImage);
@@ -179,19 +180,24 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 let divCommentHeader = document.createElement("div");
                 div.append(divCommentHeader);
                 divCommentHeader.className = "row test";
+                
 
                 let commentHeader = document.createElement("h3");
                 divCommentHeader.append(commentHeader);
                 commentHeader.innerHTML = "Comments";
                 commentHeader.className = "comment";
+                divCommentHeader.append(a);
+                
+                
 
                 let divComment = document.createElement("div");
                 div.append(divComment);
                 divComment.className = "row test";
-
+                
                 let comment = document.createElement("p");
                 divComment.append(comment);
                 comment.innerHTML = "Irgendein Kommentar";
+                
 
 
                 likeButton.onclick = () => {
