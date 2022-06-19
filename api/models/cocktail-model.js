@@ -166,7 +166,7 @@ class CocktailModel {
            // } 
             
             this.getLikes();
-            this.getComments;
+            this.getComments();
             return this.cocktails;
         } catch (err) {
             console.log(err);

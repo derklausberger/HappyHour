@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 link.id = cocktail.idDrink;
 
                 let cocktailName = document.createElement('h1');
-                divCocktailName.append(link);
+                link.append(cocktailName);
                 cocktailName.innerHTML = cocktail.strDrink;
 
                 let divCocktailImage = document.createElement("div");
@@ -98,72 +98,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 likeButton.type = "submit";
                 likeButton.className = "btn bnt-light";
 
-                /* let div2 = document.createElement('div');
-                 div.append(div2);
-                 div2.className = 'text-center';
- 
-                 let article = document.createElement("article");
-                 div2.append(article);
-                 article.className = "divsCocktails";
- 
-                 let h2 = document.createElement('h2');
-                 article.append(h2);
-                 h2.innerHTML = cocktail.strDrink;
-                 h2.className = "h2Cocktails";
- 
-                 let div3 = document.createElement("div");
-                 div3.className = "row";
-                 article.append(div3);
- 
-                 let div4 = document.createElement("div");
-                 div3.append(div4);
-                 div4.className = "col"
- 
-                 let img = document.createElement('img');
-                 div4.append(img)
-                 img.src = cocktail.strDrinkThumb;
-                 img.alt = 'alt';
-                 img.className = "img-responsive imgCocktails";
- 
-                 let div5 = document.createElement("div");
-                 div5.className = "row";
-                 article.append(div5);
- 
-                 let div6 = document.createElement("div");
-                 div6.className = "col text-right";
-                 div5.append(div6);
- 
-                 let a = document.createElement('a');
-                 div6.append(a);
-                 a.innerHTML = 'Recipe...';
-                 a.href = "cocktail-details.html?id=" + cocktail.idDrink;
- 
-                 let div7 = document.createElement("div");
-                 div5.append(div7);
-                 div7.className = "col text-left";
- 
-                 
- 
-                 let button = document.createElement('button');
-                 let imageHeart = document.createElement('img');
-                 div7.append(button);
-                 button.type = 'submit';
-                 imageHeart.src = "/images/heartEmpty.jpg";
-                 imageHeart.height = "20";
-                 imageHeart.width = "20";
-                 button.id = "likeButton";
-                 button.append(imageHeart);
-                 
- 
-                 button.onclick = () => {
-                     console.log(cocktail.idDrink);*/
-                /*let a = document.createElement('a');
-                //div.append(a);
-                a.innerHTML = 'Recipe...';
-                a.href = "cocktail-details.html?id=" + cocktail.idDrink;
-                a.id = "recipeLink";
-                */
-
                 let likeImage = document.createElement("img");
                 likeButton.append(likeImage);
                 if (cocktail.likes.length == 0) {
@@ -183,11 +117,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 col3UserFunctions.append(commentButton);
                 commentButton.type = "submit";
                 commentButton.className = "btn bnt-light"
-                commentButton.innerHTML = "comment";
 
                 let commentImage = document.createElement("img");
                 commentButton.append(commentImage);
-                commentImage.src = "images/icon.jpg";
+                commentImage.src = "images/comment.png";
                 commentImage.alt = "Images of Comment Button";
                 commentImage.height = "20";
                 commentImage.width = "20";
@@ -201,7 +134,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 divCommentHeader.append(commentHeader);
                 commentHeader.innerHTML = "Comments";
                 commentHeader.className = "comment";
-                divCommentHeader.append(a);
                 
                 
 
