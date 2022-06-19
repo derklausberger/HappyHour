@@ -1,5 +1,8 @@
 /*CSS Sara Cocktails.js*/
 /***********************/
+main {
+    background-color: #e7e7e7;
+}
 .imgCocktails{
     width: 70%;
     margin-bottom: 10px;
@@ -7,7 +10,7 @@
 }
 
 .bodyBars{
-    background-color: white;
+    background-color: #e7e7e7;
 }
 
 .test{
@@ -21,6 +24,7 @@
 }
 
 .border{
+    background-color: white;
     border-bottom: 10px;
     border-color: lightgray;
     padding-bottom: 20px;
