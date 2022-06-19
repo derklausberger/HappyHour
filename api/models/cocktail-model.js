@@ -20,14 +20,46 @@ class Cocktail {
         this.strDrink = strDrink;
         this.strDrinkThumb = strDrinkThumb;
         this.strCategory = strCategory;
-        this.likes = 0;
+        this.strInstructions = strInstructions;
+        this.strIngredient1 = strIngredient1;
+        this.strIngredient2 = strIngredient2;
+        this.strIngredient3 = strIngredient3;
+        this.strIngredient4 = strIngredient4;
+        this.strIngredient5 = strIngredient5;
+        this.strIngredient6 = strIngredient6;
+        this.strIngredient7 = strIngredient7;
+        this.strIngredient8 = strIngredient8;
+        this.strIngredient9 = strIngredient9;
+        this.strIngredient10 = strIngredient10;
+        this.strIngredient11 = strIngredient11;
+        this.strIngredient12 = strIngredient12;
+        this.strIngredient13 = strIngredient13;
+        this.strIngredient14 = strIngredient14;
+        this.strIngredient15 = strIngredient15;
+        this.strMeasure1 = strMeasure1;
+        this.strMeasure2 = strMeasure2;
+        this.strMeasure3 = strMeasure3;
+        this.strMeasure4 = strMeasure4;
+        this.strMeasure5 = strMeasure5;
+        this.strMeasure6 = strMeasure6;
+        this.strMeasure7 = strMeasure7;
+        this.strMeasure8 = strMeasure8;
+        this.strMeasure9 = strMeasure9;
+        this.strMeasure10 = strMeasure10;
+        this.strMeasure11 = strMeasure11;
+        this.strMeasure12 = strMeasure12;
+        this.strMeasure13 = strMeasure13;
+        this.strMeasure14 = strMeasure14;
+        this.strMeasure15 = strMeasure15;
+        this.likes = [];
+        this.comments = [];
         this.liked = false;
-        this.likeArray = [];
     }
 }
 
 class CocktailModel {
     static LIKE_ID = 0;
+    static COMMENT_ID = 0;
 
     constructor() {
         this.cocktails = [Cocktail];
@@ -35,41 +67,25 @@ class CocktailModel {
 
     addLikes(){
         var rawdata = fs.readFileSync("./files/db/likes.json");
-        var usersJson = JSON.parse(rawdata);
-        for (var i = 0; i < usersJson.likes.length; i++){
+        var likesJson = JSON.parse(rawdata);
+        for (var i = 0; i < likesJson.likes.length; i++){
             CocktailModel.LIKE_ID++;
         }
     }
 
-    checkLikes(userId, cocktailId){
-        var liked = false;
-        var rawdata = fs.readFileSync("./files/db/likes.json");
-        var usersJson = JSON.parse(rawdata);
-        for (var i = 0; i < usersJson.likes.length; i++){
-            if (usersJson.likes[i].userId == userId && usersJson.likes[i].cocktailId == cocktailId){
-                liked = true;
-                break;
-            }
-        }
-        return liked;
-    }
-
     getLikes(){
         var rawdata = fs.readFileSync("./files/db/likes.json");
-        var usersJson = JSON.parse(rawdata);
+        var likesJson = JSON.parse(rawdata);
         for (let j = 0; j < this.cocktails.length; j++){
-            for (let i = 0; i < usersJson.likes.length; i++){
-                if (usersJson.likes[i].cocktailId == this.cocktails[j].idDrink){
-                    this.cocktails[j].likeArray.push(usersJson.likes[i]);
-                    this.cocktails[j].likes++;
-                    this.cocktails[j].liked = true;
+            for (let i = 0; i < likesJson.likes.length; i++){
+                if (likesJson.likes[i].cocktailId == this.cocktails[j].idDrink){
+                    this.cocktails[j].likes.push(likesJson.likes[i]);
                 }
             }
         }
     }
 
     deleteLike(likeId){
-        console.log(likeId);
         let file = editJsonFile(`./files/db/likes.json`);
         file.unset("likes."+likeId+".userId");
         file.unset("likes."+likeId+".cocktailId");
@@ -78,11 +94,56 @@ class CocktailModel {
     }
 
     like(userId, cocktailId){
-        if(this.checkLikes(1, cocktailId) == false ){
             let file = editJsonFile(`./files/db/likes.json`);
-            file.append("likes", {id: CocktailModel.LIKE_ID, userId: 1, cocktailId: cocktailId});
+            file.append("likes", {id: CocktailModel.LIKE_ID, userId: userId, cocktailId: cocktailId});
             file.save();
+        
+    }
+
+    addComments(){
+        var rawdata = fs.readFileSync("./files/db/comments.json");
+        var commentsJson = JSON.parse(rawdata);
+        for (var i = 0; i < commentsJson.comments.length; i++){
+            CocktailModel.COMMENT_ID++;
         }
+    }
+
+    getComments(){
+        var rawdata = fs.readFileSync("./files/db/comments.json");
+        var commentsJson = JSON.parse(rawdata);
+        for (let j = 0; j < this.cocktails.length; j++){
+            for (let i = 0; i < commentsJson.comments.length; i++){
+                if (commentsJson.comments[i].cocktailId == this.cocktails[j].idDrink){
+                    this.cocktails[j].comments.push(commentsJson.comments[i]);
+                }
+            }
+        }
+    }
+
+    comment(userId, cocktailId, comment){
+        let file = editJsonFile(`./files/db/comments.json`);
+        file.append("comments", {id: CocktailModel.COMMENT_ID, userId: userId, cocktailId: cocktailId, comment: comment});
+        file.save();
+    }
+
+    deleteComment(commentId){
+        let file = editJsonFile(`./files/db/comments.json`);
+        file.unset("comments."+commentId+".userId");
+        file.unset("comments."+commentId+".cocktailId");
+        file.unset("comments."+commentId+".comment");
+        file.unset("comments."+commentId+".id");
+        file.save();
+    }
+
+    editComment(commentId, comment, cocktailId, userId){
+        let file = editJsonFile(`./files/db/comments.json`);
+        file.unset("comments."+commentId+".userId");
+        file.unset("comments."+commentId+".cocktailId");
+        file.unset("comments."+commentId+".comment");
+        file.set("comments."+commentId+".comment", comment);
+        file.set("comments."+commentId+".userId", userId);
+        file.set("comments."+commentId+".cocktailId", cocktailId);
+        file.save();
     }
     
     /*addCocktail(cocktail) {
@@ -90,9 +151,9 @@ class CocktailModel {
         this.cocktails.set(cocktail.id, cocktail);
     }*/
 
-    async loadCocktails() {
+    async loadCocktails(/*letter*/) {
         try {
-            const response = await fetch('http://www.thecocktaildb.com/api/json/v1/1/search.php?f=a');
+            const response = await fetch('http://www.thecocktaildb.com/api/json/v1/1/search.php?f=a' /*+ letter*/);
 
             if (!response.ok) {
                 throw new Error(`HTTP error: ${response.status}`);
@@ -106,13 +167,17 @@ class CocktailModel {
 
     async getCocktails() {
         try {
-            await this.loadCocktails().then(cocktails_json => {
-                this.cocktails = [];
-                for (const c of Array.from(cocktails_json.drinks)) {
-                    this.cocktails.push(Object.assign(new Cocktail, c));
-                }
-            });
+            this.cocktails = [];
+            //for(let i = 0; i < 26; i++){
+                await this.loadCocktails(/*String.fromCharCode(i + 97)*/).then(cocktails_json => {
+                    for (const c of Array.from(cocktails_json.drinks)) {
+                        this.cocktails.push(Object.assign(new Cocktail, c));
+                    };
+                }).catch(err => console.error(`Fetch problem: ${err.message}`));
+           // } 
+            
             this.getLikes();
+            this.getComments();
             return this.cocktails;
         } catch (err) {
             console.log(err);
@@ -148,5 +213,6 @@ class CocktailModel {
 
 const model = new CocktailModel();
 model.addLikes();
+model.addComments();
 
 module.exports = model;

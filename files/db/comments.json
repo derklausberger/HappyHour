@@ -1,5 +1,24 @@
 {
-    "comments": [
-        
-    ]
+  "comments": [
+    {},
+    {
+      "id": 1,
+      "userId": 1,
+      "cocktailId": "13501",
+      "comment": "Hab noch nie etwas besseres getrunken"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "cocktailId": "17222",
+      "comment": "Total gut und super günstig!"
+    },
+    {},
+    {
+      "id": 4,
+      "userId": 1,
+      "cocktailId": "17222",
+      "comment": "Wahnsinnig guter Cocktail"
+    }
+  ]
 }

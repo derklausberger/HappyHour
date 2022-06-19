@@ -19,7 +19,7 @@ class UserModel {
     static USER_ID = 0;
 
     constructor() {
-        this.users = [];//new Map();
+        this.users = [];
     }
 
     addUser() {
@@ -34,25 +34,21 @@ class UserModel {
         }
     }
 
-    checkUser(username){
-        let registered = false;
+    async alreadyRegistered(username){
         var rawdata = fs.readFileSync("./files/db/users.json");
         var usersJson = JSON.parse(rawdata);
         for (var i = 0; i < usersJson.users.length; i++){
             if (usersJson.users[i].email == username){
-                registered = true;
-                break;
+                return true;
             }
         }
-        return registered;
     }
 
     getUsers() {
         return Array.from(this.users);
     }
 
-    register(obj){  
-        if (this.checkUser(obj.email) == true){
+    async register(obj){  
             UserModel.USER_ID++;
             // If the file doesn't exist, the content will be an empty object by default.
             let file = editJsonFile(`./files/db/users.json`);
@@ -64,6 +60,21 @@ class UserModel {
             
             // Save the data to the disk
             file.save();
+    }
+
+    async getUser (username) {
+        var rawdata = fs.readFileSync("./files/db/users.json");
+        var usersJson = JSON.parse(rawdata);
+        for (var i = 0; i < usersJson.users.length; i++) {
+            if (usersJson.users[i].email == username){
+                return usersJson.users[i];
+            }
+        }
+    }
+
+    async checkPassword(password, user){
+        if (user.password == password){
+            return true;
         }
     }
 }

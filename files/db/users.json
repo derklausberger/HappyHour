@@ -15,18 +15,11 @@
       "id": 2
     },
     {
-      "firstName": "a",
-      "lastName": "b",
-      "email": "asdf@adff",
-      "password": "asdf",
-      "id": 3
-    },
-    {
-      "firstName": "b",
-      "lastName": "b",
+      "firstName": "Test",
+      "lastName": "Test",
       "email": "test@test",
-      "password": "b",
-      "id": 4
+      "password": "12",
+      "id": 3
     }
   ]
 }

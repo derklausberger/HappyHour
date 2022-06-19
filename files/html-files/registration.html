@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../js-files/register.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -34,42 +35,6 @@
             <button type="submit"   class="btn submit btn-custom">Registrieren</button>
             <button type="reset" name="reset" class = "btn btn-secondary">Abbrechen</button>
         </form>
-
-        <script>
-             document.addEventListener("submit", function (event) {
-                event.preventDefault();
-
-                var username = document.getElementById("email").value;
-                var firstname = document.getElementById("firstName").value;
-                var lastname = document.getElementById("lastName").value;
-                var password1 = document.getElementById("password1").value;
-                var password2 = document.getElementById("password2").value;
-
-                if (password1 == password2 && password1 != "" && password2 != ""){
-                        fetch ("/api/user", {
-                            method: "post",
-                            headers: {
-                                "content-type": "application/json; charset=UTF-8"
-                            },
-                            body:  JSON.stringify({
-                                firstName: firstname,
-                                lastName: lastname,
-                                email: username,
-                                password: password1,
-                                
-                            })
-                            
-                        })  
-                        .catch(error => console.error("Error:", error));
-                    
-                        //sessionStorage.setItem("username", username);
-                        alert("Du wurdest erfolgreich registiert"); //ohne alert speicherts es nicht in die db wenn direkt danach der redirect kommt (ich weiß noch nicht wieso deswegen ist jetzt mal der alter drinnen!)
-                        location.href = "index.html";
-                } else {
-                    alert("Die Passwörter müssen übereinstimmen");
-                }
-            });
-        </script>
     </div>
 </body>
 </html>
