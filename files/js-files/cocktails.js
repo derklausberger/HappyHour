@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 let likeButton = document.createElement("button");
                 col2UserFunctions.append(likeButton);
                 likeButton.type = "submit";
-                likeButton.className = "btn bnt-light";
+                likeButton.className = "btn but";
 
                 let likeImage = document.createElement("img");
                 likeButton.append(likeImage);
@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 let commentButton = document.createElement("button");
                 col3UserFunctions.append(commentButton);
                 commentButton.type = "submit";
-                commentButton.className = "btn bnt-light"
+                commentButton.className = "btn but"
 
                 let commentImage = document.createElement("img");
                 commentButton.append(commentImage);
