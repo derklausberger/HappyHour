@@ -134,6 +134,13 @@ class CocktailModel {
         file.unset("comments."+commentId+".id");
         file.save();
     }
+
+    editComment(commentId, comment){
+        let file = editJsonFile(`./files/db/comments.json`);
+        file.unset("comments."+commentId+".comment");
+        file.set("comments."+commentId+".comment", comment);
+        file.save();
+    }
     
     /*addCocktail(cocktail) {
         cocktail.id = CocktailModel.COCKTAIL_ID++;

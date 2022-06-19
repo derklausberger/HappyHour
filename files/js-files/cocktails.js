@@ -135,8 +135,21 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 commentHeader.innerHTML = "Comments";
                 commentHeader.className = "comment";
                 
-                
+                /****************************************** */
+                /*Input für drücken auf comment button*/
+                let divWrite = document.createElement("div");
+                divWrite.className = "row test";
 
+                let colInput = document.createElement("div");
+                divWrite.append(colInput);
+                colInput.className = "col input";
+
+                let input = document.createElement("input");
+                colInput.append(input);
+                input.type = "text";
+                input.id = "comment";
+                input.className = "form-control";
+                /******************************************** */
                 if (cocktail.comments.length == 0){
                     let divComment = document.createElement("div");
                     div.append(divComment);
@@ -151,9 +164,81 @@ document.addEventListener("DOMContentLoaded", function (event) {
                         div.append(divComment);
                         divComment.className = "row test";
 
+                        let col1 = document.createElement("div");
+                        divComment.append(col1);
+                        col1.className = "col-10 pad";
+
                         let p = document.createElement("p");
-                        divComment.append(p);
+                        col1.append(p);
                         p.innerHTML = comment.comment;
+
+                        let col2 = document.createElement("div");
+                        divComment.append(col2);
+                        col2.className = "col-1 pad text-right";
+
+                        let buttonEdit = document.createElement("button");
+                        col2.append(buttonEdit);
+                        buttonEdit.type="submit";
+                        buttonEdit.className ="btn but"
+
+                        let imgEdit = document.createElement("img");
+                        buttonEdit.append(imgEdit);
+                        imgEdit.src = "/images/edit.png";
+                        imgEdit.alt = "Images of Edit button";
+                        imgEdit.height="20";
+                        imgEdit.width = "20";
+
+                        cnt = 0;
+                        buttonEdit.onclick = () => {
+                            if (cnt == 0){
+                                div.append(divWrite);
+                                input.value = comment.comment;
+                                cnt++;
+                            }
+                                
+                            if (input.value != '' && input.value != comment.comment){
+                                fetch("/api/editComment", {
+                                    method: "put",
+                                        headers: {
+                                            "content-type": "application/json; charset=UTF-8"
+                                        },
+                                        body: JSON.stringify({
+                                            id: comment.id,
+                                            comment: input.value
+                                        })
+                                })
+                                .catch(error => console.error("Error:", error));
+                            }
+                        }
+
+                        let col3 = document.createElement("div");
+                        divComment.append(col3);
+                        col3.className = "col-1 pad text-right";
+
+                        let buttonDelete = document.createElement("button");
+                        col3.append(buttonDelete);
+                        buttonDelete.type="submit";
+                        buttonDelete.className ="btn but"
+
+                        let imgDel = document.createElement("img");
+                        buttonDelete.append(imgDel);
+                        imgDel.src = "/images/delete.png";
+                        imgDel.alt = "Images of Edit button";
+                        imgDel.height="20";
+                        imgDel.width = "20";
+
+                        buttonDelete.onclick = () => {
+                            fetch("/api/deleteComment", {
+                                method: "delete",
+                                headers: {
+                                    "content-type": "application/json; charset=UTF-8"
+                                },
+                                body: JSON.stringify({
+                                    id: comment.id
+                                })
+                            })
+                            .catch(error => console.error("Error:", error));
+                        }
                    }
                 }
                 
@@ -170,7 +255,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                         })
                         .catch(error => console.error("Error:", error));
-                        document.location.reload(true);
+                        //document.location.reload(true);
                     } else {
                         fetch("/api/deletelike", {
                             method: "delete",
@@ -182,24 +267,26 @@ document.addEventListener("DOMContentLoaded", function (event) {
                             })
                         })
                         .catch(error => console.error("Error:", error));
-                        document.location.reload(true);
+                        //document.location.reload(true);
                     }
                 };
 
                 commentButton.onclick = ()  => {
-                    fetch("/api/comment", {
-                        method: "post",
-                            headers: {
-                                "content-type": "application/json; charset=UTF-8"
-                            },
-                            body: JSON.stringify({
-                                id: cocktail.idDrink,
-                                comment: "Test Kommentar"
-                            })
-                    })
-                    .catch(error => console.error("Error:", error));
+                    div.append(divWrite);
+                    if (input.value != ''){
+                        fetch("/api/comment", {
+                            method: "post",
+                                headers: {
+                                    "content-type": "application/json; charset=UTF-8"
+                                },
+                                body: JSON.stringify({
+                                    id: cocktail.idDrink,
+                                    comment: input.value
+                                })
+                        })
+                        .catch(error => console.error("Error:", error));
+                    }
                 }
-
             }
         }).catch(err => console.error(`Fetch problem: ${err.message}`));
 })

@@ -15,4 +15,8 @@ routes.delete('/deleteLike', controller.deleteLike);
 
 routes.post('/comment', controller.writeComment);
 
+routes.delete('/deleteComment', controller.deleteComment);
+
+routes.put('/editComment', controller.editComment);
+
 module.exports = routes;

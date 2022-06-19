@@ -25,6 +25,14 @@ class CocktailController {
     writeComment = (req, res) => {
         res.send(model.comment(req.session, req.body.id, req.body.comment));
     }
+
+    deleteComment = (req, res) => {
+        res.send(model.deleteComment(req.body.id));
+    }
+
+    editComment = (req,res) => {
+        res.send(model.editComment(req.body.id, req.body.comment));
+    }
 }
 
 module.exports = new CocktailController();

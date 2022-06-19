@@ -1,5 +1,13 @@
 /*CSS Sara Cocktails.js*/
 /***********************/
+.pad {
+    padding: 0;
+    margin: 0;
+}
+.input {
+    padding: 0;
+    margin: 0;
+}
 main {
     background-color: #e7e7e7;
 }
@@ -233,12 +241,12 @@ p {
     .comment{
         padding-left: 0;
         padding-right: 10px;
-        flex-grow: 0.5;
+        flex-grow: 0.1;
     }
 
     .likes{
         padding-right: 0;
-        flex-grow: 0.5;
+        flex-grow: 0.1;
     }
 
     main {
