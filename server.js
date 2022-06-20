@@ -26,7 +26,7 @@ app.use(session({
 
 app.post('/user', (req, res) => {
     if (!req.session.user) {
-        return res.status(301).redirect('/home.html');
+        return res.status(301).redirect('/error.html');
     } else {
         return res.send({user: req.session.user});
     }

@@ -7,83 +7,61 @@ document.addEventListener("DOMContentLoaded", function (event) {
             return response.json();
         })
         .then(bars => {
-            let cnt = 0;
-            let cnt2 = 0;
+            let container = document.createElement('div');
+            document.querySelector('main').append(container);
+            container.className = "container";
+
+
+            let rowdiv = document.createElement('div');
+            container.append(rowdiv);
+            rowdiv.className = "row justify-content-center t";
             for (let bar of Array.from(bars)) {
+                console.log(bar.reviews);
                 let div = document.createElement('div');
-                if (cnt == 0 || cnt % 3 == 0){
-                    document.querySelector('main').appendChild(div);
-                }
-                div.className = 'row rowClass';
-                
-                let divs = document.getElementsByClassName("rowClass");
-                let div2 = document.createElement('div');
-                //div.appendChild(div2);
-                if (cnt < 3){
-                    divs[0].appendChild(div2);
-                } else if (cnt < 6){
-                    divs[1].appendChild(div2);
-                } else if (cnt < 9){
-                    divs[2].appendChild(div2);
-                } else if (cnt < 12){
-                    divs[3].appendChild(div2);
-                } else if (cnt < 15){
-                    divs[4].appendChild(div2);
-                } else if (cnt < 18){
-                    divs[5].appendChild(div2);
-                } else if (cnt < 21){
-                    divs[6].appendChild(div2);
-                } else {
-                    divs[0].appendChild(div2);
-                }
-                div2.className = 'col-4 text-center';
+                rowdiv.append(div);
+                div.className = "col-8 border";
 
-                let article = document.createElement('article');
-                div2.append(article);
-                article.className = "divsBars"
+                let divBarName = document.createElement('div');
+                div.append(divBarName);
+                divBarName.className = 'row justify-content-center';
 
-                let h2 = document.createElement('h3');
-                article.append(h2);
-                h2.innerHTML = bar.name;
-                h2.className = "h2Article";
+                let barName = document.createElement('h1');
+                divBarName.append(barName);
+                barName.innerHTML = bar.name;
+                barName.className = "barHeader";
 
-                let div3 = document.createElement("div");
-                div3.className = "row";
-                article.append(div3);
+                let divBarImage = document.createElement("div");
+                div.append(divBarImage);
+                divBarImage.className = "row justify-content-center";
 
-                let div4 = document.createElement("div");
-                div4.className = "col";
-                div3.append(div4);
+                let a = document.createElement('a');
+                divBarImage.append(a);
+                a.href = "bar-details.html?id=" + bar.place_id;
+                a.className = "linkImages";
 
                 let barImage = document.createElement('img');
-                div4.append(barImage)
-                //article.append(img);
+                a.append(barImage)
                 //replaced this
                 //img.src = bar.img_url;
                 //with this
                 barImage.src = 'https://www.25hours-hotels.com/images/25h_bikini_stephanlemke_monkey_bar_people_medium_77_175080046444e25d59d72eb3.jpg';
                 //to reduce api calls for google api
                 barImage.alt = 'alt';
-                barImage.className = "barImage";
+                barImage.className = "img-responsive barImage";
+
+                let divP = document.createElement("div");
+                a.append(divP);
+                divP.innerHTML = "Click here for Details";
+                divP.className = "hoverText";
+
+                let totalRatings = document.createElement("div");
+                div.append(totalRatings);
+                totalRatings.className = "row justify-content-center";
+
+                let total = document.createElement("p");
+                totalRatings.append(total);
+                total.innerHTML = bar.user_ratings_total + " Bewertungen";
                 
-                let div5 = document.createElement("div");
-                div5.className = "col text-left";
-                div3.append(div5);
-                
-
-                let p = document.createElement('p');
-                div5.append(p);
-                //article.append(p);
-                //p.innerHTML = 'rating (4.8/5 stars), rating count, address, more than 1 photo?, place holder photo?';
-                p.innerHTML = "Rating 4.5/5 stars";
-                p.className = "pArticle";
-
-                let a = document.createElement('a');
-                div4.append(a);
-                a.innerHTML = 'More Details';
-                a.href = "bar-details.html?id=" + bar.place_id;
-
-                cnt = cnt +1;
             }
         }).catch(err => console.error(`Fetch problem: ${err.message}`));
 });

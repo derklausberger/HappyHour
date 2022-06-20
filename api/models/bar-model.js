@@ -27,6 +27,7 @@ class Bar {
         this.rating = rating;
 
         this.place_id = place_id;
+        this.user_ratings_total = user_ratings_total;
 
         this.vicinity = vicinity;
     }
