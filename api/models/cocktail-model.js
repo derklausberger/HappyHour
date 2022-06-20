@@ -62,7 +62,7 @@ class CocktailModel {
     static COMMENT_ID = 0;
 
     constructor() {
-        this.cocktails = [];
+        this.cocktails = [Cocktail];
     }
 
     addLikes(){
@@ -206,7 +206,7 @@ class CocktailModel {
 
             return cocktail;
         } catch (err) {
-            console.log(error);
+            console.log(err);
         }
     }
 }

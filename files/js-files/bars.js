@@ -10,29 +10,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
             let cnt = 0;
             let cnt2 = 0;
             for (let bar of Array.from(bars)) {
-                /*
-                <div class="row">
-                    <div class="col-sm">
-                        <section>
-                            <h2>Loco</h2>
-                            <img src="images/loco.png" alt="LocoBar" height="230px" width="230px">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                        sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-                        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-                    </p>
-                    <a href="bar-details.html">Read more...</a><br><br>
-                        </section>
-                    </div>
-    
-                    <div class="col-sm">
-                        <section>
-                            <br><br><p>ADRESSE</p>
-                            <p>BEWERTUNGEN</p>
-                            <input type="button" value="Like!"></input>
-                        </section>
-                    </div>
-                </div>
-                */
                 let div = document.createElement('div');
                 if (cnt == 0 || cnt % 3 == 0){
                     document.querySelector('main').appendChild(div);
@@ -67,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                 let h2 = document.createElement('h3');
                 article.append(h2);
-                h2.innerHTML = bar[1].name;
+                h2.innerHTML = bar.name;
                 h2.className = "h2Article";
 
                 let div3 = document.createElement("div");
@@ -82,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 div4.append(barImage)
                 //article.append(img);
                 //replaced this
-                //img.src = bar[1].img_url;
+                //img.src = bar.img_url;
                 //with this
                 barImage.src = 'https://www.25hours-hotels.com/images/25h_bikini_stephanlemke_monkey_bar_people_medium_77_175080046444e25d59d72eb3.jpg';
                 //to reduce api calls for google api
@@ -104,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 let a = document.createElement('a');
                 div4.append(a);
                 a.innerHTML = 'More Details';
-                a.href = "bar-details.html";
+                a.href = "bar-details.html?id=" + bar.place_id;
 
                 cnt = cnt +1;
             }

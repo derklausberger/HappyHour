@@ -54,11 +54,25 @@
       "userId": 1,
       "cocktailId": "17837"
     },
-    {},
+    {
+      "id": 14,
+      "userId": "X@X",
+      "cocktailId": "17222"
+    },
     {
       "id": 15,
-      "userId": "test@test",
+      "userId": "X@X",
       "cocktailId": "17222"
+    },
+    {
+      "id": 16,
+      "userId": "X@X",
+      "cocktailId": "17222"
+    },
+    {
+      "id": 17,
+      "userId": "X@X",
+      "cocktailId": "13501"
     }
   ]
 }

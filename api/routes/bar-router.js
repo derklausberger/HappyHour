@@ -5,4 +5,6 @@ const routes = Router();
 
 routes.get('/bars', controller.getBars);
 
+routes.get('/bar/:id', controller.getBar);
+
 module.exports = routes;

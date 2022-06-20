@@ -12,58 +12,110 @@ var api_key = fs.readFileSync(path.resolve(__dirname, "../../api_keys.txt"), 'ut
 }).toString();
 
 class Bar {
-    constructor(name, photos, place_id) {
+    constructor(business_status, geometry, icon, icon_background_color,
+        icon_mask_base_uri, name, opening_hours, photos, place_id, plus_code,
+        rating, reference, scope, types, user_ratings_total, vicinity) {
         this.name = name;
 
-        var url = new URL('https://maps.googleapis.com/maps/api/place/photo');
-        var params = { maxwidth: 400, photo_reference: photos[0].photo_reference, key: api_key };
+        this.geometry = geometry;
 
+        let url = new URL('https://maps.googleapis.com/maps/api/place/photo');
+        let params = { maxwidth: 400, photo_reference: photos[0].photo_reference, key: api_key };
         url.search = new URLSearchParams(params).toString();
-
         this.img_url = url;
 
-        this.id = place_id;
+        this.rating = rating;
+
+        this.place_id = place_id;
+
+        this.vicinity = vicinity;
     }
 }
 
 class BarModel {
     constructor() {
-        this.bars = new Map();
+        this.bars = [Bar];
     }
 
-    addBar(bar) {
-        this.bars.set(bar.id, bar);
+    async loadBars() {
+        try {
+            const url = new URL('https://maps.googleapis.com/maps/api/place/nearbysearch/json');
+            const params = { location: '48.210033,16.363449', types: 'bar|night_club', radius: 1500, key: api_key };
+            url.search = new URLSearchParams(params).toString();
+
+            const response = await fetch(url)
+
+            if (!response.ok) {
+                throw new Error(`HTTP error: ${response.status}`);
+            }
+
+            return await response.json();
+        } catch (err) {
+            console.log(`Fetch problem: ${err.message}`);
+        }
     }
 
-    
+    async getBars() {
+        try {
+            await this.loadBars().then(bars_json => {
+                this.bars = [];
+                for (const b of Array.from(bars_json.results)) {
+                    if (b.photos == null) {
+                        b.photos = [{ photo_reference: null }];
+                    }
+                    //this.bars.push(bar);
+                    this.bars.push(new Bar(
+                        b.business_status, b.geometry, b.icon, b.icon_background_color,
+                        b.icon_mask_base_uri, b.name, b.opening_hours, b.photos, b.place_id, b.plus_code,
+                        b.rating, b.reference, b.scope, b.types, b.user_ratings_total, b.vicinity));
+                    //this.bars.push(new Bar(bar.name, bar.photos, bar.place_id));
+                }
+            });
 
-    getBars() {
-        return Array.from(this.bars);
+            return this.bars;
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    async loadBar(id) {
+        try {
+            const url = new URL('https://maps.googleapis.com/maps/api/place/details/json');
+            const params = { place_id: id, key: api_key };
+            url.search = new URLSearchParams(params).toString();
+
+            const response = await fetch(url)
+
+            if (!response.ok) {
+                throw new Error(`HTTP error: ${response.status}`);
+            }
+
+            return await response.json();
+        } catch (err) {
+            console.log(`Fetch problem: ${err.message}`);
+        }
+    }
+
+    async getBar(id) {
+        try {
+            let b;
+            await this.loadBar(id).then(bar_json => {
+                b = bar_json.result;
+                if (b.photos == null) {
+                    b.photos = [{ photo_reference: null }];
+                }
+            });
+
+            return new Bar(
+                b.business_status, b.geometry, b.icon, b.icon_background_color,
+                b.icon_mask_base_uri, b.name, b.opening_hours, b.photos, b.place_id, b.plus_code,
+                b.rating, b.reference, b.scope, b.types, b.user_ratings_total, b.vicinity);
+        } catch (err) {
+            console.log(err);
+        }
     }
 }
 
 const model = new BarModel();
-
-var url = new URL('https://maps.googleapis.com/maps/api/place/nearbysearch/json');
-var params = { location: '48.210033,16.363449', types: 'bar|night_club', radius: 1500, key: api_key };
-
-url.search = new URLSearchParams(params).toString();
-
-fetch(url)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(bars => {
-        for (let bar of Array.from(bars.results)) {
-            if (bar.photos == null) {
-                bar.photos = [{photo_reference:null}];
-            }
-            model.addBar(new Bar(bar.name, bar.photos, bar.place_id));
-        }
-    })
-    .catch(err => console.error(`Fetch problem: ${err.message}`));
 
 module.exports = model;
