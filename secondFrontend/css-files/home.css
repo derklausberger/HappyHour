@@ -1,0 +1,175 @@
+body {
+    background-color: #e7e7e7;
+}
+
+.startpic {
+    width: 285px;
+    height: 285px;
+}
+
+.sidebar {
+    padding-left: 60px;
+    background-color: lightgrey;
+}
+
+.text {
+    padding-top: 85px;
+    text-align: center;
+    justify-content: center;
+
+}
+
+.uebertext {
+    font-size: 60px;
+    text-align: center;
+    font-family: 'Grape Nuts', cursive;
+    justify-content: center;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+}
+
+body {
+    padding-top: 70px;
+}
+
+.divsBars {
+    height: 350px;
+    border-style: solid;
+    border-radius: 15px;
+    border-width: 1px;
+    border-color: lightgray;
+    background-color: white;
+}
+
+.h2Article {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.imgArticle {
+    width: 280px;
+    height: 220px;
+}
+
+.rowClass {
+    margin-top: 50px;
+}
+
+.bodyBars {
+    background-color: #e7e7e7;
+}
+
+.barsleft {
+    margin-left: 30px;
+}
+
+.barsleft2 {
+    margin-left: 70px;
+}
+
+/* cocktails */
+.divsCocktails {
+    height: 350px;
+    width: 350px;
+    border-style: solid;
+    border-radius: 15px;
+    border-width: 1px;
+    border-color: lightgray;
+    background-color: white;
+
+    margin-top: 20px;
+}
+
+.imgCocktails {
+    width: 55%;
+    margin-bottom: 20px;
+}
+
+.h2Cocktails {
+    margin-top: 20px;
+}
+
+#cockPic {
+    height: 200px;
+    width: auto;
+    border-radius: 15px;
+}
+
+#heart {
+    height: 25px;
+    width: 25px;
+}
+
+
+.container {
+    background-color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 15px;
+    padding-left: 20px;
+
+    margin-top: 20px;
+}
+
+.cocktail-details {
+    background-color: lightgrey;
+}
+
+#bottomLeft {
+    padding-top: 20px;
+}
+
+
+#barPic {
+    height: 200px;
+    width: auto;
+    border-radius: 15px;
+}
+
+#likeButton {
+    border: none;
+    background-color: white;
+    padding-bottom: 15px;
+}
+
+.barImage{
+    padding: 20px 0px 20px 20px; 
+    border-radius: 15;
+    width: 300px;
+    height: auto;
+}
+
+.star {
+    display: inline-block;
+    position: relative;
+    font-size: 30px;
+    color: #d3d3d3;
+}
+
+.star:after {
+    font-family: FontAwesome;
+    content: "\f005";
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    color: #f80;
+
+
+/* Small devices (phones, 600px and down)*/
+
+@media only screen and (max-width: 480px) {
+
+    nav  ul li a{
+        color: red;
+    }
+
+} 
+
+/* Large devices (laptops/desktops, 992px and up)*/
+@media only screen and (min-width: 768px) {
+
+}
