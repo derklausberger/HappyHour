@@ -53,6 +53,12 @@
       "id": 13,
       "userId": 1,
       "cocktailId": "17837"
+    },
+    {},
+    {
+      "id": 15,
+      "userId": "test@test",
+      "cocktailId": "17222"
     }
   ]
 }

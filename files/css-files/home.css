@@ -129,19 +129,61 @@ body{
     height: auto;
 }
 
+.hamburger{
+    display: none;
+    cursor: pointer;
+}
+
+.bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: white;
+}
 
 
-/* Small devices (phones, 600px and down)*/
 
-@media only screen and (max-width: 480px) {
-
-    nav  ul li a{
-        color: red;
+@media screen and (max-width: 900px){
+    .hamburger{
+        display: block;
     }
 
-} 
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+    }
 
-/* Large devices (laptops/desktops, 992px and up)*/
-@media only screen and (min-width: 768px) {
+    .hamburger.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
 
+    .hamburger.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-menu{
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        flex-direction: column;
+        background-color: darkgrey;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s
+    }
+
+    .nav-item{
+        margin: 16px 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    nav li {
+        display: none;
+    }
 }
