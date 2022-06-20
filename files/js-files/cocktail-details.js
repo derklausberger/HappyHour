@@ -72,11 +72,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
             likeButton.onclick = tausch;
 
             // list of ingredients
-            let ingredientsList = document.createElement("ul");
+            let ingredientsList = document.createElement("p");
             ingredientsList.id = "ingredientsList";
             let ingredientsTag = document.createElement("p");
             ingredientsTag.id = "ingredientsTag";
-            ingredientsTag.innerHTML = "INGREDIENTS:";
+            ingredientsTag.innerHTML = "INGREDIENTS";
             ingredientsList.append(ingredientsTag);
 
             if(c.strIngredient1 !== null){
@@ -212,7 +212,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             instructionsDiv.id = "instructionsDiv";    
             let instructionsTag = document.createElement("p");
             instructionsTag.id = "instructionsTag";
-            instructionsTag.innerHTML = "INSTRUCTIONS:";
+            instructionsTag.innerHTML = "INSTRUCTIONS";
             instructionsDiv.append(instructionsTag);
             let instructions = c.strInstructions;
             instructionsDiv.append(instructions);

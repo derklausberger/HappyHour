@@ -39,7 +39,7 @@ function logout() {
                     throw new Error(`HTTP error: ${response.status}`);
                 }
             } else {
-                window.location.href = "/index.html";
+                window.location.href = "/home.html";
             }
         }).catch(error => console.error("Error:", error));
         loggedIn = null;

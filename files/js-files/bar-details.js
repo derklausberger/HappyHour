@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             // review
             let reviewDiv = document.createElement("div");
             let bottomRight = document.getElementById("bottomRight");
-            bottomRight.appendChild(reviewDiv);
+            bottomLeft.appendChild(reviewDiv);
 
             let starSpan, revCnt = bar.rating;
             for (let i = 1; i <= 5; i++) {
@@ -55,16 +55,40 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
 
             var newbr = document.createElement('br');
-            bottomRight.append(newbr);
+            bottomLeft.append(newbr);
 
 
 
             // address
             let address = document.createElement("address");
-            // website if existing
+            let addressLabel = document.createElement("p");
+            addressLabel.innerHTML = "ADDRESS";
+        
+            addressLabel.id = "addressLabel";
+            bottomLeft.append(addressLabel);
             address.innerHTML = bar.vicinity;
-            bottomRight.append(address);
+            address.id = "address";
+            addressLabel.append(address);
+            bottomLeft.append(addressLabel);
 
+            // opening hours
+            console.log(bar.opening_hours.weekday_text);
+
+            let openingHoursDiv = document.createElement("p");
+            openingHoursDiv.id = "openingHoursDiv";
+            let openingHoursLabel = document.createElement("p");
+            openingHoursLabel.innerHTML = "OPENING HOURS";
+            openingHoursLabel.id = "openingHoursLabel";
+            openingHoursDiv.append(openingHoursLabel);
+            
+            for(let i = 0; i < 7; i++){
+                let openingHours = document.createElement("p");
+                openingHours.id = "openingHours";
+                openingHours.innerHTML = bar.opening_hours.weekday_text[i];
+                openingHoursDiv.append(openingHours);
+            }
+
+            bottomRight.append(openingHoursDiv);
 
         }).catch(err => console.error(`Fetch problem: ${err.message}`));
 })

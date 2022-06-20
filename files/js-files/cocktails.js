@@ -7,9 +7,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     let btnRow = document.createElement("div");
     centerDiv.append(btnRow);
-    btnRow.setAttribute("style", "margin-top: 15px; margin-bottom: 10px;");
+    btnRow.setAttribute("style", "margin-top: 15px; margin-bottom: 15px;");
 
-    btnRow.className = "btn-group btn-group-md";
+    btnRow.className = "btn-group btn-group-md flex-wrap";
+    btnRow.id = "btnLetters";
     for (let i = 0; i < 26; i++) {
         let letter = String.fromCharCode(i + 65);
         let button = document.createElement("button");
@@ -74,6 +75,7 @@ function loadCocktails(letter) {
                 let cocktailName = document.createElement('h1');
                 link.append(cocktailName);
                 cocktailName.innerHTML = cocktail.strDrink;
+                cocktailName.id = "cocktailName";
 
                 let divCocktailImage = document.createElement("div");
                 div.append(divCocktailImage);
@@ -181,6 +183,7 @@ function loadCocktails(letter) {
                 let commentHeader = document.createElement("h3");
                 divCommentHeader.append(commentHeader);
                 commentHeader.innerHTML = "Comments";
+                divCommentHeader.id = "divCommentHeader";
                 commentHeader.className = "comment";
 
                 /****************************************** */
