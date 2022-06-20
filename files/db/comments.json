@@ -31,6 +31,13 @@
       "userId": null,
       "cocktailId": "17225",
       "comment": "comment"
+    },
+    {},
+    {
+      "id": 7,
+      "userId": "test@test",
+      "cocktailId": "17222",
+      "comment": "nice"
     }
   ]
 }

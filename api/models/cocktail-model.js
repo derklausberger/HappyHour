@@ -159,9 +159,9 @@ class CocktailModel {
         this.cocktails.set(cocktail.id, cocktail);
     }*/
 
-    async loadCocktails(/*letter*/) {
+    async loadCocktails(letter) {
         try {
-            const response = await fetch('http://www.thecocktaildb.com/api/json/v1/1/search.php?f=a' /*+ letter*/);
+            const response = await fetch('http://www.thecocktaildb.com/api/json/v1/1/search.php?f=' + letter);
 
             if (!response.ok) {
                 throw new Error(`HTTP error: ${response.status}`);
@@ -173,11 +173,10 @@ class CocktailModel {
         }
     }
 
-    async getCocktails() {
+    async getCocktails(letter) {
         try {
             this.cocktails = [];
-            //for(let i = 0; i < 26; i++){
-            await this.loadCocktails(/*String.fromCharCode(i + 97)*/).then(cocktails_json => {
+            await this.loadCocktails(letter).then(cocktails_json => {
                 for (const c of Array.from(cocktails_json.drinks)) {
                     this.cocktails.push(Object.assign(new Cocktail, c));
                 };

@@ -1,12 +1,54 @@
 document.addEventListener("DOMContentLoaded", function (event) {
-    document.getElementsByTagName("link")[0].import;
-    fetch('/api/cocktails')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error: ${response.status}`);
+    //document.getElementsByTagName("link")[0].import;
+
+    let centerDiv = document.createElement("div");
+    document.querySelector("main").append(centerDiv);
+    centerDiv.setAttribute("style", "text-align: center;");
+
+    let btnRow = document.createElement("div");
+    centerDiv.append(btnRow);
+    btnRow.setAttribute("style", "margin-top: 15px; margin-bottom: 15px;");
+
+    btnRow.className = "btn-group btn-group-md flex-wrap";
+    btnRow.id = "btnLetters";
+    for (let i = 0; i < 26; i++) {
+        let letter = String.fromCharCode(i + 65);
+        let button = document.createElement("button");
+        button.innerHTML = letter;
+        button.className = "btn btn-light";
+        button.id = "btn-" + letter;
+        btnRow.append(button);
+
+        button.onclick = () => {
+            document.querySelectorAll(".btn.btn-dark").forEach(btn => {
+                btn.className = "btn btn-light";
+            });
+            button.className = "btn btn-dark";
+            if (document.querySelector(".container") != null) {
+                document.querySelector(".container").remove();
             }
-            return response.json();
+            loadCocktails(letter);
+        }
+    }
+
+    document.querySelector("#btn-A").click();
+})
+
+function loadCocktails(letter) {
+    fetch('/api/cocktails', {
+        method: "post",
+        headers: {
+            "content-type": "application/json; charset=UTF-8"
+        },
+        body: JSON.stringify({
+            letter: letter
         })
+    }).then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error: ${response.status}`);
+        }
+        return response.json();
+    })
         .then(cocktails => {
             let container = document.createElement('div');
             document.querySelector('main').append(container);
@@ -328,4 +370,4 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 }
             }
         }).catch(err => console.error(`Fetch problem: ${err.message}`));
-})
+}

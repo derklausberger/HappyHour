@@ -211,8 +211,13 @@ p {
     }
 
     main {
-        margin-top: 20px;
+        margin-top: 10px;
     }
+
+    #btnLetters{
+        margin-bottom: 20px;
+    }
+
 }
 
 @media screen and (max-width: 550px){
@@ -251,6 +256,8 @@ p {
         bottom: 120px;
         left: 65px;
         font-size: 15px;
+    main {
+        margin-top: 10px;
     }
 }
 
@@ -260,5 +267,6 @@ p {
         left: 55px;
         font-size: 15px;
     }
+
 }
 /*************************/
