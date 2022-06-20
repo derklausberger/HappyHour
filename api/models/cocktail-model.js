@@ -181,7 +181,40 @@ class CocktailModel {
                     this.cocktails.push(Object.assign(new Cocktail, c));
                 };
             }).catch(err => console.error(`Fetch problem: ${err.message}`));
-            // } 
+
+            this.getLikes();
+            this.getComments();
+            return this.cocktails;
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    async loadRandomCocktails() {
+        try {
+            const response = await fetch('http://www.thecocktaildb.com/api/json/v1/1/random.php');
+
+            if (!response.ok) {
+                throw new Error(`HTTP error: ${response.status}`);
+            }
+
+            return await response.json();
+        } catch (err) {
+            console.error(`Fetch problem: ${err.message}`);
+        }
+    }
+
+    async getRandomCocktails() {
+        try {
+            this.cocktails = [];
+
+            for (let i = 0; i < 10; i++) {
+                await this.loadRandomCocktails().then(cocktails_json => {
+                    for (const c of Array.from(cocktails_json.drinks)) {
+                        this.cocktails.push(Object.assign(new Cocktail, c));
+                    };
+                }).catch(err => console.error(`Fetch problem: ${err.message}`));
+            }
 
             this.getLikes();
             this.getComments();

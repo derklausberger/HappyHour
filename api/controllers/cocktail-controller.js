@@ -5,6 +5,10 @@ class CocktailController {
         res.send(await model.getCocktails(req.body.letter));
     }
 
+    getRandomCocktails = async (req, res) => {
+        res.send(await model.getRandomCocktails());
+    }
+
     getCocktail = async (req, res) => {
         res.send(await model.getCocktail(req.params.id));
     }
