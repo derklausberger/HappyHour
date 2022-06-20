@@ -1,3 +1,9 @@
+/*const https = require('https');
+const privateKey  = fs.readFileSync('sslcert/server.key', 'utf8');
+const certificate = fs.readFileSync('sslcert/server.crt', 'utf8');
+const credentials = {key: privateKey, cert: certificate};*/
+
+
 const express = require('express');
 
 const barRouter = require('./api/routes/bar-router');
@@ -61,3 +67,6 @@ app.listen(port, (error) => {
         console.log(`Server listening at http://localhost:${port}`)
     }
 });
+
+
+//var httpsServer = https.createServer(credentials, app);

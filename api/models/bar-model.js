@@ -39,13 +39,13 @@ class BarModel {
         this.bars = [Bar];
     }
 
-    async loadBars() {
+    async loadBars(latitude, longitude) {
         try {
             const url = new URL('https://maps.googleapis.com/maps/api/place/nearbysearch/json');
-            const params = { location: '48.210033,16.363449', types: 'bar|night_club', radius: 1500, key: api_key };
+            const params = { location: latitude + "," + longitude, types: 'bar|night_club', radius: 10000, key: api_key };
             url.search = new URLSearchParams(params).toString();
 
-            const response = await fetch(url)
+            const response = await fetch(url);
 
             if (!response.ok) {
                 throw new Error(`HTTP error: ${response.status}`);
@@ -57,9 +57,9 @@ class BarModel {
         }
     }
 
-    async getBars() {
+    async getBars(latitude, longitude) {
         try {
-            await this.loadBars().then(bars_json => {
+            await this.loadBars(latitude, longitude).then(bars_json => {
                 this.bars = [];
                 for (const b of Array.from(bars_json.results)) {
                     if (b.photos == null) {
