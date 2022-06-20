@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function (event) {
-    //document.getElementsByTagName("link")[0].import;
+    document.getElementsByTagName("link")[0].import;
     fetch('/api/cocktails')
         .then(response => {
             if (!response.ok) {
@@ -18,12 +18,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
             rowdiv.className = "row justify-content-center t";
 
             for (let cocktail of Array.from(cocktails)) {
-                for (let like of cocktail.likes){
-                    if (like.userId == sessionStorage.getItem("username")){
-                        cocktail.liked = true;
-                        break;
-                    }
-                }
                 let div = document.createElement('div');
                 rowdiv.append(div);
                 div.className = "col-8 border";
@@ -106,11 +100,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                 let likeImage = document.createElement("img");
                 likeButton.append(likeImage);
-                if (!cocktail.liked) {
-                    likeImage.src = "/images/heartEmpty.jpg";
-                } else {
-                    likeImage.src = "/images/heartFull.jpg";
+
+                cocktail.liked = false;
+                for (let like of cocktail.likes) {
+                    if (like == loggedIn) {
+                        cocktail.liked = true;
+                        break;
+                    }
                 }
+
+                likeImage.src = !cocktail.liked ? "/images/heartEmpty.jpg"
+                    : "/images/heartFull.jpg";
+
                 likeImage.alt = "Image of Like Button";
                 likeImage.height = "20";
                 likeImage.width = "20";
@@ -134,13 +135,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 let divCommentHeader = document.createElement("div");
                 div.append(divCommentHeader);
                 divCommentHeader.className = "row test";
-                
+
 
                 let commentHeader = document.createElement("h3");
                 divCommentHeader.append(commentHeader);
                 commentHeader.innerHTML = "Comments";
                 commentHeader.className = "comment";
-                
+
                 /****************************************** */
                 /*Input für drücken auf comment button*/
                 let divWrite = document.createElement("div");
@@ -156,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 input.id = "comment";
                 input.className = "form-control";
                 /******************************************** */
-                if (cocktail.comments.length == 0){
+                if (cocktail.comments.length == 0) {
                     let divComment = document.createElement("div");
                     div.append(divComment);
                     divComment.className = "row test";
@@ -165,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     divComment.append(nocomments);
                     nocomments.innerHTML = "Noch keine Kommentare vorhanden";
                 } else {
-                   for (let comment of cocktail.comments){
+                    for (let comment of cocktail.comments) {
                         let divComment = document.createElement("div");
                         div.append(divComment);
                         divComment.className = "row test";
@@ -178,129 +179,167 @@ document.addEventListener("DOMContentLoaded", function (event) {
                         col1.append(p);
                         p.innerHTML = comment.comment;
 
-                        if (comment.userId == sessionStorage.getItem("username")){
-                        let col2 = document.createElement("div");
-                        divComment.append(col2);
-                        col2.className = "col-1 pad text-right";
+                        if (comment.userId == loggedIn) {
+                            let col2 = document.createElement("div");
+                            divComment.append(col2);
+                            col2.className = "col-1 pad text-right";
 
-                        let buttonEdit = document.createElement("button");
-                        col2.append(buttonEdit);
-                        buttonEdit.type="submit";
-                        buttonEdit.className ="btn but"
+                            let buttonEdit = document.createElement("button");
+                            col2.append(buttonEdit);
+                            buttonEdit.type = "submit";
+                            buttonEdit.className = "btn but"
 
-                        let imgEdit = document.createElement("img");
-                        buttonEdit.append(imgEdit);
-                        imgEdit.src = "/images/edit.png";
-                        imgEdit.alt = "Images of Edit button";
-                        imgEdit.height="20";
-                        imgEdit.width = "20";
+                            let imgEdit = document.createElement("img");
+                            buttonEdit.append(imgEdit);
+                            imgEdit.src = "/images/edit.png";
+                            imgEdit.alt = "Images of Edit button";
+                            imgEdit.height = "20";
+                            imgEdit.width = "20";
 
-                        cnt = 0;
-                        buttonEdit.onclick = () => {
-                            if (cnt == 0){
-                                div.append(divWrite);
-                                input.value = comment.comment;
-                                cnt++;
-                            }
-                                
-                            if (input.value != '' && input.value != comment.comment){
-                                fetch("/api/editComment", {
-                                    method: "put",
+                            cnt = 0;
+                            buttonEdit.onclick = () => {
+                                if (cnt == 0) {
+                                    div.append(divWrite);
+                                    input.value = comment.comment;
+                                    cnt++;
+                                }
+
+                                if (input.value != '' && input.value != comment.comment) {
+                                    fetch("/api/editComment", {
+                                        method: "put",
                                         headers: {
                                             "content-type": "application/json; charset=UTF-8"
                                         },
                                         body: JSON.stringify({
                                             id: comment.id,
                                             cocktailId: cocktail.idDrink,
-                                            userId: sessionStorage.getItem("username"),
                                             comment: input.value
                                         })
+                                    })
+                                        .catch(error => console.error("Error:", error));
+                                }
+                            }
+
+                            let col3 = document.createElement("div");
+                            divComment.append(col3);
+                            col3.className = "col-1 pad text-right";
+
+                            let buttonDelete = document.createElement("button");
+                            col3.append(buttonDelete);
+                            buttonDelete.type = "submit";
+                            buttonDelete.className = "btn but"
+
+                            let imgDel = document.createElement("img");
+                            buttonDelete.append(imgDel);
+                            imgDel.src = "/images/delete.png";
+                            imgDel.alt = "Images of Edit button";
+                            imgDel.height = "20";
+                            imgDel.width = "20";
+
+                            buttonDelete.onclick = () => {
+                                fetch("/api/deleteComment", {
+                                    method: "delete",
+                                    headers: {
+                                        "content-type": "application/json; charset=UTF-8"
+                                    },
+                                    body: JSON.stringify({
+                                        id: comment.id
+                                    })
                                 })
-                                .catch(error => console.error("Error:", error));
-                            }    
-                        }
-
-                        let col3 = document.createElement("div");
-                        divComment.append(col3);
-                        col3.className = "col-1 pad text-right";
-
-                        let buttonDelete = document.createElement("button");
-                        col3.append(buttonDelete);
-                        buttonDelete.type="submit";
-                        buttonDelete.className ="btn but"
-
-                        let imgDel = document.createElement("img");
-                        buttonDelete.append(imgDel);
-                        imgDel.src = "/images/delete.png";
-                        imgDel.alt = "Images of Edit button";
-                        imgDel.height="20";
-                        imgDel.width = "20";
-
-                        buttonDelete.onclick = () => {
-                            fetch("/api/deleteComment", {
-                                method: "delete",
-                                headers: {
-                                    "content-type": "application/json; charset=UTF-8"
-                                },
-                                body: JSON.stringify({
-                                    id: comment.id,
-                                    userId: sessionStorage.getItem("username")
-                                })
-                            })
-                            .catch(error => console.error("Error:", error));
+                                    .catch(error => console.error("Error:", error));
+                            }
                         }
                     }
-                   }
                 }
-                
+
                 likeButton.onclick = () => {
                     if (!cocktail.liked) {
+                        likeImage.src = "/images/heartFull.jpg";
+                        cocktail.liked = true;
+
+
                         fetch("/api/like", {
                             method: "post",
                             headers: {
                                 "content-type": "application/json; charset=UTF-8"
                             },
                             body: JSON.stringify({
-                                id: cocktail.idDrink,
-                                userId: sessionStorage.getItem("username")
+                                idDrink: cocktail.idDrink
                             })
+                        }).then(res => {
+                            if (!res.ok) {
+                                throw new Error(`HTTP error: ${res.status}`);
+                            }
+                            return res.json();
+                        }).then(likes => {
+                            cocktail.likes = Array.from(likes);
 
-                        })
-                        .catch(error => console.error("Error:", error));
-                        //document.location.reload(true);
+                            if (cocktail.likes.length > 1 || cocktail.likes.length == 0) {
+                                amountLikesParagraph.innerHTML = cocktail.likes.length + " Likes";
+                            } else {
+                                amountLikesParagraph.innerHTML = cocktail.likes.length + " Like";
+                            }
+                        }).catch(error => console.error("Error:", error));
                     } else {
+                        likeImage.src = "/images/heartEmpty.jpg";
+                        cocktail.liked = false;
+
                         fetch("/api/deletelike", {
                             method: "delete",
                             headers: {
                                 "content-type": "application/json; charset=UTF-8"
                             },
                             body: JSON.stringify({
-                                id: cocktail.likes[0].id,
-                                userId: sessionStorage.getItem("username")
+                                idDrink: cocktail.idDrink
                             })
+                        }).then(res => {
+                            if (!res.ok) {
+                                throw new Error(`HTTP error: ${res.status}`);
+                            }
+                            return res.json();
+                        }).then(likes => {
+                            cocktail.likes = Array.from(likes);
+
+                            if (cocktail.likes.length > 1 || cocktail.likes.length == 0) {
+                                amountLikesParagraph.innerHTML = cocktail.likes.length + " Likes";
+                            } else {
+                                amountLikesParagraph.innerHTML = cocktail.likes.length + " Like";
+                            }
                         })
-                        .catch(error => console.error("Error:", error));
-                        //document.location.reload(true);
+                            .catch(error => console.error("Error:", error));
                     }
                 };
 
-                commentButton.onclick = ()  => {
+                commentButton.onclick = () => {
                     div.append(divWrite);
-                    if (input.value != ''){
+                    if (input.value != '') {
                         fetch("/api/comment", {
                             method: "post",
-                                headers: {
-                                    "content-type": "application/json; charset=UTF-8"
-                                },
-                                body: JSON.stringify({
-                                    id: cocktail.idDrink,
-                                    comment: input.value,
-                                    userId: sessionStorage.getItem("username")
-                                })
+                            headers: {
+                                "content-type": "application/json; charset=UTF-8"
+                            },
+                            body: JSON.stringify({
+                                id: cocktail.idDrink,
+                                comment: input.value
+                            })
                         })
-                        .catch(error => console.error("Error:", error));
+                            .catch(error => console.error("Error:", error));
                     }
                 }
             }
         }).catch(err => console.error(`Fetch problem: ${err.message}`));
 })
+
+/*function sHeart(img, likes) {
+    let liked = false;
+    for (let like of likes) {
+        if (like == loggedIn) {
+            let liked = true;
+            break;
+        }
+    }
+
+    img.src = !liked ? "/images/heartEmpty.jpg"
+        : "/images/heartFull.jpg";
+    console.log(loggedIn);
+}*/

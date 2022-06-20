@@ -51,7 +51,7 @@ class BarModel {
 
             return await response.json();
         } catch (err) {
-            console.log(`Fetch problem: ${err.message}`);
+            console.error(`Fetch problem: ${err.message}`);
         }
     }
 
@@ -74,7 +74,7 @@ class BarModel {
 
             return this.bars;
         } catch (err) {
-            console.log(err);
+            console.error(err);
         }
     }
 
@@ -92,7 +92,7 @@ class BarModel {
 
             return await response.json();
         } catch (err) {
-            console.log(`Fetch problem: ${err.message}`);
+            console.error(`Fetch problem: ${err.message}`);
         }
     }
 
@@ -111,7 +111,7 @@ class BarModel {
                 b.icon_mask_base_uri, b.name, b.opening_hours, b.photos, b.place_id, b.plus_code,
                 b.rating, b.reference, b.scope, b.types, b.user_ratings_total, b.vicinity);
         } catch (err) {
-            console.log(err);
+            console.error(err);
         }
     }
 }

@@ -1,78 +1,22 @@
 {
-  "likes": [
-    {},
-    {
-      "id": 1,
-      "userId": 1,
-      "cocktailId": "17839"
-    },
-    {
-      "id": 2,
-      "userId": 1,
-      "cocktailId": "15266"
-    },
-    {},
-    {
-      "id": 4,
-      "userId": 1,
-      "cocktailId": "11023"
-    },
-    {},
-    {
-      "id": 6,
-      "userId": 1,
-      "cocktailId": "15106"
-    },
-    {
-      "id": 7,
-      "userId": 1,
-      "cocktailId": "11021"
-    },
-    {
-      "id": 8,
-      "userId": 1,
-      "cocktailId": "11055"
-    },
-    {},
-    {
-      "id": 10,
-      "userId": 1,
-      "cocktailId": "17225"
-    },
-    {
-      "id": 11,
-      "userId": 1,
-      "cocktailId": "17835"
-    },
-    {
-      "id": 12,
-      "userId": 1,
-      "cocktailId": "13501"
-    },
-    {
-      "id": 13,
-      "userId": 1,
-      "cocktailId": "17837"
-    },
-    {
-      "id": 14,
-      "userId": "X@X",
-      "cocktailId": "17222"
-    },
-    {
-      "id": 15,
-      "userId": "X@X",
-      "cocktailId": "17222"
-    },
-    {
-      "id": 16,
-      "userId": "X@X",
-      "cocktailId": "17222"
-    },
-    {
-      "id": 17,
-      "userId": "X@X",
-      "cocktailId": "13501"
-    }
+  "13501": [
+    "test@test"
+  ],
+  "13938": [
+    "test@test",
+    null,
+    null
+  ],
+  "14610": [
+    "test@test"
+  ],
+  "17222": [
+    "test@test"
+  ],
+  "17225": [
+    "test@test"
+  ],
+  "17837": [
+    "test@test"
   ]
 }

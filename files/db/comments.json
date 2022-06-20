@@ -19,6 +19,18 @@
       "userId": 1,
       "cocktailId": "17222",
       "comment": "Wahnsinnig guter Cocktail"
+    },
+    {
+      "id": 5,
+      "userId": "X@X",
+      "cocktailId": "17222",
+      "comment": "lecker"
+    },
+    {
+      "id": 6,
+      "userId": null,
+      "cocktailId": "17225",
+      "comment": "comment"
     }
   ]
 }

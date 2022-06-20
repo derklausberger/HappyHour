@@ -58,94 +58,102 @@ class Cocktail {
 }
 
 class CocktailModel {
-    static LIKE_ID = 0;
     static COMMENT_ID = 0;
 
     constructor() {
         this.cocktails = [Cocktail];
     }
 
-    addLikes(){
+    getLikes() {
         var rawdata = fs.readFileSync("./files/db/likes.json");
         var likesJson = JSON.parse(rawdata);
-        for (var i = 0; i < likesJson.likes.length; i++){
-            CocktailModel.LIKE_ID++;
-        }
+
+        this.cocktails.forEach(c => {
+            c.likes = likesJson[c.idDrink];
+
+            if (c.likes == undefined) {
+                c.likes = [];
+            }
+        });
     }
 
-    getLikes(){
-        var rawdata = fs.readFileSync("./files/db/likes.json");
-        var likesJson = JSON.parse(rawdata);
-        for (let j = 0; j < this.cocktails.length; j++){
-            for (let i = 0; i < likesJson.likes.length; i++){
-                if (likesJson.likes[i].cocktailId == this.cocktails[j].idDrink){
-                    this.cocktails[j].likes.push(likesJson.likes[i]);
-                }
+    deleteLike(user, idDrink) {
+        let file = editJsonFile(`./files/db/likes.json`);
+
+        let likes = file.get(idDrink);
+        if (likes) {
+            const index = likes.indexOf(user);
+            if (index > -1) {
+                likes.splice(index, 1);
+                file.set(idDrink, likes);
+                file.save();
             }
         }
+
+        return file.get(idDrink);
     }
 
-    deleteLike(likeId){
+    like(user, idDrink) {
         let file = editJsonFile(`./files/db/likes.json`);
-        file.unset("likes."+likeId+".userId");
-        file.unset("likes."+likeId+".cocktailId");
-        file.unset("likes."+likeId+".id");
+
+        if (!file.get(idDrink)) {
+            file.set(idDrink, [user]);
+        } else {
+            if (file.get(idDrink).indexOf(user) < 0) {
+                file.append(idDrink, user);
+            }
+        }
         file.save();
+
+        return file.get(idDrink);
     }
 
-    like(userId, cocktailId){
-            let file = editJsonFile(`./files/db/likes.json`);
-            file.append("likes", {id: CocktailModel.LIKE_ID, userId: userId, cocktailId: cocktailId});
-            file.save();
-        
-    }
-
-    addComments(){
+    addComments() {
         var rawdata = fs.readFileSync("./files/db/comments.json");
         var commentsJson = JSON.parse(rawdata);
-        for (var i = 0; i < commentsJson.comments.length; i++){
+        for (var i = 0; i < commentsJson.comments.length; i++) {
             CocktailModel.COMMENT_ID++;
         }
     }
 
-    getComments(){
+    getComments() {
         var rawdata = fs.readFileSync("./files/db/comments.json");
         var commentsJson = JSON.parse(rawdata);
-        for (let j = 0; j < this.cocktails.length; j++){
-            for (let i = 0; i < commentsJson.comments.length; i++){
-                if (commentsJson.comments[i].cocktailId == this.cocktails[j].idDrink){
+        for (let j = 0; j < this.cocktails.length; j++) {
+            for (let i = 0; i < commentsJson.comments.length; i++) {
+                if (commentsJson.comments[i].cocktailId == this.cocktails[j].idDrink) {
                     this.cocktails[j].comments.push(commentsJson.comments[i]);
                 }
             }
         }
     }
 
-    comment(userId, cocktailId, comment){
+    comment(userId, cocktailId, comment) {
         let file = editJsonFile(`./files/db/comments.json`);
-        file.append("comments", {id: CocktailModel.COMMENT_ID, userId: userId, cocktailId: cocktailId, comment: comment});
+        file.append("comments", { id: CocktailModel.COMMENT_ID, userId: userId, cocktailId: cocktailId, comment: comment });
         file.save();
     }
 
-    deleteComment(commentId){
+    deleteComment(commentId) {
         let file = editJsonFile(`./files/db/comments.json`);
-        file.unset("comments."+commentId+".userId");
-        file.unset("comments."+commentId+".cocktailId");
-        file.unset("comments."+commentId+".comment");
-        file.unset("comments."+commentId+".id");
+        file.unset("comments." + commentId + ".userId");
+        file.unset("comments." + commentId + ".cocktailId");
+        file.unset("comments." + commentId + ".comment");
+        file.unset("comments." + commentId + ".id");
         file.save();
     }
 
-    editComment(commentId, comment, cocktailId, userId){
+    editComment(commentId, comment, cocktailId, userId) {
         let file = editJsonFile(`./files/db/comments.json`);
-        file.unset("comments."+commentId+".userId");
-        file.unset("comments."+commentId+".cocktailId");
-        file.unset("comments."+commentId+".comment");
-        file.set("comments."+commentId+".comment", comment);
-        file.set("comments."+commentId+".userId", userId);
-        file.set("comments."+commentId+".cocktailId", cocktailId);
+        file.unset("comments." + commentId + ".userId");
+        file.unset("comments." + commentId + ".cocktailId");
+        file.unset("comments." + commentId + ".comment");
+        file.set("comments." + commentId + ".comment", comment);
+        file.set("comments." + commentId + ".userId", userId);
+        file.set("comments." + commentId + ".cocktailId", cocktailId);
         file.save();
     }
-    
+
     /*addCocktail(cocktail) {
         cocktail.id = CocktailModel.COCKTAIL_ID++;
         this.cocktails.set(cocktail.id, cocktail);
@@ -161,7 +169,7 @@ class CocktailModel {
 
             return await response.json();
         } catch (err) {
-            console.log(`Fetch problem: ${err.message}`);
+            console.error(`Fetch problem: ${err.message}`);
         }
     }
 
@@ -169,18 +177,18 @@ class CocktailModel {
         try {
             this.cocktails = [];
             //for(let i = 0; i < 26; i++){
-                await this.loadCocktails(/*String.fromCharCode(i + 97)*/).then(cocktails_json => {
-                    for (const c of Array.from(cocktails_json.drinks)) {
-                        this.cocktails.push(Object.assign(new Cocktail, c));
-                    };
-                }).catch(err => console.error(`Fetch problem: ${err.message}`));
-           // } 
-            
+            await this.loadCocktails(/*String.fromCharCode(i + 97)*/).then(cocktails_json => {
+                for (const c of Array.from(cocktails_json.drinks)) {
+                    this.cocktails.push(Object.assign(new Cocktail, c));
+                };
+            }).catch(err => console.error(`Fetch problem: ${err.message}`));
+            // } 
+
             this.getLikes();
             this.getComments();
             return this.cocktails;
         } catch (err) {
-            console.log(err);
+            console.error(err);
         }
     }
 
@@ -193,7 +201,7 @@ class CocktailModel {
             }
             return await response.json();
         } catch (err) {
-            console.log(`Fetch problem: ${err.message}`);
+            console.error(`Fetch problem: ${err.message}`);
         }
     }
 
@@ -206,13 +214,13 @@ class CocktailModel {
 
             return cocktail;
         } catch (err) {
-            console.log(err);
+            console.error(err);
         }
     }
 }
 
 const model = new CocktailModel();
-model.addLikes();
+//model.addLikes();
 model.addComments();
 
 module.exports = model;
