@@ -329,17 +329,3 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
         }).catch(err => console.error(`Fetch problem: ${err.message}`));
 })
-
-/*function sHeart(img, likes) {
-    let liked = false;
-    for (let like of likes) {
-        if (like == loggedIn) {
-            let liked = true;
-            break;
-        }
-    }
-
-    img.src = !liked ? "/images/heartEmpty.jpg"
-        : "/images/heartFull.jpg";
-    console.log(loggedIn);
-}*/

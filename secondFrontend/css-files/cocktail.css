@@ -1,20 +1,5 @@
 /*CSS Sara Cocktails.js*/
 /***********************/
-.navbar-brand{
-    text-align: center;
-}
-.navbar-collapse{
-    flex-grow: 0;
-}
-.nav-item{
-    text-align: center;
-    padding-left: 15px;
-}
-
-.nav-pills .nav-link.active {
-    background-color: grey;
-}
-
 .pad {
     padding: 0;
     margin: 0;
@@ -96,21 +81,6 @@ p {
     margin: 0;
 }
 
-.hamburger{
-    display: none;
-    cursor: pointer;
-}
-
-.bar{
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    background-color: white;
-}
-
 /*Responsiveness Cocktails.html */
 @media screen and (max-width: 2500px){
     .hoverText{
@@ -180,15 +150,6 @@ p {
 }
 
 @media screen and (max-width: 1000px){
-    .nav-item{
-        text-align: left;
-        padding-left: 0px;
-    }
-
-    .nav-pills .nav-link.active {
-        background-color: transparent;
-    }
-
     .hoverText{
         bottom: 160px;
         left: 160px;

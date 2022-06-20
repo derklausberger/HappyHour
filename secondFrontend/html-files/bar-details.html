@@ -2,16 +2,18 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
     <title>Happy Hour</title>
+
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="/images/tablogo.png" />
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' \>
     <link rel="stylesheet" href="css-files/home.css" />
 
     <script src="../js-files/import.js"></script>
+    <script src="../js-files/bar-details.js"></script>
     <script src="../js-files/auth.js"></script>
 </head>
 
@@ -19,32 +21,24 @@
     <nav import-ref="navbar.html">
     </nav>
 
-    <main class="overflow-scroll">
-        <div class="row">
-            <div class="col-sm">
-                <section>
-                    <!-- Top 10 Rezepte über API laden -->
-                    <br>
-                    <p>1.SPALTE</p>
-
-                </section>
+    <main id="main">
+        <div class="container">
+            <div class="row">
+                <div class="col" id="topLeft"></div>
+                <div class="col" id="topRight"></div>
+                <div class="w-400"></div>
             </div>
-
-            <div class="col-sm">
-                <section>
-                    <!-- Top 10 Rezepte über API laden -->
-                    <br>
-                    <p>2.SPALTE</p>
-
-                </section>
+            <div class="row">
+                <div class="col" id="bottomLeft"></div>
+                <div class="col" id="bottomRight"></div>
+                <div class="w-400"></div>
             </div>
         </div>
     </main>
 
-
     <footer class="fixed-bottom">
 
-        <a href="impressum.html">Impressum</a>
+        <a class="sticky-bottom" href="impressum.html">Impressum</a>
     </footer>
 
     </div>

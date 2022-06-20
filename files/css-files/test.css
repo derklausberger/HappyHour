@@ -2,11 +2,18 @@
 .top{
     background-image: url("/images/danny.jpg");
     background-size: cover;
-    background-position: 0px -700px; /*for background danny-lines*/
+    background-position: 0px -700px;
     color: white;
     opacity: 1;
 }
 
+.navbar-brand{
+    color: black;
+}
+
+.login{
+    margin: 0;
+}
 li{
     display: inline;
 }
@@ -22,6 +29,7 @@ li{
 
 #bot{
     padding-top: 100px;
+    padding-bottom: 100px;
     
 }
 
@@ -46,90 +54,97 @@ li{
     color: black;
 }
 
-#barCover{
-    margin-top: 100px;
-    background-image: url("/images/barCover.webp");
-    height: 800px;
-}
-
-#h2Bars{
-    color: white;
-    margin-top: 130px;
-    margin-bottom: 100px;
-    font-size: 80px;
-    font-weight: 80px;
-}
-
-.articleBars{
-    background-color: white;
-    opacity: .95;
-    margin-left: 10px;
-    margin-right: 10px;
-    border-radius: 10px;
-    border-color: black;
-    border-width: 2px;
-    height: 280px;
-}
-
-.h3Bars{
-    padding-top: 20px;
-    margin-bottom: 35px;
-}
-
-.picBar{
-    width: 280px;
-}
-
-#cocktailCover{
-    margin-top: 100px;
-    background-image: url("/images/cocktailCover.jpg");
-    background-size: cover;
-    height: 820px;
-    background-position: 0px -480px;
-}
-
-.pics2{
-    width: 100px;
-}
-
-#containerPeeps{
-    padding-top: 100px;
-    height: 430px;
-    padding-bottom: 100px;
-}
-
-#h2Cocktails{
-    color: white;
-    padding-top: 110px;
-    margin-bottom: 100px;
-    font-size: 80px;
-    font-weight: 80px;
-}
-
-.articleCocktails{
-    background-color: white;
-    opacity: .9;
-    margin-left: 10px;
-    margin-right: 10px;
-    border-radius: 10px;
-    border-color: black;
-    border-width: 2px;
-    height: 350px;
-}
-
-.h3Cocktails{
-    padding-top: 20px;
-    margin-bottom: 35px;
-}
-
-.picCocktails{
-    width: 240px;
-}
-
 #bottom{
-    margin-top: 130px;
+    padding-bottom: 15px;
 }
 
 a{
     color: black;
+}
+
+@media screen and (max-width: 1200px){
+    .header{
+        color: white;
+    }
+
+    .top{
+        background-position: 0px -300px;
+    }
+
+    .test{
+        padding-top: 280px;
+        height: 650px;
+    }
+
+    #headingStart{
+        font-size: 80px;
+    }
+    
+    #textStart{
+        font-size: 40px;
+    }
+    
+    #buttonStart{
+        margin-top: 20px;
+        font-size: 20px;
+    }
+    
+}
+
+@media screen and (max-width: 1000px){
+    .top{
+        background-position: 0px -250px;
+    }
+
+    .test{
+        padding-top: 280px;
+        height: 650px;
+    }
+
+    #headingStart{
+        font-size: 70px;
+    }
+    
+    #textStart{
+        font-size: 35px;
+    }
+    
+    #buttonStart{
+        margin-top: 15px;
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 780px){
+    .top{
+        background-position: 0px -100px;
+    }
+
+    .test{
+        padding-top: 200px;
+        height: 650px;
+    }
+}
+
+@media screen and (max-width: 550px){
+    .top{
+        background-position: 0px -700px;
+    }
+    .test{
+        padding-top: 280px;
+        height: 650px;
+    }
+
+    #headingStart{
+        font-size: 50px;
+    }
+    
+    #textStart{
+        font-size: 25px;
+    }
+    
+    #buttonStart{
+        margin-top: 10px;
+        font-size: 10px;
+    }
 }
