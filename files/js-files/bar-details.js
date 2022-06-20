@@ -23,16 +23,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
             bottomLeft.appendChild(barPic);
             var mybr = document.createElement('br');
             bottomLeft.append(mybr);
-
-            // icon on button
-            let icon = document.createElement("img");
-            icon.src = "/images/heartEmpty.jpg";
-            icon.id = "heart";
-            let likeButton = document.createElement("button");
-            likeButton.id = "likeButton";
-            likeButton.append(icon);
-            bottomLeft.appendChild(likeButton);
-
+            
+            var br = document.createElement("br");
+            bottomLeft.append(br);
+            
             // review
             let reviewDiv = document.createElement("div");
             let bottomRight = document.getElementById("bottomRight");

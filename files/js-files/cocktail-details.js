@@ -58,19 +58,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
             cockPic.id = "cockPic";
             topLeft.appendChild(cockPic);
 
-            // icon on button
-            let icon = document.createElement("img");
-            icon.src = "/images/heartEmpty.jpg";
-            icon.id = "heart";
-            let likeButton = document.createElement("button");
-            likeButton.id = "likeButton";
-            likeButton.append(icon);
-            let bottom = document.getElementById("bottom");
-            bottom.append(likeButton);
-
-            // when clicked
-            likeButton.onclick = tausch;
-
             // list of ingredients
             let ingredientsList = document.createElement("p");
             ingredientsList.id = "ingredientsList";
