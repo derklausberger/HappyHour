@@ -5,13 +5,12 @@ class UserController {
         const username = req.body.email;
         var user = await model.alreadyRegistered(username);
 
-        console.log(user);
         if (user){
             return res.status(400).send("User already exists");
         }
 
         user = await model.register(req.body);
-        //req.session.email = username;
+        req.session.user = username;
         return res.redirect("/index.html");
     }
 
@@ -30,9 +29,9 @@ class UserController {
             return res.status(401).send("Password stimmt nicht");
         }
 
-        req.session = username;
-
-        return res.redirect("/index.html");
+        req.session.user = username;
+        req.session.save();
+        return res.redirect('/index.html');
     }
 }
 

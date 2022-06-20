@@ -3,7 +3,7 @@ const controller = require('../controllers/cocktail-controller');
 
 const routes = Router();
 
-routes.get('/cocktails', controller.getCocktails);
+routes.post('/cocktails', controller.getCocktails);
 
 routes.get('/cocktails/:id', controller.getCocktail);
 

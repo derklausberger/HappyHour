@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function (event) {
-    sessionStorage.clear();
     var login = document.getElementById("login");
     login.addEventListener("submit", function (event) {
         event.preventDefault();
@@ -21,15 +20,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
         .then(response => {
             if (!response.ok) {
                 if (response.status == 400){
-                    alert("Kein Benutzer mit dieser Email");
+                    alert(response.statusText);
                 } else if (response.status == 401) {
-                    alert("Passwort stimmt nicht")
+                    alert(response.statusText)
                 }else {
                     throw new Error(`HTTP error: ${response.status}`);
                 }
             } else {
-                sessionStorage.setItem("username", username);
-                location.href = response.url;
+                window.location.href = "/index.html";
             }
         })
         .catch(error => console.error("Error:", error));

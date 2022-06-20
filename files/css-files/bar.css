@@ -15,18 +15,11 @@
     background-color: grey;
 }
 
-.pad {
-    padding: 0;
-    margin: 0;
-}
-.input {
-    padding: 0;
-    margin: 0;
-}
 main {
     background-color: #e7e7e7;
 }
-.imgCocktails{
+
+.barImage{
     width: 70%;
     margin-bottom: 10px;
     border-radius: 15px;
@@ -39,16 +32,6 @@ main {
 .test{
     padding-left: 165px;
     padding-right: 175px;
-}
-
-#cocktailName{
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.comment{
-    font-size: 16px;
-    font-weight: 700;
 }
 
 .border{
@@ -69,6 +52,7 @@ main {
 h1{
     padding-top: 3%;
     padding-bottom: 3%;
+    font-size: 35px;
 }
 
 
@@ -90,40 +74,11 @@ h1{
     opacity: 0.4;
 }
 
-p {
-    padding: 0;
-    margin: 0;
-}
-
-.but {
-    padding: 0;
-    padding-right: 10px;
-    margin: 0;
-}
-
-.hamburger{
-    display: none;
-    cursor: pointer;
-}
-
-.bar{
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    background-color: white;
-}
-
-#divCommentHeader{
-    padding-top: 10px;
-}
 /*Responsiveness Cocktails.html */
 @media screen and (max-width: 2500px){
     .hoverText{
-        bottom: 240px;
-        left: 270px;
+        bottom: 150px;
+        left: 290px;
     }
 
     .test{
@@ -156,23 +111,13 @@ p {
 
 @media screen and (max-width: 1200px){
     .hoverText{
-        bottom: 220px;
+        bottom: 120px;
         left: 240px;
     }
 
     .test{
         padding-left: 95px;
         padding-right: 85px;
-    }
-
-    .res{
-        flex-grow: 0.7;
-        margin-left: 10px;
-        padding-left: 0;
-    }
-
-    .comment{
-        padding-right: 10px;
     }
 
     main {
@@ -191,8 +136,13 @@ p {
     }
 
     .hoverText{
-        bottom: 160px;
+        bottom: 100px;
         left: 160px;
+    }
+
+    h1{
+        font-size: 25px;
+        text-align: center;
     }
 
     .test{
@@ -203,14 +153,19 @@ p {
 
 
 @media screen and (max-width: 765px){
-    .imgCocktails{
+    h1{
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .barImage{
         width: 90%;
         margin-bottom: 10px;
     }
 
     .hoverText{
-        bottom: 180px;
-        left: 95px;
+        bottom: 70px;
+        left: 100px;
     }
 
     .test{
@@ -219,32 +174,18 @@ p {
     }
 
     main {
-        margin-top: 10px;
+        margin-top: 20px;
     }
-
-    #btnLetters{
-        margin-bottom: 20px;
-    }
-
 }
 
 @media screen and (max-width: 550px){
-    .hoverText{
-        bottom: 180px;
-        left: 100px;
-    }
-
-    .imgCocktails{
-        width: 98%;
-    }
-
     .test{
         padding-left: 10px;
         padding-right: 0px;
     }
 
     main {
-        margin-top: 80px;
+        margin-top: 30px;
     }
 
     .border{
@@ -254,27 +195,27 @@ p {
 
 @media screen and (max-width: 480px){
     .hoverText{
-        bottom: 120px;
-        left: 50px;
+        bottom: 55px;
+        left: 80px;
     }
 }
 
 @media screen and (max-width: 400px){
     .hoverText{
-        bottom: 120px;
-        left: 65px;
+        bottom: 55px;
+        left: 70px;
         font-size: 15px;
-    main {
-        margin-top: 10px;
     }
 }
 
 @media screen and (max-width: 380px){
     .hoverText{
-        bottom: 120px;
-        left: 55px;
+        bottom: 50px;
+        left: 60px;
         font-size: 15px;
     }
-
 }
+
+
+
 /*************************/
