@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Happy Hour</title>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css-files/home.css" />
+    
+    <script src="../js-files/auth.js"></script>
+    <script src="../js-files/bars.js"></script>
+    <script src="../js-files/import.js"></script>
+</head>
+
+<body style="padding: 80px 0px 0px 0px" class="bodyBars">
+    <nav import-ref="navbar.html">
+    </nav>
+
+    <div class="row">
+        <div class="col-3 text-left barsleft">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        </div>
+        <div class="col-1 text-left">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </div>
+        <div class="col-5 text-right barsleft2">
+            <label for="cost">€
+                <input type="range" name="cost" id="cost" min="1" max="3" step="1">€€€
+            </label>
+        </div>
+        <div class="col-2 text-right">
+            <label>Umkreis von:
+                <label for="2km">
+                    <input type="radio" name="range" id="2km">2km
+                </label>
+                <label for="5km">
+                    <input type="radio" name="range" id="5km">5km
+                </label>
+                <label for="10km">
+                    <input type="radio" name="range" id="10km">10km
+                </label>
+            </label>
+        </div>
+    </div>
+        <main>
+        </main>
+
+        <footer class="fixed-bottom">
+
+            <a class="sticky-bottom" href="impressum.html">Impressum</a>
+        </footer>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
