@@ -1,0 +1,270 @@
+/*CSS Sara Cocktails.js*/
+/***********************/
+body {
+    background-color: #e7e7e7;
+}
+
+.navbar-brand{
+    text-align: center;
+}
+.navbar-collapse{
+    flex-grow: 0;
+}
+.nav-item{
+    text-align: center;
+    padding-left: 15px;
+}
+
+.nav-pills .nav-link.active {
+    background-color: grey;
+}
+
+.pad {
+    padding: 0;
+    margin: 0;
+}
+.input {
+    padding: 0;
+    margin: 0;
+}
+main {
+    background-color: #e7e7e7;
+}
+.imgCocktails{
+    width: 70%;
+    margin-bottom: 10px;
+    border-radius: 15px;
+}
+
+.bodyBars{
+    background-color: #e7e7e7;
+}
+
+.test{
+    padding-left: 165px;
+    padding-right: 175px;
+}
+
+#cocktailName{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.comment{
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.border{
+    background-color: white;
+    border-bottom: 10px;
+    border-color: lightgray;
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    border-width: medium;
+}
+
+.linkImages{
+    text-align: center;
+    position: relative;
+}
+
+h1{
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+
+.hoverText{
+    position: absolute;
+    color:black;
+    font-family: sans-serif;
+    font-size:large;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.linkImages:hover div{
+    visibility: visible;
+    opacity: 0.7; 
+}
+
+.linkImages:hover img {
+    opacity: 0.4;
+}
+
+p {
+    padding: 0;
+    margin: 0;
+}
+
+.but {
+    padding: 0;
+    padding-right: 10px;
+    margin: 0;
+}
+
+#divCommentHeader{
+    padding-top: 10px;
+}
+/*Responsiveness Cocktails.html */
+@media screen and (max-width: 2500px){
+    .hoverText{
+        bottom: 240px;
+        left: 270px;
+    }
+
+    .test{
+        padding-left: 135px;
+        padding-right: 125px;
+    }
+
+    .comment{
+        flex-grow: 0.1;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .likes{
+        flex-grow: 0.1;
+        padding-right: 0;
+    }
+
+    .images{
+        flex-grow: 0.1;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .res{
+        padding-left: 2px;
+    }
+
+}
+
+@media screen and (max-width: 1200px){
+    .hoverText{
+        bottom: 220px;
+        left: 240px;
+    }
+
+    .test{
+        padding-left: 95px;
+        padding-right: 85px;
+    }
+
+    .res{
+        flex-grow: 0.7;
+        margin-left: 10px;
+        padding-left: 0;
+    }
+
+    .comment{
+        padding-right: 10px;
+    }
+
+    main {
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .nav-item{
+        text-align: left;
+        padding-left: 0px;
+    }
+
+    .nav-pills .nav-link.active {
+        background-color: transparent;
+    }
+
+    .hoverText{
+        bottom: 160px;
+        left: 160px;
+    }
+
+    .test{
+        padding-left: 75px;
+        padding-right: 60px;
+    }
+}
+
+
+@media screen and (max-width: 765px){
+    .imgCocktails{
+        width: 90%;
+        margin-bottom: 10px;
+    }
+
+    .hoverText{
+        bottom: 180px;
+        left: 95px;
+    }
+
+    .test{
+        padding-left: 20px;
+        padding-right: 10px;
+    }
+
+    main {
+        margin-top: 10px;
+    }
+
+    #btnLetters{
+        margin-bottom: 20px;
+    }
+
+}
+
+@media screen and (max-width: 550px){
+    .hoverText{
+        bottom: 180px;
+        left: 100px;
+    }
+
+    .imgCocktails{
+        width: 98%;
+    }
+
+    .test{
+        padding-left: 10px;
+        padding-right: 0px;
+    }
+
+    main {
+        margin-top: 80px;
+    }
+
+    .border{
+        width: 90%
+    }
+}
+
+@media screen and (max-width: 480px){
+    .hoverText{
+        bottom: 120px;
+        left: 50px;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .hoverText{
+        bottom: 120px;
+        left: 65px;
+        font-size: 15px;
+    }
+    main {
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 380px){
+    .hoverText{
+        bottom: 120px;
+        left: 55px;
+        font-size: 15px;
+    }
+
+}
+/*************************/
