@@ -29,6 +29,7 @@ class Bar {
         this.place_id = place_id;
 
         this.vicinity = vicinity;
+        this.opening_hours = opening_hours;
     }
 }
 

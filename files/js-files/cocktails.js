@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 let cocktailName = document.createElement('h1');
                 link.append(cocktailName);
                 cocktailName.innerHTML = cocktail.strDrink;
+                cocktailName.id = "cocktailName";
 
                 let divCocktailImage = document.createElement("div");
                 div.append(divCocktailImage);
@@ -139,6 +140,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 let commentHeader = document.createElement("h3");
                 divCommentHeader.append(commentHeader);
                 commentHeader.innerHTML = "Comments";
+                divCommentHeader.id = "divCommentHeader";
                 commentHeader.className = "comment";
                 
                 /****************************************** */

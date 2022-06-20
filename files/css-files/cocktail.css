@@ -41,6 +41,11 @@ main {
     padding-right: 175px;
 }
 
+#cocktailName{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
 .comment{
     font-size: 16px;
     font-weight: 700;
@@ -111,6 +116,9 @@ p {
     background-color: white;
 }
 
+#divCommentHeader{
+    padding-top: 10px;
+}
 /*Responsiveness Cocktails.html */
 @media screen and (max-width: 2500px){
     .hoverText{
