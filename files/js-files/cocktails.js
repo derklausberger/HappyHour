@@ -7,9 +7,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     let btnRow = document.createElement("div");
     centerDiv.append(btnRow);
-    btnRow.setAttribute("style", "margin-top: 15px; margin-bottom: 10px;");
+    btnRow.setAttribute("style", "margin-top: 15px; margin-bottom: 15px;");
 
-    btnRow.className = "btn-group btn-group-md";
+    btnRow.className = "btn-group btn-group-md flex-wrap";
+    btnRow.id = "btnLetters";
     for (let i = 0; i < 26; i++) {
         let letter = String.fromCharCode(i + 65);
         let button = document.createElement("button");

@@ -256,8 +256,13 @@ p {
     }
 
     main {
-        margin-top: 20px;
+        margin-top: 10px;
     }
+
+    #btnLetters{
+        margin-bottom: 20px;
+    }
+
 }
 
 @media screen and (max-width: 550px){
@@ -289,11 +294,12 @@ p {
     }
 
     main {
-        margin-top: 80px;
+        margin-top: 10px;
     }
 
     .border{
         width: 90%
     }
+
 }
 /*************************/
