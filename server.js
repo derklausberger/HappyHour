@@ -59,11 +59,7 @@ const { runInNewContext } = require('vm');
 app.use(express.static(path.join(__dirname, 'files')), (req, res, next) => {
     let destUrl;
     const parts = req.originalUrl.split("/");
-<<<<<<< HEAD
-
-=======
     
->>>>>>> e94868b436a4d7e0d0b05294e9a8738759a73d49
     if (req.cookies !== undefined && req.cookies.low_bw) {
         if (parts.length > 3) {
             destUrl = parts[parts.length - 1];
