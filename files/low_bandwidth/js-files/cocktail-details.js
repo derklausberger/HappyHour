@@ -36,7 +36,7 @@ function tausch() {
 }
 document.addEventListener("DOMContentLoaded", function (event) {
     let parser = new URLSearchParams(window.location.search);
-    fetch('/api/cocktails/' + parser.get("id"))
+    fetch('/api/cocktail/' + parser.get("id"))
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error: ${response.status}`);

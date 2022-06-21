@@ -4,8 +4,8 @@ const controller = require('../controllers/cocktail-controller');
 const routes = Router();
 
 
-routes.post('/cocktails', controller.getCocktails);
-routes.get('/cocktails/:id', controller.getCocktail);
+routes.get('/cocktails/:letter', controller.getCocktails);
+routes.get('/cocktail/:id', controller.getCocktail);
 routes.get('/random-cocktails', controller.getRandomCocktails);
 routes.get('/allCocktails', controller.getAllCocktails);
 
