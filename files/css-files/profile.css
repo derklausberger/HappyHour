@@ -65,6 +65,12 @@ main {
 .int {
     width: 50%;
 }
+
+#profileHeader{
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
 /*Responsiveness Cocktails.html */
 @media screen and (max-width: 2500px){
     .colText{

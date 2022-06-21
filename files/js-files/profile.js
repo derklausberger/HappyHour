@@ -91,6 +91,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
         div.append(row);
         row.className = "row justify-content-center";
 
+        let randomCocktails = document.createElement("h2");
+        randomCocktails.innerHTML = "YOUR LIKED COCKTAILS";
+        randomCocktails.id = "profileHeader";
+        let header = document.getElementById("profileHeader");
+        header.append(randomCocktails);
+
         for (let cocktail of Array.from(cocktails)) {
                 let oberdiv = document.createElement("div");
                 oberdiv.className = "col-8 rowProfile";
