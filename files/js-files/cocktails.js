@@ -314,7 +314,7 @@ function loadCocktails(letter) {
                                         comment: comment[1]
                                     })
                                 })
-                                    .catch(error => console.error("Error:", error));
+                                .catch(error => console.error("Error:", error));
                             }
                         }
                     }
