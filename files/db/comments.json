@@ -1,65 +1,24 @@
-{
-  "comments": [
-    {},
-    {
-      "id": 1,
-      "userId": 1,
-      "cocktailId": "13501",
-      "comment": "Hab noch nie etwas besseres getrunken"
-    },
-    {
-      "id": 2,
-      "userId": 1,
-      "cocktailId": "17222",
-      "comment": "Total gut und super günstig!"
-    },
-    {},
-    {
-      "id": 4,
-      "userId": 1,
-      "cocktailId": "17222",
-      "comment": "Wahnsinnig guter Cocktail"
-    },
-    {
-      "id": 5,
-      "userId": "X@X",
-      "cocktailId": "17222",
-      "comment": "lecker"
-    },
-    {
-      "id": 6,
-      "userId": null,
-      "cocktailId": "17225",
-      "comment": "schmeckt"
-    },
-    {},
-    {
-      "id": 7,
-      "userId": "test@test",
-      "cocktailId": "17222",
-      "comment": "nice"
-    },
-    {
-      "id": 9,
-      "cocktailId": "16354",
-      "comment": "wow!"
-    },
-    {
-      "id": 10,
-      "cocktailId": "16262",
-      "comment": "Mein Lieblingscocktail!"
-    },
-    {
-      "id": 11,
-      "userId": "test@test",
-      "cocktailId": "16405",
-      "comment": "Schmeckt echt gut"
-    },
-    {
-      "id": 11,
-      "userId": "test@test",
-      "cocktailId": "17222",
-      "comment": "Sehr einfach"
-    }
+{"13501": [
+  [
+    "max.mustermann@test.at",
+    "Super lecker und sehr günstig!"
   ]
+],
+"13938": [],
+"17222": [
+  [
+    "max.mustermann@test.at",
+    "Sehr guter Cocktail, kann ich nur empfehlen!"
+  ],
+  [
+    "max.mustermann@test.at",
+    "Sehr leichtes Rezept, super zum Folgen!"
+  ]
+],
+"17225": [
+  [
+    "max.mustermann@test.at",
+    "Tolle Farbe!"
+  ]
+]
 }
