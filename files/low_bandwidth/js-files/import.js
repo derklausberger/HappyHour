@@ -48,5 +48,4 @@ function logout() {
 
 document.addEventListener("DOMContentLoaded", function (event) {
     include();
-
 });
