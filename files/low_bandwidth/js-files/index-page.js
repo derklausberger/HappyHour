@@ -141,15 +141,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
                         let col1 = document.createElement("div");
                         divComment.append(col1);
                         col1.className = "col-10 pad";
+                        col1.id= comment[1];
 
                         let p = document.createElement("p");
                         col1.append(p);
-                        p.innerHTML = comment.comment;
+                        p.innerHTML = comment[1];
+                        p.id = comment[1] + "p";
 
-                        if (comment.userId == loggedIn) {
+                        if (comment[0] == loggedIn) {
                             let col2 = document.createElement("div");
                             divComment.append(col2);
                             col2.className = "col-1 pad text-right";
+                            col2.id = comment[1] + "1";
 
                             let buttonEdit = document.createElement("button");
                             col2.append(buttonEdit);
@@ -161,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                             buttonEdit.onclick = () => {
                                 if (cnt == 0) {
                                     div.append(divWrite);
-                                    input.value = comment.comment;
+                                    input.value = comment[1];
                                     cnt++;
                                 }
 
@@ -195,6 +198,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                             let col3 = document.createElement("div");
                             divComment.append(col3);
                             col3.className = "col-1 pad text-right";
+                            col3.id = comment[1] + "2";
 
                             let buttonDelete = document.createElement("button");
                             col3.append(buttonDelete);
