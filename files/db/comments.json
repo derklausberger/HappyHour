@@ -30,7 +30,7 @@
       "id": 6,
       "userId": null,
       "cocktailId": "17225",
-      "comment": "comment"
+      "comment": "schmeckt"
     },
     {},
     {
@@ -42,24 +42,24 @@
     {
       "id": 9,
       "cocktailId": "16354",
-      "comment": "mega lecker"
+      "comment": "wow!"
     },
     {
       "id": 10,
       "cocktailId": "16262",
-      "comment": "bester cocktail"
+      "comment": "Mein Lieblingscocktail!"
     },
     {
       "id": 11,
       "userId": "test@test",
       "cocktailId": "16405",
-      "comment": "geil"
+      "comment": "Schmeckt echt gut"
     },
     {
       "id": 11,
       "userId": "test@test",
       "cocktailId": "17222",
-      "comment": "kkkk"
+      "comment": "Sehr einfach"
     }
   ]
 }
