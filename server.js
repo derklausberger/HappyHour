@@ -102,7 +102,7 @@ app.use(express.static(path.join(__dirname, 'files')), (req, res, next) => {
         } else {
             next();
         }
-    }    
+    }
 });
 
 app.use(express.static(path.join(__dirname, 'files/html-files')));
