@@ -51,8 +51,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
             var newbr = document.createElement('br');
             bottomLeft.append(newbr);
 
-
-
             // address
             let address = document.createElement("address");
             let addressLabel = document.createElement("p");
@@ -73,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             openingHoursLabel.id = "openingHoursLabel";
             openingHoursDiv.append(openingHoursLabel);
             
-            if (bar.opening_hours.weekday_text == undefined) {
+            if (bar.opening_hours === undefined) {
                 let openingHours = document.createElement("p");
                     openingHours.id = "openingHours";
                     openingHours.innerHTML = "No opening hours available.";

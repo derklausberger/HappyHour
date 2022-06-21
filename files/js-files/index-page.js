@@ -165,32 +165,31 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 input.id = "comment";
                 input.className = "form-control";
                 /******************************************** */
-                if (cocktail.comments.length == 0) {
-                    let divComment = document.createElement("div");
-                    div.append(divComment);
-                    divComment.className = "row test";
+                let divComment = document.createElement("div");
+                div.append(divComment);
+                divComment.className = "row test";
 
-                    let nocomments = document.createElement("p");
+                let nocomments = document.createElement("p");
+                if (cocktail.comments.length == 0) {
                     divComment.append(nocomments);
                     nocomments.innerHTML = "Noch keine Kommentare vorhanden";
                 } else {
                     for (let comment of cocktail.comments) {
-                        let divComment = document.createElement("div");
-                        div.append(divComment);
-                        divComment.className = "row test";
-
                         let col1 = document.createElement("div");
                         divComment.append(col1);
                         col1.className = "col-10 pad";
+                        col1.id= comment[1];
 
                         let p = document.createElement("p");
                         col1.append(p);
-                        p.innerHTML = comment.comment;
+                        p.innerHTML = comment[1];
+                        p.id = comment[1] + "p";
 
-                        if (comment.userId == loggedIn) {
+                        if (comment[0] == loggedIn) {
                             let col2 = document.createElement("div");
                             divComment.append(col2);
                             col2.className = "col-1 pad text-right";
+                            col2.id = comment[1] + "1";
 
                             let buttonEdit = document.createElement("button");
                             col2.append(buttonEdit);
@@ -208,11 +207,21 @@ document.addEventListener("DOMContentLoaded", function (event) {
                             buttonEdit.onclick = () => {
                                 if (cnt == 0) {
                                     div.append(divWrite);
-                                    input.value = comment.comment;
+                                    input.value = comment[1];
                                     cnt++;
                                 }
 
                                 if (input.value != '' && input.value != comment.comment) {
+                                    let changedp = document.getElementById(comment[1]+"p");
+                                    changedp.innerHTML = input.value;
+                                    
+                                    divWrite.style.display = "none";
+
+                                    let butEd = document.getElementById(comment[1]+"1");
+                                    let butDel = document.getElementById(comment[1]+"2");
+                                    butEd.style.display = "none";
+                                    butDel.style.display = "none";
+
                                     fetch("/api/editComment", {
                                         method: "put",
                                         headers: {
@@ -224,13 +233,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
                                             comment: input.value
                                         })
                                     })
-                                        .catch(error => console.error("Error:", error));
+                                    .catch(error => console.error("Error:", error));
+                                    input.value = "";
                                 }
                             }
 
                             let col3 = document.createElement("div");
                             divComment.append(col3);
                             col3.className = "col-1 pad text-right";
+                            col3.id = comment[1] + "2";
 
                             let buttonDelete = document.createElement("button");
                             col3.append(buttonDelete);
@@ -245,6 +256,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
                             imgDel.width = "20";
 
                             buttonDelete.onclick = () => {
+                                if (cocktail.comments.length-1 == 0){
+                                    divComment.appendChild(nocomments);
+                                    nocomments.innerHTML = "Noch keine Kommentare vorhanden";
+                                }
+                                let comentDel = document.getElementById(comment[1]);
+                                let butEd = document.getElementById(comment[1]+"1");
+                                let butDel = document.getElementById(comment[1]+"2");
+                                comentDel.style.display = "none";
+                                butEd.style.display = "none";
+                                butDel.style.display = "none";
+
                                 fetch("/api/deleteComment", {
                                     method: "delete",
                                     headers: {
@@ -254,7 +276,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                                         id: comment.id
                                     })
                                 })
-                                    .catch(error => console.error("Error:", error));
+                                .catch(error => console.error("Error:", error));
                             }
                         }
                     }
@@ -321,6 +343,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 commentButton.onclick = () => {
                     div.append(divWrite);
                     if (input.value != '') {
+                        if (cocktail.comments.length == 0) {
+                            nocomments.style.display = "none";
+                        }
+                        divWrite.style.display = "none";
+                        let col1 = document.createElement("div");
+                        divComment.appendChild(col1);
+                        col1.className = "col-10 pad";
+
+                        let p = document.createElement("p");
+                        col1.append(p);
+                        p.innerHTML = input.value;
+
                         fetch("/api/comment", {
                             method: "post",
                             headers: {
@@ -331,7 +365,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
                                 comment: input.value
                             })
                         })
-                            .catch(error => console.error("Error:", error));
+                        .catch(error => console.error("Error:", error));
+                        input.value = "";
                     }
                 }
         })

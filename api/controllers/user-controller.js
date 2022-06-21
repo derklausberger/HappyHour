@@ -18,8 +18,6 @@ class UserController {
         const username = req.body.email;
         const password = req.body.password;
         
-
-        console.log(req.body)
         var user = await model.getUser(username);
 
         if (!user){

@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function (event) {
     navigator.geolocation.getCurrentPosition(position => {
         const { latitude, longitude } = position.coords;
-        console.log(position)
         fetch('/api/bars/json', {
             method: "post",
             headers: {
@@ -50,11 +49,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     a.className = "linkImages";
 
                     let barImage = document.createElement('img');
-                    a.append(barImage)
+                    a.append(barImage);
                     //replaced this
-                    //img.src = bar.img_url;
+                    barImage.src = bar.img_url;
                     //with this
-                    barImage.src = 'https://www.25hours-hotels.com/images/25h_bikini_stephanlemke_monkey_bar_people_medium_77_175080046444e25d59d72eb3.jpg';
+                    //barImage.src = 'https://www.25hours-hotels.com/images/25h_bikini_stephanlemke_monkey_bar_people_medium_77_175080046444e25d59d72eb3.jpg';
                     //to reduce api calls for google api
                     barImage.alt = 'alt';
                     barImage.className = "img-responsive barImage";

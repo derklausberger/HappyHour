@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                                     throw new Error(`HTTP error: ${response.status}`);
                                 }
                             } else {
-                            window.location.href = "/profile.html";;
+                            window.location.href = "/profile.html";
                             }
                         })
                         .catch(error => console.error("Error:", error));
@@ -144,7 +144,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                 if (cocktail.liked){
                     row.append(oberdiv);
-                    console.log(cocktail);
                 }
         }
     }).catch(err => console.error(`Fetch problem: ${err.message}`));

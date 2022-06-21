@@ -1,11 +1,7 @@
 
-function tausch() {
-    document.getElementById("cocktailBtn").setAttribute("src", "/images/heartFull.jpg");
-}
-
 document.addEventListener("DOMContentLoaded", function (event) {
     let parser = new URLSearchParams(window.location.search);
-    fetch('/api/cocktails/' + parser.get("id"))
+    fetch('/api/cocktail/' + parser.get("id"))
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error: ${response.status}`);
@@ -50,7 +46,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             let topRight = document.getElementById("topRight");
             topRight.append(ingredientsList);
-            console.log(ingredientsList);
 
             // instructions
             let instructionsDiv = document.createElement("p");

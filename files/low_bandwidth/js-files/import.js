@@ -28,7 +28,6 @@ function include() {
 function logout() {
     let logout = document.getElementById("logout");
     logout.onclick = () => {
-        console.log("hier")
         fetch('/logout').then(response => {
             if (!response.ok) {
                 if (response.status == 400) {
@@ -48,5 +47,4 @@ function logout() {
 
 document.addEventListener("DOMContentLoaded", function (event) {
     include();
-
 });

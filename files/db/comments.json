@@ -42,20 +42,24 @@
     {
       "id": 9,
       "cocktailId": "16354",
-      "comment": "kommentar"
+      "comment": "mega lecker"
     },
     {
       "id": 10,
-      "cocktailId": "17222",
-      "comment": "haha"
+      "cocktailId": "16262",
+      "comment": "bester cocktail"
     },
     {
       "id": 11,
-      "comment": "shds",
-      "userId": "maxine.musterfrau@test.at",
-      "cocktailId": "17222"
+      "userId": "test@test",
+      "cocktailId": "16405",
+      "comment": "geil"
     },
-    {},
-    {}
+    {
+      "id": 11,
+      "userId": "test@test",
+      "cocktailId": "17222",
+      "comment": "kkkk"
+    }
   ]
 }

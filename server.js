@@ -41,7 +41,7 @@ app.get('/low-bw', (req, res, next) => {
     if (req.cookies.low_bw === undefined) {
         var randomNumber = Math.random().toString();
         randomNumber = randomNumber.substring(2, randomNumber.length);
-        res.cookie("low_bw", randomNumber, { maxAge: 900000, httpOnly: true });
+        res.cookie("low_bw", randomNumber, { maxAge: oneDay, httpOnly: true });
         next();
     } else {
         res.clearCookie("low_bw");
@@ -102,7 +102,7 @@ app.use(express.static(path.join(__dirname, 'files')), (req, res, next) => {
         } else {
             next();
         }
-    }    
+    }
 });
 
 app.use(express.static(path.join(__dirname, 'files/html-files')));

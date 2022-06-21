@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function (event) {
     navigator.geolocation.getCurrentPosition(position => {
         const { latitude, longitude } = position.coords;
-        console.log(position)
         fetch('/api/bars/json', {
             method: "post",
             headers: {
@@ -26,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 let rowdiv = document.createElement('div');
                 container.append(rowdiv);
                 rowdiv.className = "row justify-content-center t";
-                for (let bar of Array.from(bars)) {
+                for (let bar of Array.from(bars.bars)) {
                     let div = document.createElement('div');
                     rowdiv.append(div);
                     div.className = "col-8 border";
@@ -48,21 +47,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     divBarImage.append(a);
                     a.href = "bar-details.html?id=" + bar.place_id;
                     a.className = "linkImages";
-
-                    let barImage = document.createElement('img');
-                    a.append(barImage)
-                    //replaced this
-                    //img.src = bar.img_url;
-                    //with this
-                    barImage.src = 'https://www.25hours-hotels.com/images/25h_bikini_stephanlemke_monkey_bar_people_medium_77_175080046444e25d59d72eb3.jpg';
-                    //to reduce api calls for google api
-                    barImage.alt = 'alt';
-                    barImage.className = "img-responsive barImage";
-
-                    let divP = document.createElement("div");
-                    a.append(divP);
-                    divP.innerHTML = "Click here for Details";
-                    divP.className = "hoverText";
+                    a.innerHTML = "Click here for Details";
 
                     let totalRatings = document.createElement("div");
                     div.append(totalRatings);
