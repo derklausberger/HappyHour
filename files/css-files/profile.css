@@ -70,6 +70,8 @@ main {
     text-align: center;
     margin-left: 10px;
     margin-right: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 /*Responsiveness Cocktails.html */
 @media screen and (max-width: 2500px){

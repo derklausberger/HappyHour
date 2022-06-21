@@ -26,7 +26,7 @@ app.use(session({
 
 app.post('/user', (req, res) => {
     if (!req.session.user) {
-        return res.status(301).redirect(/*/low_bandwidth/html-files*/'/error.html');
+        return res.status(301).redirect('/error.html');
     } else {
         return res.send({ user: req.session.user });
     }
@@ -45,7 +45,7 @@ app.get('/low-bw', (req, res, next) => {
         next();
     } else {
         res.clearCookie("low_bw");
-        next()
+        next();
     }
 });
 
@@ -59,8 +59,8 @@ const { runInNewContext } = require('vm');
 app.use(express.static(path.join(__dirname, 'files')), (req, res, next) => {
     let destUrl;
     const parts = req.originalUrl.split("/");
-    console.log(req.url);
-
+    console.log("a" + req.url + "    " + req.cookies.low_bw);
+    
     if (req.cookies !== undefined && req.cookies.low_bw) {
         if (parts.length > 3) {
             destUrl = parts[parts.length - 1];
@@ -78,10 +78,10 @@ app.use(express.static(path.join(__dirname, 'files')), (req, res, next) => {
             res.redirect(301, destUrl);
         } else {
             destUrl = req.originalUrl;
-            next()
+            next();
         }
     } else {
-        destUrl = "/" + parts[parts.length - 1];
+        destUrl = "/" + parts[parts.length - 1]; console.log(parts.length);
         if (parts.length > 3) {
             if (req.originalUrl.endsWith(".css")) {
                 destUrl = "/css-files" + destUrl;
@@ -92,7 +92,7 @@ app.use(express.static(path.join(__dirname, 'files')), (req, res, next) => {
             } else if (req.originalUrl.endsWith(".js")) {
                 destUrl = "/js-files" + destUrl;
                 res.redirect(301, destUrl);
-            } else if (req.originalUrl.endsWith(".jpeg")) {
+            } else if (req.originalUrl.endsWith(".jpeg") || req.originalUrl.endsWith(".jpg") || req.originalUrl.endsWith(".png")) {
                 destUrl = "/images" + destUrl;
                 res.redirect(301, destUrl);
             } else {
