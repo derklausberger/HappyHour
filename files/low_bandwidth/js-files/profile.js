@@ -2,6 +2,8 @@
 document.addEventListener("DOMContentLoaded", function (event) {
     let buttonChangeFrontend = document.querySelector("#changeFrontend");
     buttonChangeFrontend.onclick = () => {
-        fetch('/low-bw').then(window.location.href = "/low_bandwidth/html-files/profile.html");
+        fetch('/low-bw').then(res => {
+            window.location.href = "/profile.html";
+        });
     }
 })

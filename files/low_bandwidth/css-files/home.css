@@ -1,3 +1,18 @@
+.navbar-brand{
+    text-align: center;
+}
+.navbar-collapse{
+    flex-grow: 0;
+}
+.nav-item{
+    text-align: center;
+    padding-left: 15px;
+}
+
+.nav-pills .nav-link.active {
+    background-color: grey;
+}
+
 body {
     background-color: #e7e7e7;
 }
@@ -112,6 +127,9 @@ body {
     padding-left: 20px;
 
     margin-top: 20px;
+    margin-bottom: 30px;
+
+
 }
 
 .cocktail-details {
@@ -157,19 +175,30 @@ body {
     top: 0;
     overflow: hidden;
     color: #f80;
+}
 
+.hamburger{
+    display: none;
+    cursor: pointer;
+}
 
-/* Small devices (phones, 600px and down)*/
+.bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: white;
+}
 
-@media only screen and (max-width: 480px) {
-
-    nav  ul li a{
-        color: red;
+@media screen and (max-width: 1000px){
+    .nav-item{
+        text-align: left;
+        padding-left: 0px;
     }
 
-} 
-
-/* Large devices (laptops/desktops, 992px and up)*/
-@media only screen and (min-width: 768px) {
-
+    .nav-pills .nav-link.active {
+        background-color: transparent;
+    }
 }

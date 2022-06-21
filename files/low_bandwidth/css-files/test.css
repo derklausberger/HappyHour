@@ -1,0 +1,150 @@
+
+.top{
+    background-image: url("/images/danny.jpg");
+    background-size: cover;
+    background-position: 0px -700px;
+    color: white;
+    opacity: 1;
+}
+
+.navbar-brand{
+    color: black;
+}
+
+.login{
+    margin: 0;
+}
+li{
+    display: inline;
+}
+
+.test{
+    padding-top: 280px;
+    height: 880px;
+}
+
+.pics{
+    width: 350px;
+}
+
+#bot{
+    padding-top: 100px;
+    padding-bottom: 100px;
+    
+}
+
+#headingStart{
+    font-size: 100px;
+}
+
+#textStart{
+    font-size: 50px;
+}
+
+#buttonStart{
+    margin-top: 50px;
+    font-size: 25px;
+}
+
+.left{
+    padding-left: 80px;
+}
+
+.linknav{
+    color: black;
+}
+
+#bottom{
+    padding-bottom: 15px;
+}
+
+a{
+    color: black;
+}
+
+@media screen and (max-width: 1200px){
+    .header{
+        color: white;
+    }
+
+    .top{
+        background-position: 0px -300px;
+    }
+
+    .test{
+        padding-top: 280px;
+        height: 650px;
+    }
+
+    #headingStart{
+        font-size: 80px;
+    }
+    
+    #textStart{
+        font-size: 40px;
+    }
+    
+    #buttonStart{
+        margin-top: 20px;
+        font-size: 20px;
+    }
+    
+}
+
+@media screen and (max-width: 1000px){
+    .top{
+        background-position: 0px -250px;
+    }
+
+    .test{
+        padding-top: 280px;
+        height: 650px;
+    }
+
+    #headingStart{
+        font-size: 70px;
+    }
+    
+    #textStart{
+        font-size: 35px;
+    }
+    
+    #buttonStart{
+        margin-top: 15px;
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 780px){
+    .top{
+        background-position: 0px -100px;
+    }
+
+    .test{
+        padding-top: 200px;
+        height: 650px;
+    }
+}
+
+@media screen and (max-width: 550px){
+    .top{
+        background-position: 0px -700px;
+    }
+    .test{
+        padding-top: 280px;
+        height: 650px;
+    }
+
+    #headingStart{
+        font-size: 50px;
+    }
+    
+    #textStart{
+        font-size: 25px;
+    }
+    
+    #buttonStart{
+        margin-top: 10px;
+        font-size: 10px;
+    }
+}

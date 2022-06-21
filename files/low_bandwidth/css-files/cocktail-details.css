@@ -1,3 +1,18 @@
+.navbar-brand{
+    text-align: center;
+}
+.navbar-collapse{
+    flex-grow: 0;
+}
+.nav-item{
+    text-align: center;
+    padding-left: 15px;
+}
+
+.nav-pills .nav-link.active {
+    background-color: grey;
+}
+
 body{
     background-color: #e7e7e7;
     padding-top: 120px;
@@ -6,7 +21,6 @@ body{
 #cockPic{
     width: 55%;
     border-radius: 15px;
-    padding-bottom: 15px;
 }
 
 #heart{
@@ -29,6 +43,7 @@ body{
 #likeButton{
     border: none;
     background-color: white;
+    padding-top: 15px;
     padding-bottom: 15px;
 }
 
@@ -41,6 +56,7 @@ body{
 
 #topRight{
     padding-right: 40px;
+    font-weight: bold;
 
 }
 
@@ -51,30 +67,59 @@ body{
 #bottom{
     padding-right: 40px;
     padding-left: 40px;
-}
-
-#ingredientsTag{
     font-weight: bold;
 }
 
 #ingredientsList{
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: lighter;
     font-size: 20px;
+
 }
 
-#instructionsDiv{
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+#ingredientsTag{
+    font-weight: bold;
     font-size: 20px;
+
 }
 
 #instructionsTag{
     font-weight: bold;
+}
+#instructionsDiv{
+    font-weight: lighter;
+    font-size: 20px;
+}
+
+.hamburger{
+    display: none;
+    cursor: pointer;
+}
+
+.bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: white;
 }
 
 @media screen and (max-width: 550px) {
     #cockPic{
         width: 100px;
         height: auto;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .nav-item{
+        text-align: left;
+        padding-left: 0px;
+    }
+
+    .nav-pills .nav-link.active {
+        background-color: transparent;
     }
 }
 

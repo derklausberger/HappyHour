@@ -1,0 +1,126 @@
+.navbar-brand{
+    text-align: center;
+}
+.navbar-collapse{
+    flex-grow: 0;
+}
+.nav-item{
+    text-align: center;
+    padding-left: 15px;
+}
+
+.nav-pills .nav-link.active {
+    background-color: grey;
+}
+
+body{
+    background-color: #e7e7e7;
+    padding-top: 120px;
+}
+
+#barPic{
+    width: 50%;
+    height: auto;
+    border-radius: 15px;
+}
+
+#heart{
+    height: 25px;
+    width: 25px;
+}
+
+.container{
+    background-color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 15px;
+}
+
+.cocktail-details{
+    background-color: lightgrey;
+}
+
+#likeButton{
+    border: none;
+    background-color: white;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+#topLeft{
+    padding-right: 40px;
+    padding-left: 40px;
+}
+#bottomLeft{
+    padding-left: 40px;
+}
+#bottomRight{
+    padding-right: 40px;
+    padding-top: 20px;
+}
+
+#addressLabel{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.hamburger{
+    display: none;
+    cursor: pointer;
+}
+
+.bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: white;
+}
+#address{
+    font-weight: lighter;
+}
+#openingHoursDiv{
+    font-weight: bold;
+    font-size: 20px;
+}
+#openingHours{
+    font-weight:lighter;
+}
+
+@media screen and (max-width: 550px) {
+    #barPic{
+        width: 120px;
+        height: auto;
+    }
+
+
+}
+
+@media screen and (max-width: 1000px){
+    .nav-item{
+        text-align: left;
+        padding-left: 0px;
+    }
+
+    .nav-pills .nav-link.active {
+        background-color: transparent;
+    }
+
+    #bottomRight{
+        padding-right: 10px;
+        padding-top: 10px;
+        font-size:10px;
+    }
+
+    #bottomLeft{
+        font-size:smaller;
+    }
+}
+
+
+
+
+
+

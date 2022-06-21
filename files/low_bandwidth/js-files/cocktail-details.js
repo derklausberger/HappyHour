@@ -31,7 +31,9 @@
        
 */
 
-
+function tausch() {
+    document.getElementById("cocktailBtn").setAttribute("src", "/images/heartFull.jpg");
+}
 document.addEventListener("DOMContentLoaded", function (event) {
     let parser = new URLSearchParams(window.location.search);
     fetch('/api/cocktails/' + parser.get("id"))
@@ -50,24 +52,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
             let heading = document.getElementById("heading");
             heading.prepend(cocktailH2);
 
-            // no picture
-            
-
-            // no icon on button
-            
-            let likeButton = document.createElement("button");
-            likeButton.id = "likeButton";
-            likeButton.innerHTML = "LIKE";
-            let bottom = document.getElementById("bottom");
-            bottom.append(likeButton);
-
+            // picture
+            let cockPic = document.createElement("img");
+            cockPic.src = c.strDrinkThumb;
+            cockPic.id = "cockPic";
+            topLeft.appendChild(cockPic);
 
             // list of ingredients
-            let ingredientsList = document.createElement("ul");
+            let ingredientsList = document.createElement("p");
             ingredientsList.id = "ingredientsList";
             let ingredientsTag = document.createElement("p");
             ingredientsTag.id = "ingredientsTag";
-            ingredientsTag.innerHTML = "INGREDIENTS:";
+            ingredientsTag.innerHTML = "INGREDIENTS";
             ingredientsList.append(ingredientsTag);
 
             if(c.strIngredient1 !== null){
@@ -203,7 +199,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             instructionsDiv.id = "instructionsDiv";    
             let instructionsTag = document.createElement("p");
             instructionsTag.id = "instructionsTag";
-            instructionsTag.innerHTML = "INSTRUCTIONS:";
+            instructionsTag.innerHTML = "INSTRUCTIONS";
             instructionsDiv.append(instructionsTag);
             let instructions = c.strInstructions;
             instructionsDiv.append(instructions);
