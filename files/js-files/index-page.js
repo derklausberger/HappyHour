@@ -17,6 +17,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
         let rowdiv = document.createElement('div');
         container.append(rowdiv);
         rowdiv.className = "row justify-content-center t";
+        let randomCocktails = document.createElement("h2");
+        randomCocktails.innerHTML = "RANDOM COCKTAILS";
+        randomCocktails.id = "randomCocktails"
+        let header = document.getElementById("randomCocktailsHeader");
+        header.append(randomCocktails);
 
         Array.from(cocktails).forEach(cocktail => {
             let div = document.createElement('div');

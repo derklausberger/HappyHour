@@ -104,6 +104,10 @@ p {
     padding-right: 10px;
     margin: 0;
 }
+#randomCocktailsHeader{
+    text-align: center;
+    padding: 20px 0 20px 0;
+}
 
 #divCommentHeader{
     padding-top: 10px;
@@ -170,6 +174,10 @@ p {
 }
 
 @media screen and (max-width: 1000px){
+    h1{
+        font-size: 35px;
+    }
+    
     .nav-item{
         text-align: left;
         padding-left: 0px;
@@ -192,6 +200,10 @@ p {
 
 
 @media screen and (max-width: 765px){
+    h1{
+        font-size: 30px;
+    }
+
     .imgCocktails{
         width: 90%;
         margin-bottom: 10px;
@@ -242,6 +254,10 @@ p {
 }
 
 @media screen and (max-width: 480px){
+    h1{
+        font-size: 25px;
+    }
+
     .hoverText{
         bottom: 120px;
         left: 50px;
@@ -249,6 +265,10 @@ p {
 }
 
 @media screen and (max-width: 400px){
+    h1{
+        font-size: 20px;
+    }
+
     .hoverText{
         bottom: 120px;
         left: 65px;
@@ -260,6 +280,10 @@ p {
 }
 
 @media screen and (max-width: 380px){
+    h1{
+        font-size: 18px;
+    }
+
     .hoverText{
         bottom: 120px;
         left: 55px;

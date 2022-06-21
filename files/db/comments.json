@@ -38,6 +38,11 @@
       "userId": "test@test",
       "cocktailId": "17222",
       "comment": "nice"
+    },
+    {
+      "id": 9,
+      "cocktailId": "16354",
+      "comment": "kommentar"
     }
   ]
 }

@@ -81,9 +81,12 @@ body{
     font-size: 20px;
 
 }
-
+#randomCocktails{
+    font-weight: bold;
+}
 #instructionsTag{
     font-weight: bold;
+    padding-top: 20px;
 }
 #instructionsDiv{
     font-weight: lighter;
