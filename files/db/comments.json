@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "comments": [
     {},
     {
@@ -31,7 +30,7 @@
       "id": 6,
       "userId": null,
       "cocktailId": "17225",
-      "comment": "comment"
+      "comment": "schmeckt"
     },
     {},
     {
@@ -43,48 +42,24 @@
     {
       "id": 9,
       "cocktailId": "16354",
-      "comment": "kommentar"
+      "comment": "wow!"
     },
     {
       "id": 10,
       "cocktailId": "16262",
-      "comment": "dfasdf"
+      "comment": "Mein Lieblingscocktail!"
     },
     {
       "id": 11,
       "userId": "test@test",
       "cocktailId": "16405",
-      "comment": "asdf"
+      "comment": "Schmeckt echt gut"
     },
     {
       "id": 11,
       "userId": "test@test",
       "cocktailId": "17222",
-      "comment": "kkkk"
+      "comment": "Sehr einfach"
     }
-=======
-  "13501": [
-    [
-      "max.mustermann@test.at",
-      "Super lecker und sehr günstig!"
-    ]
-  ],
-  "13938": [],
-  "17222": [
-    [
-      "max.mustermann@test.at",
-      "Sehr guter Cocktail, kann ich nur empfehlen!"
-    ],
-    [
-      "max.mustermann@test.at",
-      "Sehr leichtes Rezept, super zum Folgen!"
-    ]
-  ],
-  "17225": [
-    [
-      "max.mustermann@test.at",
-      "Tolle Farbe!"
-    ]
->>>>>>> e94868b436a4d7e0d0b05294e9a8738759a73d49
   ]
 }
