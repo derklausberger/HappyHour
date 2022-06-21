@@ -131,12 +131,8 @@ class CocktailModel {
     }
 
     deleteComment(user, idDrink, comment1) {
-        console.log("hier");
         let file = editJsonFile(`./files/db/comments.json`);
         let comments = file.get(idDrink);
-        console.log(user);
-        console.log(comment1);
-        console.log(comments);
         if (comments) {
             for (let i = 0; i < comments.length; i++){
                 if (comments[i][0] == user && comments[i][1] == comment1){

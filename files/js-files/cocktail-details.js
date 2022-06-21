@@ -50,7 +50,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             let topRight = document.getElementById("topRight");
             topRight.append(ingredientsList);
-            console.log(ingredientsList);
 
             // instructions
             let instructionsDiv = document.createElement("p");

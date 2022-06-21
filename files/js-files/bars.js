@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function (event) {
     navigator.geolocation.getCurrentPosition(position => {
         const { latitude, longitude } = position.coords;
-        console.log(position)
         fetch('/api/bars/json', {
             method: "post",
             headers: {

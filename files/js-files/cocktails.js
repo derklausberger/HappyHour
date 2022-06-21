@@ -211,7 +211,6 @@ function loadCocktails(letter) {
                     divComment.appendChild(nocomments);
                     nocomments.innerHTML = "Noch keine Kommentare vorhanden";
                 } else {
-                    console.log(cocktail.comments);
                     for (let comment of cocktail.comments) {
                         let col1 = document.createElement("div");
                         divComment.append(col1);

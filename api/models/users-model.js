@@ -79,7 +79,6 @@ class UserModel {
     }
 
     async changePassword(password, user){
-        console.log(password);
         let file = editJsonFile(`./files/db/users.json`);
         file.set("users." + Number(user.id-1) + ".password", password);
         file.save();

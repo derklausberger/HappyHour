@@ -144,7 +144,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                 if (cocktail.liked){
                     row.append(oberdiv);
-                    console.log(cocktail);
                 }
         }
     }).catch(err => console.error(`Fetch problem: ${err.message}`));
