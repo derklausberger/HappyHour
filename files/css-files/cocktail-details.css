@@ -21,7 +21,7 @@ body{
 }
 
 #cockPic{
-    width: 55%;
+    width: 80%;
     border-radius: 15px;
 }
 
@@ -97,13 +97,8 @@ body{
     font-size: 20px;
 }
 
-@media screen and (max-width: 550px) {
-    #cockPic{
-        width: 100px;
-        height: auto;
-    }
-}
-
+<<<<<<< HEAD
+=======
 @media screen and (max-width: 1000px){
     .nav-item{
         text-align: left;
@@ -112,5 +107,35 @@ body{
 
     .nav-pills .nav-link.active {
         background-color: transparent;
+    }
+
+    #cockPic{
+        width: 100%;
+        border-radius: 15px;
+    }
+}
+
+>>>>>>> e94868b436a4d7e0d0b05294e9a8738759a73d49
+@media screen and (max-width: 550px) {
+    #cockPic{
+        width: 70%;
+        height: auto;
+    }
+
+    #topleft{
+       flex-grow: 0;
+       max-width: 100%;
+       flex: 0 0 20%;
+    }
+
+    #topright{
+        flex-grow: 0;
+        max-width: 0%;
+    }
+}
+
+@media screen and (max-width: 380px){
+    main {
+        margin-top: 50px;
     }
 }

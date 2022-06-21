@@ -4,33 +4,30 @@ document.addEventListener("DOMContentLoaded", function (event) {
         event.preventDefault();
 
         var username = document.getElementById("email").value;
-        var password1 = document.getElementById("password").value;
+        var password = document.getElementById("password").value;
 
-        fetch ("/api/login", {
-                method: "post",
-                headers: {
-                    "content-type": "application/json; charset=UTF-8"
-                },
-                body:  JSON.stringify({
-                    email: username,
-                    password: password1,
-                    
-                })
-        })  
-        .then(response => {
+        fetch("/api/login", {
+            method: "post",
+            headers: {
+                "content-type": "application/json; charset=UTF-8"
+            },
+            body: JSON.stringify({
+                email: username,
+                password: password,
+            })
+        }).then(response => {
             if (!response.ok) {
-                if (response.status == 400){
+                if (response.status == 400) {
                     alert(response.statusText);
                 } else if (response.status == 401) {
                     alert(response.statusText)
-                }else {
+                } else {
                     throw new Error(`HTTP error: ${response.status}`);
                 }
             } else {
-                window.location.assign("/index.html");
+                window.location.href = "/index.html";
             }
-        })
-        .catch(error => console.error("Error:", error));
+        }).catch(error => console.error("Error:", error));
     })
 
 })

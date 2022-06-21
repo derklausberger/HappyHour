@@ -40,11 +40,11 @@ class CocktailController {
     }
 
     deleteComment = (req, res) => {
-        res.send(model.deleteComment(req.body.id));
+        res.send(model.deleteComment(req.session.user, req.body.id, req.body.comment));
     }
 
     editComment = (req,res) => {
-        res.send(model.editComment(req.body.id, req.body.comment, req.body.cocktailId, req.session.user));
+        res.send(model.editComment(req.body.comment, req.body.cocktailId, req.session.user, req.body.commentOld));
     }
 }
 
