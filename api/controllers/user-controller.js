@@ -37,6 +37,26 @@ class UserController {
         //next();
         res.end();
     }
+
+    getUser = async (req, res) => {
+        res.send(await model.getUser(req.session.user));
+    }
+
+    changePw = async (req, res) => {
+        var user = await model.getUser(req.session.user);
+
+        if (!user){
+            return res.status(400).send("Es existiert kein User mit diesem Namen");
+        }
+
+        var changed = await model.changePassword(req.body.password, user);
+
+        if (!changed){
+            return res.status(400).send("Something went wrong");
+        }
+
+        res.end();
+    }
 }
 
 module.exports = new UserController();

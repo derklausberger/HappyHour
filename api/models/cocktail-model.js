@@ -249,6 +249,24 @@ class CocktailModel {
             console.error(err);
         }
     }
+
+    async getAllCocktails() {
+        try {
+            this.cocktails = [];
+            for(let i = 0; i < 26; i++){
+                await this.loadCocktails(String.fromCharCode(i + 97)).then(cocktails_json => {
+                    for (const c of Array.from(cocktails_json.drinks)) {
+                        this.cocktails.push(Object.assign(new Cocktail, c));
+                    };
+                }).catch(err => console.error(`Fetch problem: ${err.message}`));
+            } 
+            this.getLikes();
+            this.getComments();
+            return this.cocktails;
+        } catch (err) {
+            console.error(err);
+        }
+    }
 }
 
 const model = new CocktailModel();

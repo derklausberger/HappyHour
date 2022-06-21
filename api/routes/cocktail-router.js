@@ -6,7 +6,8 @@ const routes = Router();
 
 routes.post('/cocktails', controller.getCocktails);
 routes.get('/cocktails/:id', controller.getCocktail);
-routes.get('/random-cocktails', controller.getRandomCocktails)
+routes.get('/random-cocktails', controller.getRandomCocktails);
+routes.get('/allCocktails', controller.getAllCocktails);
 
 routes.post('/like', controller.doLike);
 routes.get('/likes', controller.getLikes);
