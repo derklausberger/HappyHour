@@ -12,6 +12,10 @@ class CocktailController {
     getCocktail = async (req, res) => {
         res.send(await model.getCocktail(req.params.id));
     }
+
+    getAllCocktails = async (req, res) => {
+        res.send(await model.getAllCocktails());
+    }
     
     doLike = (req, res) => {
         if (!req.session.user) {

@@ -76,6 +76,9 @@ h1{
 
 /*Responsiveness Cocktails.html */
 @media screen and (max-width: 2500px){
+    h1{
+        text-align: center;
+    }
     .hoverText{
         bottom: 150px;
         left: 290px;
@@ -216,6 +219,10 @@ h1{
     }
 }
 
-
+@media screen and (max-width: 380px){
+    main {
+        margin-top: 50px;
+    }
+}
 
 /*************************/

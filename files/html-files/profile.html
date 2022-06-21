@@ -10,12 +10,42 @@
     <link rel="icon" href="/images/tablogo.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-    <link rel="stylesheet" href="css-files/home.css" />
+    <link rel="stylesheet" href="css-files/profile.css" />
 
     
     <script src="../js-files/profile.js"></script>
     <script src="../js-files/auth.js"></script>
     <script src="../js-files/import.js"></script>
+
+    <style>
+        .lds-dual-ring {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+        }
+
+        .lds-dual-ring:after {
+            content: " ";
+            display: block;
+            width: 64px;
+            height: 64px;
+            margin: 8px;
+            border-radius: 50%;
+            border: 6px solid #fff;
+            border-color: #fff transparent #fff transparent;
+            animation: lds-dual-ring 1.2s linear infinite;
+        }
+
+        @keyframes lds-dual-ring {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </head>
 
 <body style="padding: 80px 0px 0px 0px">
@@ -23,60 +53,24 @@
 
     <main>
         <div class="p-3 mb-2 bg-secondary text-white row">
-            <div class="col-sm-4">
-                <img src="images/user.png" alt="user" height="100">
+            <div class="col-2 text-right colText">
+                <p>Your Email: </p>
+                <p>Your Name: </p>
             </div>
-            <div class="col-sm-4">
-                <p>Your Name</p>
-                <p>Your E-mail</p>
-                <p>Your data</p>
+            <div class="col-5 text-left colBack" id="boxUser">
+
             </div>
-            <div class="col-sm-4">
+            <div class="col-5 colBut">
                 <button type="submit" id="changeFrontend">INTERNET SLOW</button>
             </div>
         </div>
-        <div class="container">
-            <h4>Your liked Cocktails</h4>
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <img src="images/cokctail.jpeg" alt="bar" height="100">
-                    Lorem ipsum dolor sit amet, consetetur
-                </li>
-
-                <li class="list-group-item">
-                    <img src="images/cokctail.jpeg" alt="bar" height="100">
-                    Lorem ipsum dolor sit amet, consetetur
-                </li>
-
-                <li class="list-group-item">
-                    <img src="images/cokctail.jpeg" alt="bar" height="100">
-                    Lorem ipsum dolor sit amet, consetetur
-                </li>
-            </ul>
-
-            <br>
-            <br>
-            <h4>Your liked Bars and Clubs</h4>
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <img src="images/bar.jpeg" alt="bar" height="100">
-                    Lorem ipsum dolor sit amet, consetetur
-                </li>
-                <li class="list-group-item">
-                    <img src="images/bar.jpeg" alt="bar" height="100">
-                    Lorem ipsum dolor sit amet, consetetur
-                </li>
-                <li class="list-group-item">
-                    <img src="images/bar.jpeg" alt="bar" height="100">
-                    Lorem ipsum dolor sit amet, consetetur
-                </li>
-            </ul>
+        <div class="row justify-content-center">
+            <header id = "profileHeader"></header>
+        </div>
+        <div class="row justify-content-center">
+            <div class="lds-dual-ring"></div>
         </div>
     </main>
-    <footer class="fixed-bottom">
-
-        <a class="sticky-bottom" href="impressum.html">Impressum</a>
-    </footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

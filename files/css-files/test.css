@@ -1,4 +1,7 @@
-
+.row {
+    margin-right: 0;
+    margin-left: 0;
+}
 .top{
     background-image: url("/images/danny.jpg");
     background-size: cover;
@@ -60,6 +63,11 @@ li{
 
 a{
     color: black;
+}
+@media screen and (max-width: 1900px){
+    .header{
+        color: white;
+    }
 }
 
 @media screen and (max-width: 1200px){
@@ -145,6 +153,17 @@ a{
     
     #buttonStart{
         margin-top: 10px;
-        font-size: 10px;
+        font-size: 15px;
     }
+}
+
+
+@media screen and (max-width: 380px){
+    #buttonStart{
+        margin-top: 10px;
+        font-size: 15px;
+    }
+  .pics{
+    width: 200px;
+  }
 }
