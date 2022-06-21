@@ -3,7 +3,7 @@ const controller = require('../controllers/bar-controller');
 
 const routes = Router();
 
-routes.post('/bars', controller.getBars);
+routes.post('/bars/:format', controller.getBars);
 
 routes.get('/bar/:id', controller.getBar);
 

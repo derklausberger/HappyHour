@@ -2,6 +2,7 @@ const fetch = require("node-fetch");
 const fs = require('fs');
 const path = require("path");
 const { URL, URLSearchParams } = require('url');
+const convert = require("../convert");
 
 var api_key = fs.readFileSync(path.resolve(__dirname, "../../api_keys.txt"), 'utf8', (err, data) => {
     if (err) {
@@ -22,7 +23,7 @@ class Bar {
         let url = new URL('https://maps.googleapis.com/maps/api/place/photo');
         let params = { maxwidth: 400, photo_reference: photos[0].photo_reference, key: api_key };
         url.search = new URLSearchParams(params).toString();
-        this.img_url = url;
+        this.img_url = url.toString();
 
         this.rating = rating;
 
@@ -36,7 +37,7 @@ class Bar {
 
 class BarModel {
     constructor() {
-        this.bars = [Bar];
+        this.bars = { 'bars': [] };
     }
 
     async loadBars(latitude, longitude) {
@@ -57,16 +58,16 @@ class BarModel {
         }
     }
 
-    async getBars(latitude, longitude) {
+    async getBars(format, latitude, longitude) {
         try {
             await this.loadBars(latitude, longitude).then(bars_json => {
-                this.bars = [];
+                this.bars.bars = [];
                 for (const b of Array.from(bars_json.results)) {
                     if (b.photos == null) {
                         b.photos = [{ photo_reference: null }];
                     }
                     //this.bars.push(bar);
-                    this.bars.push(new Bar(
+                    this.bars.bars.push(new Bar(
                         b.business_status, b.geometry, b.icon, b.icon_background_color,
                         b.icon_mask_base_uri, b.name, b.opening_hours, b.photos, b.place_id, b.plus_code,
                         b.rating, b.reference, b.scope, b.types, b.user_ratings_total, b.vicinity));
@@ -74,7 +75,13 @@ class BarModel {
                 }
             });
 
-            return this.bars;
+            if (format === "xml") {
+                return convert.toXML(this.bars);
+            } else if (format === "json") {
+                return this.bars;
+            } else {
+                throw new Error('Unknown format.')
+            }
         } catch (err) {
             console.error(err);
         }

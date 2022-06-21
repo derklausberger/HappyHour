@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     navigator.geolocation.getCurrentPosition(position => {
         const { latitude, longitude } = position.coords;
         console.log(position)
-        fetch('/api/bars', {
+        fetch('/api/bars/json', {
             method: "post",
             headers: {
                 "content-type": "application/json; charset=UTF-8"
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 let rowdiv = document.createElement('div');
                 container.append(rowdiv);
                 rowdiv.className = "row justify-content-center t";
-                for (let bar of Array.from(bars)) {
+                for (let bar of Array.from(bars.bars)) {
                     let div = document.createElement('div');
                     rowdiv.append(div);
                     div.className = "col-8 border";
