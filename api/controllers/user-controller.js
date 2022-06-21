@@ -23,13 +23,13 @@ class UserController {
         var user = await model.getUser(username);
 
         if (!user){
-            return res.status(400).send("Es existiert kein User mit diesem Namen");
+            return res.status(400).send("User with this name does not exist");
         }
 
         var correct = await model.checkPassword(password, user);
 
         if (!correct){
-            return res.status(401).send("Password stimmt nicht");
+            return res.status(401).send("Password is incorrect");
         }
 
         req.session.user = username;
