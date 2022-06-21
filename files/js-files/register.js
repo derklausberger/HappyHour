@@ -24,7 +24,7 @@ document.addEventListener("submit", function (event) {
         .then(response => {
             if (!response.ok) {
                 if (response.status == 400){
-                    alert("Dieser User exisitiert schon!");
+                    alert("This user already exists!");
                 } else {
                     throw new Error(`HTTP error: ${response.status}`);
                 }
@@ -34,6 +34,6 @@ document.addEventListener("submit", function (event) {
         })
         .catch(error => console.error("Error:", error));
     } else {
-        alert ("Passwörter müssen übereinstimmen")
+        alert ("Passwords have to match");
     }
 });
