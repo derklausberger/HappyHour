@@ -12,3 +12,51 @@ body{
     padding-left: 50px;
     padding-right: 50px;
 }
+
+h1{
+    text-align: center;
+}
+
+@media screen and (max-width: 1200px){
+    body{
+        background-position: 0px -400px;
+    }
+}
+
+@media screen and (max-width: 950px){
+    body{
+        background-position: 0px -300px;
+    }
+}
+
+@media screen and (max-width: 950px){
+    body{
+        background-position: 0px -200px;
+    }
+}
+
+@media screen and (max-width: 580px){
+    .container{
+        padding-top: 70px;
+        padding-bottom: 70px;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    body{
+        background-position: 0px -200px;
+    }
+}
+
+@media screen and (max-width: 380px){
+    .container{
+        padding-top: 50px;
+        padding-bottom: 50px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    body{
+        background-position: 0px -200px;
+    }
+}

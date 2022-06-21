@@ -114,6 +114,10 @@ p {
 }
 /*Responsiveness Cocktails.html */
 @media screen and (max-width: 2500px){
+    h1{
+        text-align: center;
+    }
+
     .hoverText{
         bottom: 240px;
         left: 270px;
@@ -219,10 +223,6 @@ p {
         padding-right: 10px;
     }
 
-    main {
-        margin-top: 10px;
-    }
-
     #btnLetters{
         margin-bottom: 20px;
     }
@@ -242,10 +242,6 @@ p {
     .test{
         padding-left: 10px;
         padding-right: 0px;
-    }
-
-    main {
-        margin-top: 80px;
     }
 
     .border{
@@ -274,9 +270,6 @@ p {
         left: 65px;
         font-size: 15px;
     }
-    main {
-        margin-top: 10px;
-    }
 }
 
 @media screen and (max-width: 380px){
@@ -288,6 +281,10 @@ p {
         bottom: 120px;
         left: 55px;
         font-size: 15px;
+    }
+
+    main {
+        margin-top: 50px;
     }
 
 }

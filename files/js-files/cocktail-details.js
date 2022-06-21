@@ -82,12 +82,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
             let topRight = document.getElementById("topRight");
             topRight.append(ingredientsList);
             console.log(ingredientsList);
+
             // instructions
             let instructionsDiv = document.createElement("p");
             instructionsDiv.id = "instructionsDiv";    
             let instructionsTag = document.createElement("p");
             instructionsTag.id = "instructionsTag";
             instructionsTag.innerHTML = "INSTRUCTIONS";
+            let br = document.createElement("br");
+            instructionsDiv.append(br)
             instructionsDiv.append(instructionsTag);
             let instructions = c.strInstructions;
             instructionsDiv.append(instructions);
