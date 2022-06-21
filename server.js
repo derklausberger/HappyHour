@@ -59,7 +59,6 @@ const { runInNewContext } = require('vm');
 app.use(express.static(path.join(__dirname, 'files')), (req, res, next) => {
     let destUrl;
     const parts = req.originalUrl.split("/");
-    console.log("a" + req.url + "    " + req.cookies.low_bw);
     
     if (req.cookies !== undefined && req.cookies.low_bw) {
         if (parts.length > 3) {
@@ -81,7 +80,7 @@ app.use(express.static(path.join(__dirname, 'files')), (req, res, next) => {
             next();
         }
     } else {
-        destUrl = "/" + parts[parts.length - 1]; console.log(parts.length);
+        destUrl = "/" + parts[parts.length - 1]; 
         if (parts.length > 3) {
             if (req.originalUrl.endsWith(".css")) {
                 destUrl = "/css-files" + destUrl;
