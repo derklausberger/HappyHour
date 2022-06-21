@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function (event) {
     var login = document.getElementById("login");
     login.addEventListener("submit", function (event) {
-        //event.preventDefault();
+        event.preventDefault();
 
         var username = document.getElementById("email").value;
         var password = document.getElementById("password").value;
