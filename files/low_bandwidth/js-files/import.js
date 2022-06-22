@@ -1,9 +1,9 @@
 function include() {
-    var tags = document.querySelectorAll('*[import-ref]:not([import-ref=""]');
+    var tags = document.querySelectorAll('*[title]:not([title=""]');
 
     var file, xhttp;
     tags.forEach(t => {
-        file = t.getAttribute("import-ref");
+        file = t.getAttribute("title");
         if (file) {
             xhttp = new XMLHttpRequest();
 
@@ -15,7 +15,7 @@ function include() {
                     } else if (this.status == 404) {
                         t.innerHTML = "<p>File not found.<p>";
                     }
-                    t.removeAttribute("import-ref");
+                    t.removeAttribute("title");
                 }
             }
 
