@@ -97,8 +97,6 @@ body{
     font-size: 20px;
 }
 
-<<<<<<< HEAD
-=======
 @media screen and (max-width: 1000px){
     .nav-item{
         text-align: left;
@@ -115,22 +113,11 @@ body{
     }
 }
 
->>>>>>> e94868b436a4d7e0d0b05294e9a8738759a73d49
 @media screen and (max-width: 550px) {
     #cockPic{
         width: 70%;
-        height: auto;
-    }
-
-    #topleft{
-       flex-grow: 0;
-       max-width: 100%;
-       flex: 0 0 20%;
-    }
-
-    #topright{
-        flex-grow: 0;
-        max-width: 0%;
+        min-width: 200px;
+        margin-bottom: 20px;
     }
 }
 

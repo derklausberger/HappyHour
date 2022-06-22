@@ -21,8 +21,7 @@ body{
 }
 
 #barPic{
-    width: 50%;
-    height: auto;
+    width: 80%;
     border-radius: 15px;
 }
 
@@ -81,15 +80,6 @@ body{
     font-weight:lighter;
 }
 
-@media screen and (max-width: 550px) {
-    #barPic{
-        width: 120px;
-        height: auto;
-    }
-
-
-}
-
 @media screen and (max-width: 1000px){
     .nav-item{
         text-align: left;
@@ -109,4 +99,24 @@ body{
     #bottomLeft{
         font-size:smaller;
     }
+
+    #barPic{
+        width: 100%;
+        border-radius: 15px;
+    }
 }
+
+@media screen and (max-width: 550px) {
+    #barPic{
+        width: 70%;
+        min-width: 200px;
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 380px){
+    main {
+        margin-top: 50px;
+    }
+}
+

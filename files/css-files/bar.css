@@ -20,7 +20,7 @@ main {
 }
 
 .barImage{
-    width: 70%;
+    width: 80%;
     margin-bottom: 10px;
     border-radius: 15px;
 }
@@ -80,8 +80,8 @@ h1{
         text-align: center;
     }
     .hoverText{
-        bottom: 150px;
-        left: 290px;
+        bottom: 110px;
+        left: 120px;
     }
 
     .test{
@@ -114,8 +114,8 @@ h1{
 
 @media screen and (max-width: 1200px){
     .hoverText{
-        bottom: 120px;
-        left: 240px;
+        bottom: 90px;
+        left: 125px;
     }
 
     .test{
@@ -140,7 +140,7 @@ h1{
 
     .hoverText{
         bottom: 100px;
-        left: 160px;
+        left: 120px;
     }
 
     h1{
@@ -167,7 +167,7 @@ h1{
     }
 
     .hoverText{
-        bottom: 70px;
+        bottom: 90px;
         left: 100px;
     }
 
@@ -194,35 +194,41 @@ h1{
     .border{
         width: 90%
     }
+
+
 }
 
 @media screen and (max-width: 480px){
     .hoverText{
-        bottom: 55px;
+        bottom: 90px;
         left: 80px;
     }
 }
 
 @media screen and (max-width: 400px){
     .hoverText{
-        bottom: 55px;
-        left: 70px;
-        font-size: 15px;
-    }
-}
-
-@media screen and (max-width: 380px){
-    .hoverText{
-        bottom: 50px;
+        bottom: 75px;
         left: 60px;
         font-size: 15px;
     }
 }
 
 @media screen and (max-width: 380px){
+    .hoverText{
+        bottom: 75px;
+        left: 55px;
+    }
     main {
         margin-top: 50px;
     }
+}
+
+@media screen and (max-width: 320px){
+    .hoverText{
+        bottom: 60px;
+        left: 40px;
+    }
+   
 }
 
 /*************************/
