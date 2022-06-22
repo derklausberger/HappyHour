@@ -27,6 +27,13 @@
       "email": "sd@g.at",
       "password": "sd",
       "id": 4
+    },
+    {
+      "firstName": "Lara",
+      "lastName": "Croft",
+      "email": "lara.croft@thombraider.com",
+      "password": "12",
+      "id": 5
     }
   ]
 }
