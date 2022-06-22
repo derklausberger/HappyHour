@@ -2,7 +2,7 @@ const model = require("../models/cocktail-model");
 
 class CocktailController {
     getCocktails = async (req, res) => {
-        res.send(await model.getCocktails(req.body.letter));
+        res.send(await model.getCocktails(req.params.letter));
     }
 
     getRandomCocktails = async (req, res) => {

@@ -34,15 +34,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 })
 
 function loadCocktails(letter) {
-    fetch('/api/cocktails', {
-        method: "post",
-        headers: {
-            "content-type": "application/json; charset=UTF-8"
-        },
-        body: JSON.stringify({
-            letter: letter
-        })
-    }).then(response => {
+    fetch('/api/cocktails/' + letter).then(response => {
         if (!response.ok) {
             throw new Error(`HTTP error: ${response.status}`);
         }

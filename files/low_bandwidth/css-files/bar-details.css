@@ -1,9 +1,11 @@
 .navbar-brand{
     text-align: center;
 }
+
 .navbar-collapse{
     flex-grow: 0;
 }
+
 .nav-item{
     text-align: center;
     padding-left: 15px;
@@ -51,9 +53,11 @@ body{
     padding-right: 40px;
     padding-left: 40px;
 }
+
 #bottomLeft{
     padding-left: 40px;
 }
+
 #bottomRight{
     padding-right: 40px;
     padding-top: 20px;
@@ -64,27 +68,15 @@ body{
     font-size: 20px;
 }
 
-.hamburger{
-    display: none;
-    cursor: pointer;
-}
-
-.bar{
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    background-color: white;
-}
 #address{
     font-weight: lighter;
 }
+
 #openingHoursDiv{
     font-weight: bold;
     font-size: 20px;
 }
+
 #openingHours{
     font-weight:lighter;
 }
@@ -94,8 +86,6 @@ body{
         width: 120px;
         height: auto;
     }
-
-
 }
 
 @media screen and (max-width: 1000px){
@@ -118,9 +108,4 @@ body{
         font-size:smaller;
     }
 }
-
-
-
-
-
 

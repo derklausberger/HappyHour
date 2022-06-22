@@ -1,25 +1,24 @@
-{
-  "13501": [
-    [
-      "max.mustermann@test.at",
-      "Super lecker und sehr günstig!"
-    ]
-  ],
-  "13938": [],
-  "17222": [
-    [
-      "max.mustermann@test.at",
-      "Sehr guter Cocktail, kann ich nur empfehlen!"
-    ],
-    [
-      "max.mustermann@test.at",
-      "Sehr leichtes Rezept, super zum Folgen!"
-    ]
-  ],
-  "17225": [
-    [
-      "max.mustermann@test.at",
-      "Tolle Farbe!"
-    ]
+{"13501": [
+  [
+    "max.mustermann@test.at",
+    "Super lecker und sehr günstig!"
   ]
+],
+"13938": [],
+"17222": [
+  [
+    "max.mustermann@test.at",
+    "Sehr guter Cocktail, kann ich nur empfehlen!"
+  ],
+  [
+    "max.mustermann@test.at",
+    "Sehr leichtes Rezept, super zum Folgen!"
+  ]
+],
+"17225": [
+  [
+    "max.mustermann@test.at",
+    "Tolle Farbe!"
+  ]
+]
 }

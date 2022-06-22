@@ -169,7 +169,7 @@ class CocktailModel {
 
             return await response.json();
         } catch (err) {
-            console.error(`Fetch problem: ${err.message}`);
+            console.error(`xFetch problem: ${err.message}`);
         }
     }
 
@@ -177,9 +177,11 @@ class CocktailModel {
         try {
             this.cocktails = [];
             await this.loadCocktails(letter).then(cocktails_json => {
-                for (const c of Array.from(cocktails_json.drinks)) {
-                    this.cocktails.push(Object.assign(new Cocktail, c));
-                };
+                if (cocktails_json.drinks != undefined) {
+                    for (const c of Array.from(cocktails_json.drinks)) {
+                        this.cocktails.push(Object.assign(new Cocktail, c));
+                    };
+                }
             }).catch(err => console.error(`Fetch problem: ${err.message}`));
 
             this.getLikes();
@@ -253,13 +255,15 @@ class CocktailModel {
     async getAllCocktails() {
         try {
             this.cocktails = [];
-            for(let i = 0; i < 26; i++){
+            for (let i = 0; i < 26; i++) {
                 await this.loadCocktails(String.fromCharCode(i + 97)).then(cocktails_json => {
-                    for (const c of Array.from(cocktails_json.drinks)) {
-                        this.cocktails.push(Object.assign(new Cocktail, c));
-                    };
+                    if (cocktails_json.drinks != undefined) {
+                        for (const c of Array.from(cocktails_json.drinks)) {
+                            this.cocktails.push(Object.assign(new Cocktail, c));
+                        }
+                    }
                 }).catch(err => console.error(`Fetch problem: ${err.message}`));
-            } 
+            }
             this.getLikes();
             this.getComments();
             return this.cocktails;

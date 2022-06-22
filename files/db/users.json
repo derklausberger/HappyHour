@@ -18,8 +18,15 @@
       "firstName": "Test",
       "lastName": "Test",
       "email": "test@test",
-      "password": "12",
+      "password": "122",
       "id": 3
+    },
+    {
+      "firstName": "sd",
+      "lastName": "sd",
+      "email": "sd@g.at",
+      "password": "sd",
+      "id": 4
     }
   ]
 }

@@ -1,9 +1,11 @@
 .navbar-brand{
     text-align: center;
 }
+
 .navbar-collapse{
     flex-grow: 0;
 }
+
 .nav-item{
     text-align: center;
     padding-left: 15px;
@@ -27,7 +29,6 @@ body{
     height: 25px;
     width: 25px;
 }
-
 
 .container{
     background-color: white;
@@ -64,6 +65,7 @@ body{
 
     padding-left: 40px;
 }
+
 #bottom{
     padding-right: 40px;
     padding-left: 40px;
@@ -79,20 +81,24 @@ body{
 #ingredientsTag{
     font-weight: bold;
     font-size: 20px;
-
 }
+
 #randomCocktails{
     font-weight: bold;
 }
+
 #instructionsTag{
     font-weight: bold;
     padding-top: 20px;
 }
+
 #instructionsDiv{
     font-weight: lighter;
     font-size: 20px;
 }
 
+<<<<<<< HEAD
+=======
 @media screen and (max-width: 1000px){
     .nav-item{
         text-align: left;
@@ -109,6 +115,7 @@ body{
     }
 }
 
+>>>>>>> e94868b436a4d7e0d0b05294e9a8738759a73d49
 @media screen and (max-width: 550px) {
     #cockPic{
         width: 70%;
@@ -132,9 +139,3 @@ body{
         margin-top: 50px;
     }
 }
-
-
-
-
-
-
